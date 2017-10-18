@@ -42,5 +42,7 @@ dependencies {
         exclude group: 'com.android.support'
     }
     compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
+    compile "com.jakewharton:butterknife:${BUTTER_KNIFE_VERSION}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTER_KNIFE_VERSION}"
     testCompile 'junit:junit:4.12'
 }

@@ -75,14 +75,14 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
 
             mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
 
+            setSupportActionBar(mToolbar);
+
             mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     returnBack();
                 }
             });
-
-            setSupportActionBar(mToolbar);
         }
     }
 

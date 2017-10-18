@@ -1,10 +1,25 @@
 package com.tender.hellojack;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.tender.hellojack.base.BaseActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity {
+
+    @BindView(R.id.btn_to_my_info)
+    Button btnToMyInfo;
+
+    @OnClick(R.id.btn_to_my_info)
+    public void click(Button button) {
+        showToast("我要去我的小黑屋玩啦！");
+        startActivity(new Intent(MainActivity.this, MineActivity.class));
+    }
 
     @Override
     protected void initLayout() {
@@ -27,6 +42,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ButterKnife.bind(this);
     }
 }

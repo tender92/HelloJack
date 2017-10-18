@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hj_gray5">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hj_status_bar_height"
+        android:background="@color/hj_toolbar_bg"/>
+
+    <include layout="@layout/hj_custom_actionbar"/>
+
+    <LinearLayout
+        android:id="@+id/ll_myinfo_header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/hj_selector_option_item"
+        android:paddingRight="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:text="头像"
+            android:textColor="@color/hj_black0"
+            android:textSize="@dimen/hj_text_normal_size"/>
+
+        <ImageView
+            android:id="@+id/iv_myinfo_header"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/ic_mine_default_header"
+            android:scaleType="centerCrop"/>
+
+    </LinearLayout>
+
+</LinearLayout>
