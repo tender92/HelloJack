@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- universal -->
+    <color name="hj_white">#ffffff</color>
+
+    <!-- toolbar -->
+    <color name="hj_toolbar_bg">#59a2ea</color>
+
+</resources>

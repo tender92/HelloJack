@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply from:"../config.gradle"
+
+configurations.all {
+    //Error:Conflict with dependency ‘com.google.code.findbugs:jsr305’
+    resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+}
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion BUILD_TOOL_VERSION
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        applicationId "com.tender.hellojack"
+        versionCode 1
+        versionName "1.0"
+        resourcePrefix "hj_"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
+    compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
+    compile "com.trello:rxlifecycle-android:${RXLIFESYCLE_VERSION}"
+    compile "com.trello:rxlifecycle:${RXLIFESYCLE_VERSION}"
+    compile("com.trello:rxlifecycle-components:${RXLIFESYCLE_VERSION}") {
+        exclude group: 'com.android.support'
+    }
+    compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
+    testCompile 'junit:junit:4.12'
+}
