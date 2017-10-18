@@ -9,13 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tender.hellojack.R;
+import com.tender.hellojack.utils.App;
+import com.tender.hellojack.utils.DialogUtil;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 /**
  * Created by boyu on 2017/10/18.
  */
 
-abstract public class BaseActivity extends RxAppCompatActivity implements IToolBar {
+abstract public class BaseActivity extends RxAppCompatActivity implements IToolBar, IToast {
 
     private Toolbar mToolbar;
     private TextView mTitle;
@@ -142,5 +144,10 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
                 }
             });
         }
+    }
+
+    @Override
+    public void showToast(String content) {
+        DialogUtil.showHint(App.getAppContext(), content);
     }
 }

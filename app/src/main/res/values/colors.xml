@@ -6,4 +6,7 @@
     <!-- toolbar -->
     <color name="hj_toolbar_bg">#59a2ea</color>
 
+    <!-- DialogUtil -->
+    <color name="hj_toast_start_color">#859cc7</color>
+    <color name="hj_toast_end_color">#60708e</color>
 </resources>
