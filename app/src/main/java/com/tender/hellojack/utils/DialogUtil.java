@@ -1,6 +1,11 @@
 package com.tender.hellojack.utils;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.StyleRes;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,5 +29,29 @@ public class DialogUtil {
         toast.setView(view);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    public static void showWaitingDialog(Context context, String tip) {
+
+    }
+
+    public static class WaitingDialog extends Dialog {
+
+        private String content;
+        private Context context;
+
+        public WaitingDialog(@NonNull Context con, @NonNull String tip) {
+            super(con, R.style.hj_dialog);
+            content = tip;
+            context = con;
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            View root = View.inflate(context, R.layout.hj_dialog_waiting, null);
+            TextView tvTip = (TextView) root.findViewById(R.id.tv_dialog_waiting_tip);
+            tvTip.setText(content);
+        }
     }
 }

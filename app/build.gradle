@@ -44,5 +44,8 @@ dependencies {
     compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
     compile "com.jakewharton:butterknife:${BUTTER_KNIFE_VERSION}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTER_KNIFE_VERSION}"
+    compile "com.lqr.imagepicker:library:${IMAGE_PICKER_VERSION}"
+    compile "com.nostra13.universalimageloader:universal-image-loader:${IMAGE_LOADER_VERSION}"
+    compile "com.orhanobut:logger:${LOGGER_VERSION}"
     testCompile 'junit:junit:4.12'
 }

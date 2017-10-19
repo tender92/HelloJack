@@ -3,9 +3,13 @@ package com.tender.hellojack;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.manager.PrefManager;
+import com.tender.hellojack.utils.StringUtil;
+import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,6 +21,8 @@ import butterknife.OnClick;
 
 public class MineActivity extends BaseActivity {
 
+    @BindView(R.id.iv_mine_header)
+    ImageView ivHeader;
     @BindView(R.id.ll_my_info)
     LinearLayout llMyInfo;
 
@@ -40,5 +46,19 @@ public class MineActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(MineActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        initHeader();
+    }
+
+    private void initHeader() {
+        String headerPath = PrefManager.getUserHeaderPath();
+        if (StringUtil.hasValue(headerPath)) {
+            ImageLoaderUtil.LoadLocalImage(headerPath, ivHeader);
+        }
     }
 }

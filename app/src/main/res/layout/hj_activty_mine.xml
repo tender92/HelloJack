@@ -28,7 +28,7 @@
             android:layout_height="65dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:src="@mipmap/ic_mine_default_header"
+            android:src="@mipmap/hj_mine_default_header"
             android:scaleType="centerCrop"/>
 
         <LinearLayout

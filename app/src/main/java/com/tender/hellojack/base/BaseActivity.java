@@ -17,11 +17,13 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
  * Created by boyu on 2017/10/18.
  */
 
-abstract public class BaseActivity extends RxAppCompatActivity implements IToolBar, IToast {
+abstract public class BaseActivity extends RxAppCompatActivity implements IToolBar, IToast, IDialog {
 
     private Toolbar mToolbar;
     private TextView mTitle;
     private ImageView mTitleRightBtn;
+
+    private DialogUtil.WaitingDialog mWaitingDialog;
 
     abstract protected void initLayout();
 
@@ -149,5 +151,21 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     @Override
     public void showToast(String content) {
         DialogUtil.showHint(App.getAppContext(), content);
+    }
+
+    @Override
+    public void showWaitingDialog(String tip) {
+        hideWaitingDialog();
+        mWaitingDialog = new DialogUtil.WaitingDialog(this, tip);
+        mWaitingDialog.show();
+        mWaitingDialog.setCancelable(false);
+    }
+
+    @Override
+    public void hideWaitingDialog() {
+        if (mWaitingDialog != null) {
+            mWaitingDialog.dismiss();
+            mWaitingDialog = null;
+        }
     }
 }

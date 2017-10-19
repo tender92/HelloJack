@@ -8,6 +8,7 @@
     <color name="hj_gray8">#D9D9D9</color>
 
     <color name="hj_black0">#000000</color>
+    <color name="hj_black1">#99000000</color>
 
     <!-- toolbar -->
     <color name="hj_toolbar_bg">#59a2ea</color>

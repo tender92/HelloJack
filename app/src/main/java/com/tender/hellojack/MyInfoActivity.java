@@ -1,11 +1,20 @@
 package com.tender.hellojack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.lqr.imagepicker.ImagePicker;
+import com.lqr.imagepicker.bean.ImageItem;
+import com.lqr.imagepicker.ui.ImageGridActivity;
 import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.manager.PrefManager;
+import com.tender.hellojack.utils.StringUtil;
+import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +36,8 @@ public class MyInfoActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.ll_myinfo_header:
                 showToast("选择图片");
+                startActivityForResult(new Intent(MyInfoActivity.this, ImageGridActivity.class),
+                    Const.IRCode.MY_INFO_IMAGE_PICKER);
                 break;
             case R.id.iv_myinfo_header:
                 showToast("近距离接触图片");
@@ -50,5 +61,37 @@ public class MyInfoActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(MyInfoActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        initHeader();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Const.IRCode.MY_INFO_IMAGE_PICKER &&
+                resultCode == ImagePicker.RESULT_CODE_ITEMS) { //返回多张照片
+            if (data != null) {
+                showWaitingDialog("上传头像...");
+                ArrayList<ImageItem> imageList = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+                if (imageList != null && imageList.size() > 0) {
+                    String path = imageList.get(0).path;
+                    PrefManager.setUserHeaderPath(path);
+                    ImageLoaderUtil.LoadLocalImage(path, ivHeader);
+                    hideWaitingDialog();
+                }
+            }
+        }
+    }
+
+    private void initHeader() {
+        String headerPath = PrefManager.getUserHeaderPath();
+        if (StringUtil.hasValue(headerPath)) {
+            ImageLoaderUtil.LoadLocalImage(headerPath, ivHeader);
+        }
     }
 }
