@@ -76,13 +76,11 @@ public class MyInfoActivity extends BaseActivity {
         if (requestCode == Const.IRCode.MY_INFO_IMAGE_PICKER &&
                 resultCode == ImagePicker.RESULT_CODE_ITEMS) { //返回多张照片
             if (data != null) {
-                showWaitingDialog("上传头像...");
                 ArrayList<ImageItem> imageList = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 if (imageList != null && imageList.size() > 0) {
                     String path = imageList.get(0).path;
                     PrefManager.setUserHeaderPath(path);
-                    ImageLoaderUtil.LoadLocalImage(path, ivHeader);
-                    hideWaitingDialog();
+                    ImageLoaderUtil.loadLocalImage(path, ivHeader);
                 }
             }
         }
@@ -91,7 +89,7 @@ public class MyInfoActivity extends BaseActivity {
     private void initHeader() {
         String headerPath = PrefManager.getUserHeaderPath();
         if (StringUtil.hasValue(headerPath)) {
-            ImageLoaderUtil.LoadLocalImage(headerPath, ivHeader);
+            ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
         }
     }
 }

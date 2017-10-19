@@ -23,7 +23,7 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     private TextView mTitle;
     private ImageView mTitleRightBtn;
 
-    private DialogUtil.WaitingDialog mWaitingDialog;
+    private DialogUtil.CustomDialog mWaitingDialog;
 
     abstract protected void initLayout();
 
@@ -156,7 +156,10 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     @Override
     public void showWaitingDialog(String tip) {
         hideWaitingDialog();
-        mWaitingDialog = new DialogUtil.WaitingDialog(this, tip);
+        View root = View.inflate(this, R.layout.hj_dialog_waiting, null);
+        TextView tvTip = (TextView) root.findViewById(R.id.tv_dialog_waiting_tip);
+        tvTip.setText(tip);
+        mWaitingDialog = new DialogUtil.CustomDialog(this, root);
         mWaitingDialog.show();
         mWaitingDialog.setCancelable(false);
     }

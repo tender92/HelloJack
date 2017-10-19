@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import com.tender.hellojack.manager.MyApplication;
+
 /**
  * Created by boyu on 17/1/20.
  */
@@ -71,6 +73,21 @@ public class App {
      */
     public static Context getAppContext() {
         return instance.getApplicationContext();
+    }
+
+    /**
+     * 安全的执行一个任务
+     * @param task
+     */
+    public static void postTaskSafely(Runnable task) {
+        int curThreadId = android.os.Process.myTid();
+        // 如果当前线程是主线程
+        if (curThreadId == MyApplication.mMainThreadId) {
+            task.run();
+        } else {
+            // 如果当前线程不是主线程
+            MyApplication.mHandler.post(task);
+        }
     }
 
     /**

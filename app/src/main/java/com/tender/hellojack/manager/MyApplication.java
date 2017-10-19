@@ -2,6 +2,8 @@ package com.tender.hellojack.manager;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.lqr.imagepicker.ImagePicker;
 import com.lqr.imagepicker.view.CropImageView;
@@ -23,9 +25,19 @@ public class MyApplication extends Application {
 
     private IManager[] managers;
 
+    public static Thread mMainThread;//主线程
+    public static long mMainThreadId;//主线程id
+    public static Looper mMainLooper;//循环队列
+    public static Handler mHandler;//主线程Handler
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mMainThread = Thread.currentThread();
+        mMainThreadId = mMainThread.getId();
+        mMainLooper = getMainLooper();
+        mHandler = new Handler();
 
         //日志框架初始化
         Logger.addLogAdapter(new AndroidLogAdapter() {
