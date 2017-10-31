@@ -16,6 +16,9 @@ import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 
 /**
  * Created by boyu on 2017/10/19.
@@ -48,8 +51,18 @@ public class MyApplication extends Application {
         });
 
         initManager();
+        initUmengShare();
         initImagePicker();
         initImageLoader(getApplicationContext());
+    }
+
+    private void initUmengShare() {
+        MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
+        UMShareAPI.get(this);
+
+        //增加各平台key配置
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+        //...
     }
 
     /**

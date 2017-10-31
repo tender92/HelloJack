@@ -19,7 +19,7 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 abstract public class BaseActivity extends RxAppCompatActivity implements IToolBar, IToast, IDialog {
 
-    private Toolbar mToolbar;
+    protected Toolbar mToolbar;
     private TextView mTitle;
     private ImageView mTitleRightBtn;
 

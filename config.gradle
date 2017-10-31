@@ -12,4 +12,20 @@ ext {
     RXLIFESYCLE_VERSION = '1.0'
     // RxBinding
     RXBINDING_VERSION = '1.0.0'
+    //控件注解
+    BUTTER_KNIFE_VERSION = '8.6.0'
+    //完全仿微信的图片选择
+    IMAGE_PICKER_VERSION = '1.0.0'
+    //图片加载
+    IMAGE_LOADER_VERSION = '1.9.5'
+    //日志打印(mark:https://github.com/orhanobut/logger)
+    LOGGER_VERSION = '2.1.1'
+    //条形码二维码生成扫描
+    GOOGLE_ZXING_CORE_VERSION = '3.2.1'
+    QRCODE_CORE_VERSION = '1.1.7'
+    QRCODE_SCAN_VERSION = '0.2.1'
+    //Android support包
+    ANDROID_DESIGN_SUPPORT_VERSION = '25.3.1'
+    //友盟统计
+    UMENG_STATISTICS_VERSION = 'latest.integration'
 }

@@ -9,6 +9,10 @@ configurations.all {
 android {
     compileSdkVersion COMPILE_SDK_VERSION
     buildToolsVersion BUILD_TOOL_VERSION
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
@@ -17,22 +21,57 @@ android {
         versionName "1.0"
         resourcePrefix "hj_"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
+            // 还可以添加  'x86_64', 'mips', 'mips64'
+        }
+    }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            jniLibs.srcDirs = ['libs']
+        }
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    signingConfigs {
+        debug {
+            storeFile file("sign/hellojack.jks")
+            storePassword "12345678"
+            keyAlias "hellojacktest"
+            keyPassword = "12345678"
+        }
+        release {
+            storeFile file("sign/hellojack.jks")
+            storePassword "12345678"
+            keyAlias "hellojacktest"
+            keyPassword = "12345678"
+        }
     }
     buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':umengstatistics')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
+    compile "com.android.support:design:${ANDROID_DESIGN_SUPPORT_VERSION}"
 
     compile "io.reactivex:rxjava:${RXJAVA_VERSION}"
     compile "io.reactivex:rxandroid:${RXANDROID_VERSION}"
@@ -52,4 +91,16 @@ dependencies {
     compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"
     compile "pub.devrel:easypermissions:${QRCODE_SCAN_VERSION}"
     testCompile 'junit:junit:4.12'
+}
+
+task hello {
+    println("nicle")
+
+    doFirst {
+        println("hello")
+    }
+
+    doLast {
+        println("goodbye")
+    }
 }
