@@ -1,1 +1,1 @@
-include ':app', ':umengstatistics'
+include ':app', ':umengstatistics', ':common-tools', ':lbs', ':router-helper'

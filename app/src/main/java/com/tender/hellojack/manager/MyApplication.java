@@ -11,11 +11,11 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.BuildConfig;
-import com.orhanobut.logger.Logger;
+import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
+import com.tender.lbs.LocationManager;
+import com.tender.tools.TenderLog;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -33,6 +33,8 @@ public class MyApplication extends Application {
     public static Looper mMainLooper;//循环队列
     public static Handler mHandler;//主线程Handler
 
+    public LocationManager locationSevice;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -43,12 +45,10 @@ public class MyApplication extends Application {
         mHandler = new Handler();
 
         //日志框架初始化
-        Logger.addLogAdapter(new AndroidLogAdapter() {
-            @Override
-            public boolean isLoggable(int priority, String tag) {
-                return BuildConfig.DEBUG;
-            }
-        });
+        TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);
+
+        //百度定位
+        locationSevice = LocationManager.getInstance(getApplicationContext());
 
         initManager();
         initUmengShare();

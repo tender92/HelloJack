@@ -1,9 +1,9 @@
 ext {
     // Sdk and tools
     MIN_SDK_VERSION = 19
-    TARGET_SDK_VERSION = 25
-    COMPILE_SDK_VERSION = 25
-    BUILD_TOOL_VERSION = '25.0.2'
+    TARGET_SDK_VERSION = 26
+    COMPILE_SDK_VERSION = 26
+    BUILD_TOOL_VERSION = '26.0.2'
 
     // RxJava
     RXJAVA_VERSION = "1.2.4"

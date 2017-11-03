@@ -9,6 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/common-tools" />
+            <option value="$PROJECT_DIR$/lbs" />
+            <option value="$PROJECT_DIR$/router-helper" />
             <option value="$PROJECT_DIR$/umengstatistics" />
           </set>
         </option>

@@ -37,4 +37,12 @@
         android:layout_marginTop="10dp"
         android:gravity="center"/>
 
+    <TextView
+        android:id="@+id/tv_location_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/hj_text_size_30px"
+        android:background="@color/hj_toolbar_bg"
+        android:scrollbars="vertical"/>
+
 </LinearLayout>
