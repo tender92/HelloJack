@@ -69,6 +69,7 @@ dependencies {
     compile project(':umeng-statistics')
     compile project(':common-tools')
     compile project(':location-service')
+    compile project(':message-push')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })

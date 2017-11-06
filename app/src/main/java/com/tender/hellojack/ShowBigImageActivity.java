@@ -2,7 +2,6 @@ package com.tender.hellojack;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 
 import com.bm.library.PhotoView;
 import com.tender.hellojack.base.BaseActivity;
@@ -54,7 +53,6 @@ public class ShowBigImageActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        new MenuInflater(ShowBigImageActivity.this).inflate();
         return super.onCreateOptionsMenu(menu);
     }
 }

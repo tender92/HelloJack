@@ -27,7 +27,7 @@ ext {
     QRCODE_CORE_VERSION = '1.1.7'
     QRCODE_SCAN_VERSION = '0.2.1'
     //Android support包
-    ANDROID_DESIGN_SUPPORT_VERSION = '25.3.1'
+    ANDROID_DESIGN_SUPPORT_VERSION = '26.0.0-alpha1'
     //友盟统计
     UMENG_STATISTICS_VERSION = 'latest.integration'
 }

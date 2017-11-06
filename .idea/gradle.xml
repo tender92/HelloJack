@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/common-tools" />
             <option value="$PROJECT_DIR$/location-service" />
+            <option value="$PROJECT_DIR$/message-push" />
             <option value="$PROJECT_DIR$/router-helper" />
             <option value="$PROJECT_DIR$/umeng-statistics" />
           </set>
