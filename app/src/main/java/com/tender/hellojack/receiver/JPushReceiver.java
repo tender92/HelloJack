@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.tender.hellojack.TestActivity;
-import com.tender.hellojack.utils.StringUtil;
 import com.tender.tools.TenderLog;
 
 import org.json.JSONException;

@@ -11,22 +11,22 @@ import java.util.Map;
  * Created by boyu on 2017/10/23.
  */
 
-public class DataShareManager {
+public class DataAnalyticsManager {
 
-    private static DataShareManager instance;
-    private static boolean isShare = false;
+    private static DataAnalyticsManager instance;
+    private static boolean isAnalytics = false;
 
-    private DataShareManager() {}
+    private DataAnalyticsManager() {}
 
-    public static DataShareManager getInstance(boolean shareFunActive) {
+    public static DataAnalyticsManager getInstance() {
         if (instance == null) {
-            instance = new DataShareManager();
+            instance = new DataAnalyticsManager();
         }
         return instance;
     }
 
-    public void init(boolean shareFunActive) {
-        isShare = shareFunActive;
+    public void init(boolean analyticsFunActive) {
+        isAnalytics = analyticsFunActive;
     }
 
     /**
@@ -35,7 +35,7 @@ public class DataShareManager {
      * @param context
      */
     public void onResume(Context context) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onResume(context);
     }
@@ -46,7 +46,7 @@ public class DataShareManager {
      * @param context
      */
     public void onPause(Context context) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onPause(context);
     }
@@ -56,7 +56,7 @@ public class DataShareManager {
      * @param ID
      */
     public void onProfileSignIn(String ID) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onProfileSignIn(ID);
     }
@@ -67,7 +67,7 @@ public class DataShareManager {
      * @param ID
      */
     public void onProfileSignIn(String provider, String ID) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onProfileSignIn(provider, ID);
     }
@@ -76,7 +76,7 @@ public class DataShareManager {
      * 账号的统计
      */
     public void onProfileSignOff() {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onProfileSignOff();
     }
@@ -87,7 +87,7 @@ public class DataShareManager {
      * @param pageName
      */
     public void onPageStart(String pageName) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onPageStart(pageName);
     }
@@ -98,7 +98,7 @@ public class DataShareManager {
      * @param pageName
      */
     public void onPageEnd(String pageName) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onPageEnd(pageName);
     }
@@ -109,7 +109,7 @@ public class DataShareManager {
      * @param enable
      */
     public void enableEncrypt(boolean enable) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.enableEncrypt(enable);
     }
@@ -120,7 +120,7 @@ public class DataShareManager {
      * @param eventId
      */
     public void onEvent(Context context, String eventId) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onEvent(context, eventId);
     }
@@ -132,7 +132,7 @@ public class DataShareManager {
      * @param map 当前事件的属性和取值
      */
     public void onEvent(Context context, String eventId, HashMap map) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onEvent(context, eventId, map);
     }
@@ -146,7 +146,7 @@ public class DataShareManager {
      *           即int 32类型，如果数据超出了该范围，会造成数据丢包，影响数据统计的准确性。
      */
     public void onEventValue(Context context, String id, Map<String,String> m, int du) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onEventValue(context, id, m, du);
     }
@@ -158,7 +158,7 @@ public class DataShareManager {
      * @param enable
      */
     public void setCatchUncaughtExceptions(boolean enable) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.setCatchUncaughtExceptions(enable);
     }
@@ -169,7 +169,7 @@ public class DataShareManager {
      * @param error
      */
     public void reportError(Context context, String error) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.reportError(context, error);
     }
@@ -180,7 +180,7 @@ public class DataShareManager {
      * @param e
      */
     public void reportError(Context context, Throwable e) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.reportError(context, e);
     }
@@ -191,7 +191,7 @@ public class DataShareManager {
      * @param context
      */
     public void onKillProcess(Context context) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.onKillProcess(context);
     }
@@ -202,12 +202,23 @@ public class DataShareManager {
      * @param enable
      */
     public void setDebugMode(boolean enable) {
-        if (!isShareFunActive())
+        if (!isAnalyticsFunActive())
             return;
         MobclickAgent.setDebugMode(enable);
     }
 
-    private boolean isShareFunActive() {
-        return isShare;
+    /**
+     * 设置场景类型
+     * @param context
+     * @param type
+     */
+    public void setScenarioType(Context context, MobclickAgent.EScenarioType type) {
+        if (!isAnalyticsFunActive())
+            return;
+        MobclickAgent.setScenarioType(context, type);
+    }
+
+    private boolean isAnalyticsFunActive() {
+        return isAnalytics;
     }
 }

@@ -1,14 +1,25 @@
 package com.tender.hellojack;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
+import com.tender.hellojack.base.BaseActivity;
+
 import cn.jpush.android.api.JPushInterface;
 
-public class TestActivity extends Activity {
+public class TestActivity extends BaseActivity {
+
+    @Override
+    protected void initLayout() {
+
+    }
+
+    @Override
+    protected void initToolbar() {
+//        updateTitle("JPush消息通知");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

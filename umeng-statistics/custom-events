@@ -1,0 +1,3 @@
+我的页面点击查看二维码：event_mine_show_qrcode
+我的信息页面点击浏览头像：event_myinfo_show_header
+我的信息页面点击更换头像：event_myinfo_change_header

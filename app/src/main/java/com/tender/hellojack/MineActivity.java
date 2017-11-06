@@ -17,6 +17,7 @@ import com.tender.hellojack.utils.DialogUtil;
 import com.tender.hellojack.utils.DisplayUtil;
 import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.umengshare.DataAnalyticsManager;
 
 import java.util.UUID;
 
@@ -47,6 +48,7 @@ public class MineActivity extends BaseActivity {
                 startActivity(new Intent(MineActivity.this, MyInfoActivity.class));
                 break;
             case R.id.iv_mine_qrcode:
+                DataAnalyticsManager.getInstance().onEvent(MineActivity.this, "event_mine_show_qrcode");
                 showMyQRCode();
                 break;
             default:

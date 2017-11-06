@@ -16,6 +16,7 @@ import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.LocationManager;
 import com.tender.tools.TenderLog;
+import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -57,6 +58,13 @@ public class MyApplication extends Application {
     }
 
     private void initUmengShare() {
+        //友盟统计功能初始化
+        DataAnalyticsManager.getInstance().init(true);
+        DataAnalyticsManager.getInstance().setDebugMode(true);
+        DataAnalyticsManager.getInstance().setScenarioType(
+                getApplicationContext(),
+                MobclickAgent.EScenarioType.E_UM_NORMAL);
+
         MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
         UMShareAPI.get(this);
 
@@ -76,6 +84,9 @@ public class MyApplication extends Application {
         for (IManager manager : managers) {
             manager.init(getApplicationContext());
         }
+
+        //用户账号统计
+        DataAnalyticsManager.getInstance().onProfileSignIn("com.tender.hellojack", PrefManager.getUserAccount());
     }
 
     /**

@@ -41,10 +41,6 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="p1IPBbhKrAbCgqk0zGTPSS6VMz4fdnOu" />
 
-        <!-- 极光推送可以 -->
-        <!--<meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>-->
-        <!--<meta-data android:name="JPUSH_APPKEY" android:value="18ab73bd09b84add39c36d06" />-->
-
         <!-- JPush start -->
         <!-- Rich push 核心功能 since 2.0.6-->
         <activity
@@ -82,6 +78,7 @@
 
         <!-- since 3.0.9 Required SDK 核心功能-->
         <provider
+            tools:replace="android:authorities"
             android:authorities="com.tender.hellojack.debug.DataProvider"
             android:name="cn.jpush.android.service.DataProvider"
             android:exported="true"

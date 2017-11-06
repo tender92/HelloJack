@@ -13,6 +13,7 @@ import com.tender.hellojack.base.BaseActivity;
 import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.umengshare.DataAnalyticsManager;
 
 import java.util.ArrayList;
 
@@ -35,10 +36,12 @@ public class MyInfoActivity extends BaseActivity {
     public void click(View view) {
         switch (view.getId()) {
             case R.id.ll_myinfo_header:
+                DataAnalyticsManager.getInstance().onEvent(MyInfoActivity.this, "event_myinfo_change_header");
                 startActivityForResult(new Intent(MyInfoActivity.this, ImageGridActivity.class),
                     Const.IRCode.MY_INFO_IMAGE_PICKER);
                 break;
             case R.id.iv_myinfo_header:
+                DataAnalyticsManager.getInstance().onEvent(MyInfoActivity.this, "event_myinfo_show_header");
                 startActivity(new Intent(MyInfoActivity.this, ShowBigImageActivity.class));
                 break;
             default:

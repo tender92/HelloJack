@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.utils.App;
 import com.tender.hellojack.utils.DialogUtil;
+import com.tender.umengshare.DataAnalyticsManager;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
 /**
@@ -53,11 +54,15 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     @Override
     protected void onResume() {
         super.onResume();
+        DataAnalyticsManager.getInstance().onPageStart(this.getClass().toString());
+        DataAnalyticsManager.getInstance().onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        DataAnalyticsManager.getInstance().onPageEnd(this.getClass().toString());
+        DataAnalyticsManager.getInstance().onPause(this);
     }
 
     @Override
