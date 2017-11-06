@@ -30,4 +30,7 @@ ext {
     ANDROID_DESIGN_SUPPORT_VERSION = '26.0.0-alpha1'
     //友盟统计
     UMENG_STATISTICS_VERSION = 'latest.integration'
+    //极光推送
+    JPUSH_VERSION = '3.0.9'
+    JPUSH_CORE_VERSION = '1.1.7'
 }

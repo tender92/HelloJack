@@ -24,8 +24,8 @@ android {
 
         ndk {
             //选择要添加的对应cpu类型的.so库。
-            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86'
-            // 还可以添加  'x86_64', 'mips', 'mips64'
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86','x86_64'
+            // 还可以添加 'mips', 'mips64'
         }
     }
     sourceSets {
@@ -55,11 +55,23 @@ android {
         debug {
             applicationIdSuffix '.debug'
             signingConfig signingConfigs.debug
+
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME : 'com.tender.hellojack.debug',
+                    JPUSH_APPKEY : "18ab73bd09b84add39c36d06", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL : "developer-default", //⽤户渠道统计的渠道名称
+            ]
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME : 'com.tender.hellojack.debug',
+                    JPUSH_APPKEY : "18ab73bd09b84add39c36d06", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL : "developer-default", //⽤户渠道统计的渠道名称
+            ]
         }
     }
 }
@@ -70,9 +82,9 @@ dependencies {
     compile project(':common-tools')
     compile project(':location-service')
     compile project(':message-push')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
     compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
     compile "com.android.support:design:${ANDROID_DESIGN_SUPPORT_VERSION}"
 
@@ -93,7 +105,7 @@ dependencies {
     compile "cn.bingoogolapple:bga-qrcodecore:${QRCODE_CORE_VERSION}@aar"
     compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"
     compile "pub.devrel:easypermissions:${QRCODE_SCAN_VERSION}"
-    testCompile 'junit:junit:4.12'
+//    testCompile 'junit:junit:4.12'
 }
 
 task hello {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.tender.hellojack">
 
     <!-- JPush start -->
@@ -41,8 +42,8 @@
             android:value="p1IPBbhKrAbCgqk0zGTPSS6VMz4fdnOu" />
 
         <!-- 极光推送可以 -->
-        <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
-        <meta-data android:name="JPUSH_APPKEY" android:value="18ab73bd09b84add39c36d06" />
+        <!--<meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>-->
+        <!--<meta-data android:name="JPUSH_APPKEY" android:value="18ab73bd09b84add39c36d06" />-->
 
         <!-- JPush start -->
         <!-- Rich push 核心功能 since 2.0.6-->
