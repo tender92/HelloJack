@@ -66,9 +66,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':umengstatistics')
+    compile project(':umeng-statistics')
     compile project(':common-tools')
-    compile project(':lbs')
+    compile project(':location-service')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -87,6 +87,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTER_KNIFE_VERSION}"
     compile "com.lqr.imagepicker:library:${IMAGE_PICKER_VERSION}"
     compile "com.nostra13.universalimageloader:universal-image-loader:${IMAGE_LOADER_VERSION}"
+    compile "com.bm.photoview:library:${PHOTO_VIEW_VERSION}"
     compile "com.google.zxing:core:${GOOGLE_ZXING_CORE_VERSION}"
     compile "cn.bingoogolapple:bga-qrcodecore:${QRCODE_CORE_VERSION}@aar"
     compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"

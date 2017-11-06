@@ -18,6 +18,8 @@ ext {
     IMAGE_PICKER_VERSION = '1.0.0'
     //图片加载
     IMAGE_LOADER_VERSION = '1.9.5'
+    //PhotoView 图片浏览缩放控件
+    PHOTO_VIEW_VERSION = '1.4.1'
     //日志打印(mark:https://github.com/orhanobut/logger)
     LOGGER_VERSION = '2.1.1'
     //条形码二维码生成扫描

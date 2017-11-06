@@ -96,7 +96,11 @@ public class MineActivity extends BaseActivity {
 
         tvAccount.setText(PrefManager.getUserAccount());
         String headerPath = PrefManager.getUserHeaderPath();
-        ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
+        if (StringUtil.hasValue(headerPath)) {
+            ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
+        } else {
+            ivHeader.setImageResource(R.mipmap.hj_mine_default_header);
+        }
 
         final String mQRCodeStr = PrefManager.getUserAccount();
         ThreadPoolFactory.getNormalPool().execute(new Runnable() {

@@ -4,4 +4,7 @@
 
     <!-- DialogUtil -->
     <string name="hj_confirm">确定</string>
+
+    <!-- ShowBigImageActivity -->
+    <string name="hj_photo_view_title">头像</string>
 </resources>

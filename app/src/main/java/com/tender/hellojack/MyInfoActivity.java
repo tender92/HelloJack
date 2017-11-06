@@ -35,12 +35,11 @@ public class MyInfoActivity extends BaseActivity {
     public void click(View view) {
         switch (view.getId()) {
             case R.id.ll_myinfo_header:
-                showToast("选择图片");
                 startActivityForResult(new Intent(MyInfoActivity.this, ImageGridActivity.class),
                     Const.IRCode.MY_INFO_IMAGE_PICKER);
                 break;
             case R.id.iv_myinfo_header:
-                showToast("近距离接触图片");
+                startActivity(new Intent(MyInfoActivity.this, ShowBigImageActivity.class));
                 break;
             default:
                 break;
