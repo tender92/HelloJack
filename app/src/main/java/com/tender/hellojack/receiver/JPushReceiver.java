@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.tender.hellojack.TestActivity;
+import com.tender.hellojack.service.SpeechService;
+import com.tender.hellojack.utils.StringUtil;
 import com.tender.tools.TenderLog;
 
 import org.json.JSONException;
@@ -42,9 +44,14 @@ public class JPushReceiver extends BroadcastReceiver {
 				processCustomMessage(context, bundle);
 
 			} else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
-				TenderLog.d("接收到推送下来的通知");
 				int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
 				TenderLog.d("接收到推送下来的通知的ID: " + notifactionId);
+				String alert = bundle.getString(JPushInterface.EXTRA_ALERT);
+				if (notifactionId != 0 && StringUtil.hasValue(alert)) {
+					Intent intent1 = new Intent(context, SpeechService.class);
+					intent1.putExtra("words", alert);
+					context.startService(intent1);
+				}
 
 			} else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
 				TenderLog.d("用户点击打开了通知");

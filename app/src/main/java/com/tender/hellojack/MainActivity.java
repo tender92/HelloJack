@@ -149,6 +149,21 @@ public class MainActivity extends BaseActivity {
             if (addPermission(permissions, Manifest.permission.READ_PHONE_STATE)) {
                 permissionInfo += "Manifest.permission.READ_PHONE_STATE Deny \n";
             }
+            if (addPermission(permissions, Manifest.permission.WRITE_SETTINGS)) {
+                permissionInfo += "Manifest.permission.WRITE_SETTINGS Deny \n";
+            }
+            if (addPermission(permissions, Manifest.permission.MODIFY_AUDIO_SETTINGS)) {
+                permissionInfo += "Manifest.permission.MODIFY_AUDIO_SETTINGS Deny \n";
+            }
+            if (addPermission(permissions, Manifest.permission.ACCESS_NETWORK_STATE)) {
+                permissionInfo += "Manifest.permission.ACCESS_NETWORK_STATE Deny \n";
+            }
+            if (addPermission(permissions, Manifest.permission.ACCESS_WIFI_STATE)) {
+                permissionInfo += "Manifest.permission.ACCESS_WIFI_STATE Deny \n";
+            }
+            if (addPermission(permissions, Manifest.permission.CHANGE_WIFI_STATE)) {
+                permissionInfo += "Manifest.permission.CHANGE_WIFI_STATE Deny \n";
+            }
 
             if (permissions.size() >0) {
                 requestPermissions(permissions.toArray(new String[permissions.size()]), Const.IRCode.SDK_PERMISSION_REQUEST);

@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/baidu-tts" />
             <option value="$PROJECT_DIR$/common-tools" />
             <option value="$PROJECT_DIR$/location-service" />
             <option value="$PROJECT_DIR$/message-push" />

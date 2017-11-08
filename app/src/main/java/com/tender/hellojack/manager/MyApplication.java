@@ -15,11 +15,18 @@ import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.LocationManager;
+import com.tender.speech.FilePath;
 import com.tender.tools.TenderLog;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by boyu on 2017/10/19.
@@ -55,6 +62,11 @@ public class MyApplication extends Application {
         initUmengShare();
         initImagePicker();
         initImageLoader(getApplicationContext());
+        initBaiduTTS();
+    }
+
+    private void initBaiduTTS() {
+
     }
 
     private void initUmengShare() {
@@ -128,4 +140,5 @@ public class MyApplication extends Application {
 
         ImageLoader.getInstance().init(config);
     }
+
 }

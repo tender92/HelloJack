@@ -41,6 +41,18 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="p1IPBbhKrAbCgqk0zGTPSS6VMz4fdnOu" />
 
+        <!-- 百度语音合成开始 -->
+        <meta-data
+            android:name="com.baidu.apiID"
+            android:value="10317037" />
+        <meta-data
+            android:name="com.baidu.apiKey"
+            android:value="p1IPBbhKrAbCgqk0zGTPSS6VMz4fdnOu" />
+        <meta-data
+            android:name="com.baidu.secretKey"
+            android:value="X4tUGeF7fzETpngXcXnoa0FPPhnDGAsh" />
+        <!-- 百度语音合成结束 -->
+
         <!-- JPush start -->
         <!-- Rich push 核心功能 since 2.0.6-->
         <activity
@@ -159,6 +171,8 @@
         <activity android:name=".HomeActivity"/>
         <activity android:name=".ShowBigImageActivity"/>
         <activity android:name=".TestActivity"/>
+
+        <service android:name=".service.SpeechService"/>
     </application>
 
 </manifest>

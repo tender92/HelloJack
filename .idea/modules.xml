@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HelloJack.iml" filepath="$PROJECT_DIR$/HelloJack.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baidu-tts/baidu-tts.iml" filepath="$PROJECT_DIR$/baidu-tts/baidu-tts.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-tools/common-tools.iml" filepath="$PROJECT_DIR$/common-tools/common-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/location-service/location-service.iml" filepath="$PROJECT_DIR$/location-service/location-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/message-push/message-push.iml" filepath="$PROJECT_DIR$/message-push/message-push.iml" />
