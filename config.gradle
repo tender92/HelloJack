@@ -33,4 +33,8 @@ ext {
     //极光推送
     JPUSH_VERSION = '3.0.9'
     JPUSH_CORE_VERSION = '1.1.7'
+    //Android-pickerView
+    ANDROID_PICKER_VIEW_VERSION = '3.2.6'
+    //lang3
+    APARCHE_COMMON_LANG3 = '3.5'
 }

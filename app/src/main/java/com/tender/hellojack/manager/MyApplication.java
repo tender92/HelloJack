@@ -35,6 +35,7 @@ import java.io.InputStream;
 public class MyApplication extends Application {
 
     private IManager[] managers;
+    private ModuleManager moduleManager;
 
     public static Thread mMainThread;//主线程
     public static long mMainThreadId;//主线程id
@@ -54,15 +55,26 @@ public class MyApplication extends Application {
 
         //日志框架初始化
         TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);
+        TenderLog.d("why cuse me");
 
         //百度定位
         locationSevice = LocationManager.getInstance(getApplicationContext());
 
         initManager();
+        moduleManager = new ModuleManager(this);
+        moduleManager.onInit();
+
+
         initUmengShare();
         initImagePicker();
         initImageLoader(getApplicationContext());
         initBaiduTTS();
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        moduleManager.onTerminate();
     }
 
     private void initBaiduTTS() {

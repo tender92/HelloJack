@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自定义View RainbowBar的AttributeSet -->
+    <declare-styleable name="hj_tools_rainbow_bar">
+        <attr name="hj_tools_hspace" format="dimension"/>
+        <attr name="hj_tools_vspace" format="dimension"/>
+        <attr name="hj_tools_color" format="color"/>
+    </declare-styleable>
+</resources>

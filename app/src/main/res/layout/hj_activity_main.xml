@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.tender.hellojack.MainActivity">
 
@@ -44,5 +44,13 @@
         android:padding="@dimen/hj_text_size_30px"
         android:background="@color/hj_toolbar_bg"
         android:scrollbars="vertical"/>
+
+    <com.tender.tools.views.RainbowBar
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        app:hj_tools_hspace="80dp"
+        app:hj_tools_vspace="10dp"
+        app:hj_tools_color="#ce0812"/>
 
 </LinearLayout>

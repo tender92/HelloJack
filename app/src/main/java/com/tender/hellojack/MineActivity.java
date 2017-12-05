@@ -2,8 +2,10 @@ package com.tender.hellojack;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,12 +16,11 @@ import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
 import com.tender.hellojack.utils.App;
 import com.tender.hellojack.utils.DialogUtil;
-import com.tender.hellojack.utils.DisplayUtil;
 import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.views.MyPopupWindow;
 import com.tender.umengshare.DataAnalyticsManager;
-
-import java.util.UUID;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,6 +66,16 @@ public class MineActivity extends BaseActivity {
     @Override
     protected void initToolbar() {
         updateTitle("我的地盘我做主");
+        showRightButton(true);
+        clickRightButton(new Runnable() {
+            @Override
+            public void run() {
+                MyPopupWindow popupWindow = new MyPopupWindow(MineActivity.this);
+                popupWindow.setContentView(LayoutInflater.from(MineActivity.this).inflate(R.layout.hj_layout_select_status, null));
+                popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+                popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
+            }
+        });
     }
 
     @Override

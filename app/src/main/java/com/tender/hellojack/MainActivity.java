@@ -2,8 +2,10 @@ package com.tender.hellojack;
 
 import android.Manifest;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,11 +18,19 @@ import android.widget.Toast;
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
+import com.bigkoo.pickerview.OptionsPickerView;
+import com.bigkoo.pickerview.TimePickerView;
+import com.bigkoo.pickerview.listener.CustomListener;
 import com.orhanobut.logger.Logger;
 import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.bean.RegionBean;
 import com.tender.hellojack.manager.MyApplication;
+import com.tender.hellojack.utils.DialogUtil;
 import com.tender.lbs.LocationManager;
+import com.tender.lbs.manager.HJLocationListener;
 import com.tender.tools.TenderLog;
+import com.tender.tools.views.dialog.SelectDateDialog;
+import com.tender.tools.views.dialog.WheelDialogCallBack;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -30,7 +40,10 @@ import com.umeng.socialize.shareboard.SnsPlatform;
 import com.umeng.socialize.utils.ShareBoardlistener;
 
 import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,8 +55,11 @@ public class MainActivity extends BaseActivity {
     private ShareAction mShareAction;
     public String url ="https://mobile.umeng.com/";
 
-    private String permissionInfo;
+    private String permissionInfo = "";
     private LocationManager locationManager;
+
+    private ArrayList<RegionBean> regionList;
+    private RegionBean regionSelected;
 
     @BindView(R.id.btn_to_my_info)
     Button btnToMyInfo;
@@ -80,7 +96,12 @@ public class MainActivity extends BaseActivity {
         clickRightButton(new Runnable() {
             @Override
             public void run() {
-                showToast("你好我好大家好！");
+                new SelectDateDialog(MainActivity.this, "", new WheelDialogCallBack() {
+                    @Override
+                    public void onCallback(Context context, String selectDate) {
+                        showToast(selectDate);
+                    }
+                }).show();
             }
         });
     }
@@ -89,9 +110,12 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        TenderLog.d(new String[]{"1","2","nihaoa"});
         // after andrioid m,must request Permiision on runtime
         getPermissions();
+
+        initPickerData();
+        initPickerView();
+
     }
 
     @Override
@@ -100,6 +124,13 @@ public class MainActivity extends BaseActivity {
         // -----------location config ------------
         //获取locationservice实例，建议应用中只初始化1个location实例，然后使用，可以参考其他示例的activity，都是通过此种方式获取locationservice实例的
         locationManager = ((MyApplication)getApplication()).locationSevice;
+//        locationManager.getLocation(new HJLocationListener.LocationCallBack() {
+//            @Override
+//            public void returnLocation(BDLocation location) {
+//                TenderLog.d(location.getAddress().province);
+//            }
+//        });
+
         locationManager.registerListener(mListener);
         locationManager.setLocationOption(locationManager.getDefaultLocationClientOption());
         locationManager.start();// start之后会默认发起一次定位请求，开发者无须判断isstart并主动调用request
@@ -232,6 +263,23 @@ public class MainActivity extends BaseActivity {
         mShareAction.open();
     }
 
+    private void initPickerData() {
+        regionList = new ArrayList<>();
+        RegionBean region = new RegionBean(0,R.mipmap.hj_region_america,"美国");
+        regionList.add(region);
+        region = new RegionBean(1,R.mipmap.hj_region_britain,"英国");
+        regionList.add(region);
+        region = new RegionBean(2,R.mipmap.hj_region_china,"中国");
+        regionList.add(region);
+        region = new RegionBean(3,R.mipmap.hj_region_france,"法国");
+        regionList.add(region);
+        region = new RegionBean(4,R.mipmap.hj_region_spain,"西班牙");
+        regionList.add(region);
+    }
+
+    private void initPickerView() {
+
+    }
 
     private static class CustomShareListener implements UMShareListener {
 

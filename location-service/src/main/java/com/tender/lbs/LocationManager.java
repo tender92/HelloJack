@@ -1,11 +1,12 @@
 package com.tender.lbs;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.tender.lbs.manager.HJLocationListener;
 
 /**
  * Created by boyu on 2017/11/3.
@@ -18,6 +19,7 @@ public class LocationManager {
     private LocationClient client = null;
     private LocationClientOption mOption, mDIYOption;
     private Object objLock = new Object();
+    private static HJLocationListener hjListener;
 
     private LocationManager(Context context) {
         if (client == null) {
@@ -31,6 +33,13 @@ public class LocationManager {
             instance = new LocationManager(context);
         }
         return instance;
+    }
+
+    public void getLocation(HJLocationListener.LocationCallBack callBack) {
+        hjListener = new HJLocationListener(callBack);
+        registerListener(hjListener);
+        setLocationOption(getDefaultLocationClientOption());
+        start();
     }
 
     public LocationClientOption getDefaultLocationClientOption() {

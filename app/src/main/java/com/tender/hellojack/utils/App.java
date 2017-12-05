@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import com.tender.hellojack.manager.MyApplication;
+import com.tender.tools.utils.DisplayUtil;
 
 /**
  * Created by boyu on 17/1/20.

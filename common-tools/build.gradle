@@ -12,7 +12,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        resourcePrefix "hj_tools_"
     }
     buildTypes {
         release {
@@ -29,5 +29,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
+    compile "com.contrarywind:Android-PickerView:${ANDROID_PICKER_VIEW_VERSION}"
+    compile "org.apache.commons:commons-lang3:${APARCHE_COMMON_LANG3}"
     testCompile 'junit:junit:4.12'
 }

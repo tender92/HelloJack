@@ -1,1 +1,1 @@
-include ':app', ':umeng-statistics', ':common-tools', ':location-service', ':router-helper', ':message-push', ':baidu-tts'
+include ':app', ':umeng-statistics', ':common-tools', ':location-service', ':router-helper', ':message-push', ':baidu-tts', ':instant-message'
