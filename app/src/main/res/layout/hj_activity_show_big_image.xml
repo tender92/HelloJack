@@ -8,7 +8,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/hj_status_bar_height"
-        android:background="@color/hj_toolbar_bg"
+        android:background="@drawable/hj_shape_toolbar_bg"
         android:id="@+id/hj_view" />
 
     <include layout="@layout/hj_custom_actionbar"/>

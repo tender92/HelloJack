@@ -14,7 +14,12 @@
     <!-- toolbar -->
     <color name="hj_toolbar_bg">#59a2ea</color>
 
+    <!-- BottomNavigationBar -->
+    <color name="hj_home_bar_inactive">#4D5864</color>
+
     <!-- DialogUtil -->
     <color name="hj_toast_start_color">#859cc7</color>
     <color name="hj_toast_end_color">#60708e</color>
+
+    <color name="hj_line">#D2D2D2</color>
 </resources>

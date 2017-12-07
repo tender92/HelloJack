@@ -2,7 +2,13 @@
 
     <!-- Base application theme. -->
     <style name="hj_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
 
+    <style name="hj_StartTheme" parent="hj_AppTheme">
+        <!-- 欢迎页背景引用刚才写好的 -->
+        <item name="android:windowBackground">@mipmap/hj_start_bg</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- <item name="android:windowIsTranslucent">true</item> --> <!-- 透明背景不要了 -->
     </style>
 
     <!--圆角Dialog-->
@@ -16,4 +22,5 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
+
 </resources>

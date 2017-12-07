@@ -17,8 +17,9 @@ public class PrefManager implements IManager {
     private SharedPreferences pre;
 
     private static final String USER_HEADER_PATH = "user_header_path";
-
     private static final String USER_ACCOUNT = "user_account";
+    private static String SCREEN_WIDTH = "screen_whidth";
+    private static String SCREEN_HEIGHT = "screen_height";
 
     private PrefManager() {
     }
@@ -59,5 +60,18 @@ public class PrefManager implements IManager {
 
     public static void setUserAccount(String account) {
         instance.pre.edit().putString(USER_ACCOUNT, account).commit();
+    }
+
+    public static void saveScreenWidth(int width) {
+        instance.pre.edit().putInt(SCREEN_WIDTH, width).commit();
+    }
+    public static int getScreenWidth() {
+        return instance.pre.getInt(SCREEN_WIDTH, 0);
+    }
+    public static void saveScreenHeight(int height) {
+        instance.pre.edit().putInt(SCREEN_HEIGHT, height).commit();
+    }
+    public static int getScreenHeight() {
+        return instance.pre.getInt(SCREEN_HEIGHT, 0);
     }
 }

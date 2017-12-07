@@ -159,16 +159,18 @@
         <!--</receiver>-->
         <!-- Jpush end -->
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".business.start.StartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/hj_StartTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".business.home.HomeActivity"/>
         <activity android:name=".MineActivity"/>
-        <activity android:name=".MyInfoActivity" />
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".business.myinfo.MyInfoActivity" />
         <activity android:name=".ShowBigImageActivity"/>
         <activity android:name=".TestActivity"/>
 

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.business.myinfo.MyInfoActivity;
 import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
 import com.tender.hellojack.utils.App;
@@ -103,9 +104,9 @@ public class MineActivity extends BaseActivity {
 
     private void showMyQRCode() {
         View root = View.inflate(this, R.layout.hj_layout_qrcode_card, null);
-        ImageView ivHeader = (ImageView) root.findViewById(R.id.iv_qrcode_card_header);
-        final ImageView ivQRCode = (ImageView) root.findViewById(R.id.iv_qrcode_card);
-        TextView tvAccount = (TextView) root.findViewById(R.id.tv_qrcode_card_account);
+        ImageView ivHeader = root.findViewById(R.id.iv_qrcode_card_header);
+        final ImageView ivQRCode = root.findViewById(R.id.iv_qrcode_card);
+        TextView tvAccount = root.findViewById(R.id.tv_qrcode_card_account);
 
         tvAccount.setText(PrefManager.getUserAccount());
         String headerPath = PrefManager.getUserHeaderPath();

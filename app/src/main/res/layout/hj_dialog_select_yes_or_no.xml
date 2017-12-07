@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/hj_shape_dialog_bg"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/frame_prompt_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ScrollView
+            android:id="@+id/scroll_prompt_two_context"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:paddingTop="15dp"
+            android:background="#00000000" >
+
+            <TextView
+                android:id="@+id/txt_prompt_two_context_long"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#666666"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="16sp" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/txt_prompt_two_content_short"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:minHeight="80dp"
+            android:padding="10dp"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#CFD6D6" />
+
+    <LinearLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_prompt_two_yes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/hj_toolbar_bg"
+            android:textColor="@color/hj_white"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#CFD6D6" />
+
+        <Button
+            android:id="@+id/btn_prompt_two_no"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/hj_toolbar_bg"
+            android:textColor="@color/hj_white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

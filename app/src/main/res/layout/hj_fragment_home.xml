@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.tender.hellojack.MainActivity">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/hj_status_bar_height"
-        android:background="@color/hj_toolbar_bg"
-        android:id="@+id/hj_view" />
-
-    <include layout="@layout/hj_custom_actionbar"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_to_my_info"
+        android:id="@+id/btn_home_my_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="To My Info"
@@ -27,7 +17,7 @@
         android:gravity="center"/>
 
     <Button
-        android:id="@+id/btn_to_share"
+        android:id="@+id/btn_home_share"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Share is Pleasure"
@@ -38,7 +28,7 @@
         android:gravity="center"/>
 
     <TextView
-        android:id="@+id/tv_location_info"
+        android:id="@+id/tv_home_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/hj_text_size_30px"
@@ -52,5 +42,4 @@
         app:hj_tools_hspace="80dp"
         app:hj_tools_vspace="10dp"
         app:hj_tools_color="#ce0812"/>
-
 </LinearLayout>

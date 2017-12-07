@@ -5,7 +5,7 @@
     android:id="@+id/hj_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/hj_toolbar_bg"
+    android:background="@drawable/hj_shape_toolbar_bg"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 

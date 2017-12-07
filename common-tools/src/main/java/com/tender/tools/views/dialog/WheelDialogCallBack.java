@@ -7,5 +7,5 @@ import android.content.Context;
  */
 
 public interface WheelDialogCallBack {
-    void onCallback(Context context, String selectDate);
+    void onCallback(Context context, String selectString);
 }

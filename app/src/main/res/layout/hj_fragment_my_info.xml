@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/hj_gray5">
+
+    <LinearLayout
+        android:id="@+id/ll_my_info_header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/hj_selector_option_item"
+        android:paddingRight="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:text="头像"
+            android:textColor="@color/hj_black0"
+            android:textSize="@dimen/hj_text_normal_size"/>
+
+        <ImageView
+            android:id="@+id/iv_my_info_header"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/hj_mine_default_header"
+            android:scaleType="centerCrop"/>
+    </LinearLayout>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_name"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="昵称"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text="CSDN_LQR"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_account"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="用户号"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text="sky_lqr"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_qr_code"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="二维码名片"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_image_margin_right="20dp"
+        app:right_src="@mipmap/hj_qr_code"/>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_address"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="我的地址"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:layout_marginTop="20dp"
+        android:id="@+id/oiv_my_info_sex"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="性别"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_region"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="地区"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+
+    <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp" />
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_my_info_signature"
+        style="@style/hj_tools_optionItem"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_text="个性签名"
+        app:left_text_color="@color/hj_black0"
+        app:left_text_margin_left="15dp"
+        app:left_text_size="15sp"
+        app:right_text_color="@color/hj_gray2"
+        app:right_text_margin_right="20dp"
+        app:right_text_size="@dimen/hj_text_normal_size"/>
+</LinearLayout>

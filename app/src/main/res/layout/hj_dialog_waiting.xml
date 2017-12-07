@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_width="240dp"
         android:layout_height="80dp"
-        android:background="@drawable/hj_shape_dialog_waiting">
+        android:background="@drawable/hj_shape_dialog_bg">
 
 
         <TextView

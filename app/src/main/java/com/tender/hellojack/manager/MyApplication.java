@@ -1,5 +1,6 @@
 package com.tender.hellojack.manager;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
@@ -15,18 +16,14 @@ import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.LocationManager;
-import com.tender.speech.FilePath;
 import com.tender.tools.TenderLog;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by boyu on 2017/10/19.
@@ -35,6 +32,7 @@ import java.io.InputStream;
 public class MyApplication extends Application {
 
     private IManager[] managers;
+    private static Set<Activity> activities = new HashSet<>();
     private ModuleManager moduleManager;
 
     public static Thread mMainThread;//主线程
@@ -55,7 +53,6 @@ public class MyApplication extends Application {
 
         //日志框架初始化
         TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);
-        TenderLog.d("why cuse me");
 
         //百度定位
         locationSevice = LocationManager.getInstance(getApplicationContext());
@@ -151,6 +148,21 @@ public class MyApplication extends Application {
                 .build();
 
         ImageLoader.getInstance().init(config);
+    }
+
+    public static void addActivity(Activity activity) {
+        activities.add(activity);
+    }
+
+    public static void exit(int status) {
+        for (Activity activity : activities) {
+            activity.finish();
+        }
+
+        if (status != 99) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(status);
+        }
     }
 
 }

@@ -31,5 +31,8 @@ dependencies {
     compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
     compile "com.contrarywind:Android-PickerView:${ANDROID_PICKER_VIEW_VERSION}"
     compile "org.apache.commons:commons-lang3:${APARCHE_COMMON_LANG3}"
+    compile "com.ashokvarma.android:bottom-navigation-bar:${BOTTOM_NAVIGATION_BAR_VERSION}"
+
+    compile "com.lqr.optionitemview:library:${OPTION_ITEM_VIEW_VERSION}"
     testCompile 'junit:junit:4.12'
 }

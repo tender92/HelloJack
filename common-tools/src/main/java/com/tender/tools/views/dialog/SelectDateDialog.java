@@ -43,7 +43,7 @@ public class SelectDateDialog extends Dialog implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hj_tools_wheel_dialog);
+        setContentView(R.layout.hj_tools_wheel_select_date);
         tvConfirm = findViewById(R.id.tv_wheel_dialog_confirm);
         tvCancel = findViewById(R.id.tv_wheel_dialog_cancel);
         wvYear = findViewById(R.id.wheel_view_year);

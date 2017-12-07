@@ -37,4 +37,8 @@ ext {
     ANDROID_PICKER_VIEW_VERSION = '3.2.6'
     //lang3
     APARCHE_COMMON_LANG3 = '3.5'
+    //底部导航栏
+    BOTTOM_NAVIGATION_BAR_VERSION = '1.3.0'
+    //选项条目控件
+    OPTION_ITEM_VIEW_VERSION = '1.0.7'
 }
