@@ -10,7 +10,7 @@
         android:background="@drawable/hj_shape_toolbar_bg"
         android:id="@+id/hj_view_fill_up" />
 
-    <include layout="@layout/hj_custom_actionbar"/>
+    <include layout="@layout/hj_layout_custom_actionbar"/>
 
     <FrameLayout
         android:id="@+id/hj_contentFrame"

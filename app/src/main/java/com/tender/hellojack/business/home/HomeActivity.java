@@ -47,9 +47,9 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initToolbar() {
         showLeftButton(false);
-        showRightButton(true);
+        showRightImage(true);
         updateTitle("HomeActivity");
-        clickRightButton(new Runnable() {
+        clickRightImage(new Runnable() {
             @Override
             public void run() {
                 new SelectDateDialog(HomeActivity.this, "", new WheelDialogCallBack() {

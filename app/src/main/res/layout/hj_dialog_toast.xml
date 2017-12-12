@@ -12,7 +12,7 @@
         android:paddingRight="18dp"
         android:paddingTop="11dp"
         android:paddingBottom="11dp"
-        android:background="@drawable/hj_shape_toast_bg"
+        android:background="@drawable/hj_shape_toolbar_bg"
         android:textColor="@color/hj_white"
         android:text="@string/hj_confirm"/>
 

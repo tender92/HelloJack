@@ -11,6 +11,7 @@ public class MyInfoContract {
 
     interface View extends IView<Presenter> {
         void showRegionDialog();
+        void showGenderDialog();
     }
     interface Presenter extends IPresenter {}
 }

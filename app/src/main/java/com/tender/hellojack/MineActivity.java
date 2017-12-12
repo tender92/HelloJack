@@ -42,6 +42,8 @@ public class MineActivity extends BaseActivity {
     ImageView ivQRCode;
     @BindView(R.id.tv_mine_account)
     TextView tvAccount;
+    @BindView(R.id.tv_mine_name)
+    TextView tvName;
 
     @OnClick({R.id.ll_my_info, R.id.iv_mine_qrcode})
     public void click(View view) {
@@ -67,8 +69,8 @@ public class MineActivity extends BaseActivity {
     @Override
     protected void initToolbar() {
         updateTitle("我的地盘我做主");
-        showRightButton(true);
-        clickRightButton(new Runnable() {
+        showRightImage(true);
+        clickRightImage(new Runnable() {
             @Override
             public void run() {
                 MyPopupWindow popupWindow = new MyPopupWindow(MineActivity.this);
@@ -100,15 +102,19 @@ public class MineActivity extends BaseActivity {
 
         String account = PrefManager.getUserAccount();
         tvAccount.setText(account);
+        String name = PrefManager.getUserName();
+        tvName.setText(name);
     }
 
     private void showMyQRCode() {
-        View root = View.inflate(this, R.layout.hj_layout_qrcode_card, null);
+        View root = View.inflate(this, R.layout.hj_layout_qr_code_card, null);
         ImageView ivHeader = root.findViewById(R.id.iv_qrcode_card_header);
+        ImageView ivGender = root.findViewById(R.id.iv_qrcode_gender);
         final ImageView ivQRCode = root.findViewById(R.id.iv_qrcode_card);
         TextView tvAccount = root.findViewById(R.id.tv_qrcode_card_account);
 
         tvAccount.setText(PrefManager.getUserAccount());
+        ivGender.setImageResource(PrefManager.getUserGender() == 1 ? R.mipmap.hj_gender_male : R.mipmap.hj_gender_female);
         String headerPath = PrefManager.getUserHeaderPath();
         if (StringUtil.hasValue(headerPath)) {
             ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);

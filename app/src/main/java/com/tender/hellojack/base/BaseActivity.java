@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.hellojack.utils.App;
 import com.tender.hellojack.utils.DialogUtil;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -23,7 +23,8 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
 
     protected Toolbar mToolbar;
     private TextView mTitle;
-    private ImageView mTitleRightBtn;
+    private ImageView mTitleRightImg;
+    protected Button mTitleRightBtn;
 
     private DialogUtil.CustomDialog mWaitingDialog;
 
@@ -79,7 +80,8 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
         // 设置toolbar
         if (mToolbar != null) {
             mTitle = (TextView) findViewById(R.id.tv_title);
-            mTitleRightBtn = (ImageView) findViewById(R.id.btn_right);
+            mTitleRightImg = (ImageView) findViewById(R.id.btn_right);
+            mTitleRightBtn = (Button) findViewById(R.id.btn_right_text);
 
             mToolbar.setTitle("");
 
@@ -117,11 +119,11 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     }
 
     @Override
-    public void showRightButton(boolean isShow) {
+    public void showRightImage(boolean isShow) {
         if (isShow) {
-            mTitleRightBtn.setVisibility(View.VISIBLE);
+            mTitleRightImg.setVisibility(View.VISIBLE);
         } else {
-            mTitleRightBtn.setVisibility(View.GONE);
+            mTitleRightImg.setVisibility(View.GONE);
         }
     }
 
@@ -145,7 +147,28 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     }
 
     @Override
-    public void clickRightButton(final Runnable runnable) {
+    public void clickRightImage(final Runnable runnable) {
+        if (mTitleRightImg.getVisibility() == View.VISIBLE) {
+            mTitleRightImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    runnable.run();
+                }
+            });
+        }
+    }
+
+    @Override
+    public void showRightBtn(boolean isShow) {
+        if (isShow) {
+            mTitleRightBtn.setVisibility(View.VISIBLE);
+        } else {
+            mTitleRightBtn.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void clickRightBtn(final Runnable runnable) {
         if (mTitleRightBtn.getVisibility() == View.VISIBLE) {
             mTitleRightBtn.setOnClickListener(new View.OnClickListener() {
                 @Override

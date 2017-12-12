@@ -18,9 +18,13 @@ public interface IToolBar {
 
     void showLeftButton(boolean isShow);
 
-    void showRightButton(boolean isShow);
+    void showRightImage(boolean isShow);
 
     void updateTitle(String content);
 
-    void clickRightButton(Runnable runnable);
+    void clickRightImage(Runnable runnable);
+
+    void showRightBtn(boolean isShow);
+
+    void clickRightBtn(Runnable runnable);
 }

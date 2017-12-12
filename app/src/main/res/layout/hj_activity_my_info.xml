@@ -10,7 +10,7 @@
         android:layout_height="@dimen/hj_status_bar_height"
         android:background="@drawable/hj_shape_toolbar_bg"/>
 
-    <include layout="@layout/hj_custom_actionbar"/>
+    <include layout="@layout/hj_layout_custom_actionbar"/>
 
     <LinearLayout
         android:id="@+id/ll_myinfo_header"

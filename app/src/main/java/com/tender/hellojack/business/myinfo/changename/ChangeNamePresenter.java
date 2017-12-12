@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.myinfo;
+package com.tender.hellojack.business.myinfo.changename;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
@@ -6,19 +6,19 @@ import com.tender.hellojack.data.ResourceRepository;
 import rx.subscriptions.CompositeSubscription;
 
 /**
- * Created by boyu on 2017/12/7.
+ * Created by boyu
  */
-
-public class MyInfoPresenter implements MyInfoContract.Presenter {
+public class ChangeNamePresenter implements ChangeNameContract.Presenter {
 
     private final ResourceRepository mRepository;
-    private final MyInfoContract.View mView;
+    private final ChangeNameContract.View mView;
     private final BaseSchedule mSchedule;
 
     private CompositeSubscription mSubscription;
+
     private boolean hasInit = false;
 
-    public MyInfoPresenter(ResourceRepository mRepository, MyInfoContract.View mView, BaseSchedule mSchedule) {
+    public ChangeNamePresenter(ResourceRepository mRepository, ChangeNameContract.View mView, BaseSchedule mSchedule) {
         this.mRepository = mRepository;
         this.mView = mView;
         this.mSchedule = mSchedule;
@@ -31,7 +31,7 @@ public class MyInfoPresenter implements MyInfoContract.Presenter {
     public void start() {
         if (!hasInit) {
             mView.initUIData();
-//            hasInit = true;
+            hasInit = true;
         }
     }
 }

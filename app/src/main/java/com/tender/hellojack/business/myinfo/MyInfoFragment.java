@@ -4,13 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.lqr.imagepicker.ImagePicker;
@@ -21,11 +25,15 @@ import com.tender.hellojack.Const;
 import com.tender.hellojack.R;
 import com.tender.hellojack.ShowBigImageActivity;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.hellojack.business.myinfo.changename.ChangeNameActivity;
+import com.tender.hellojack.business.myinfo.qrcodecard.QRCodeCardActivity;
 import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.tools.TenderLog;
+import com.tender.tools.views.MyPopupWindow;
 import com.tender.tools.views.dialog.SelectRegionDialog;
 import com.tender.tools.views.dialog.WheelDialogCallBack;
 import com.tender.tools.views.wheelview.WheelModel;
@@ -47,8 +55,13 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
 
     private LinearLayout llHeader;
     private ImageView ivHeader;
-    private OptionItemView oivName, oivAccount, oivQRCode, oivAddress, oivSex, oivRegion, oivSignature;
+    private OptionItemView oivName, oivAccount, oivQRCode, oivAddress, oivGender, oivRegion, oivSignature;
 
+    private DialogUtil.CustomDialog genderDialog;
+    private TextView tvMale, tvFemale;
+    private Drawable mGenderSelect, mGenderUnSelect;
+
+    private SelectRegionDialog regionDialog;
     private int mWheelSelectIndexRegion = 0;
     private List<WheelModel> regionData = new ArrayList<>();
     private static final String[] PLANETS = new String[]{
@@ -67,7 +80,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         oivAccount = root.findViewById(R.id.oiv_my_info_account);
         oivQRCode = root.findViewById(R.id.oiv_my_info_qr_code);
         oivAddress = root.findViewById(R.id.oiv_my_info_address);
-        oivSex = root.findViewById(R.id.oiv_my_info_sex);
+        oivGender = root.findViewById(R.id.oiv_my_info_sex);
         oivRegion = root.findViewById(R.id.oiv_my_info_region);
         oivSignature = root.findViewById(R.id.oiv_my_info_signature);
 
@@ -89,7 +102,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivName).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showToast("oivName");
+                startActivity(new Intent(mActivity, ChangeNameActivity.class));
             }
         });
         RxView.clicks(oivAccount).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -101,7 +114,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivQRCode).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showToast("oivQRCode");
+                startActivity(new Intent(mActivity, QRCodeCardActivity.class));
             }
         });
         RxView.clicks(oivAddress).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -110,10 +123,10 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
                 showToast("oivAddress");
             }
         });
-        RxView.clicks(oivSex).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+        RxView.clicks(oivGender).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showToast("oivSex");
+                showGenderDialog();
             }
         });
         RxView.clicks(oivRegion).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -140,6 +153,11 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
             Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(PLANETS_NATIONAL[i])).getBitmap();
             regionData.add(new WheelModel(kv, bitmap, kv));
         }
+
+        mGenderSelect = mActivity.getResources().getDrawable(R.mipmap.hj_list_selected);
+        mGenderUnSelect = mActivity.getResources().getDrawable(R.mipmap.hj_list_unselected);
+        mGenderSelect.setBounds(0, 0, mGenderSelect.getMinimumWidth(), mGenderSelect.getMinimumHeight());
+        mGenderUnSelect.setBounds(0, 0, mGenderUnSelect.getMinimumWidth(), mGenderUnSelect.getMinimumHeight());
     }
 
     @Override
@@ -176,25 +194,68 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
 
     @Override
     public void initUIData() {
-        initHeader();
-    }
-
-    private void initHeader() {
         String headerPath = PrefManager.getUserHeaderPath();
         if (StringUtil.hasValue(headerPath)) {
             ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
         }
+        oivName.setRightText(PrefManager.getUserName());
+        oivAccount.setRightText(PrefManager.getUserAccount());
+        oivGender.setRightText(PrefManager.getUserGender() == 1 ? "男" : "女");
     }
 
     @Override
     public void showRegionDialog() {
-        new SelectRegionDialog(mActivity, mWheelSelectIndexRegion, true, regionData,
-                new WheelDialogCallBack() {
-                    @Override
-                    public void onCallback(Context context, String selectString) {
-                        mWheelSelectIndexRegion = Integer.parseInt(selectString);
-                        oivRegion.setRightText(PLANETS[mWheelSelectIndexRegion]);
-                    }
-                }).show();
+        if (regionDialog == null) {
+            regionDialog = new SelectRegionDialog(mActivity, mWheelSelectIndexRegion, true, regionData,
+                    new WheelDialogCallBack() {
+                        @Override
+                        public void onCallback(Context context, String selectString) {
+                            mWheelSelectIndexRegion = Integer.parseInt(selectString);
+                            oivRegion.setRightText(PLANETS[mWheelSelectIndexRegion]);
+                        }
+                    });
+        }
+        regionDialog.show();
+    }
+
+    @Override
+    public void showGenderDialog() {
+        if (genderDialog == null) {
+            View root = LayoutInflater.from(mActivity).inflate(R.layout.hj_layout_select_gender, null);
+            tvMale = root.findViewById(R.id.tv_gender_male);
+            tvFemale = root.findViewById(R.id.tv_gender_female);
+            RxView.clicks(tvMale).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+                @Override
+                public void call(Void aVoid) {
+                    PrefManager.setUserGender(1);
+                    updateGenderDialog(1);
+                    genderDialog.dismiss();
+                    oivGender.setRightText("男");
+                }
+            });
+            RxView.clicks(tvFemale).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+                @Override
+                public void call(Void aVoid) {
+                    PrefManager.setUserGender(0);
+                    updateGenderDialog(0);
+                    genderDialog.dismiss();
+                    oivGender.setRightText("女");
+                }
+            });
+            genderDialog = new DialogUtil.CustomDialog(mActivity, root);
+
+        }
+        updateGenderDialog(PrefManager.getUserGender());
+        genderDialog.show();
+    }
+
+    private void updateGenderDialog(int gender) {
+        if (1 == gender) {
+            tvMale.setCompoundDrawables(null, null, mGenderSelect, null);
+            tvFemale.setCompoundDrawables(null, null, mGenderUnSelect, null);
+        } else {
+            tvMale.setCompoundDrawables(null, null, mGenderUnSelect, null);
+            tvFemale.setCompoundDrawables(null, null, mGenderSelect, null);
+        }
     }
 }

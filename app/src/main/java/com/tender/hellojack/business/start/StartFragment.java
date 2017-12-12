@@ -75,7 +75,7 @@ public class StartFragment extends RxFragment {
                 requestPermissions(permissions.toArray(new String[permissions.size()]), Const.IRCode.SDK_PERMISSION_REQUEST);
             } else {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     TenderLog.e(e.getMessage());
                 }
@@ -83,7 +83,7 @@ public class StartFragment extends RxFragment {
             }
         } else {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 TenderLog.e(e.getMessage());
             }
@@ -128,7 +128,7 @@ public class StartFragment extends RxFragment {
                         });
             } else {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
                     TenderLog.e(e.getMessage());
                 }

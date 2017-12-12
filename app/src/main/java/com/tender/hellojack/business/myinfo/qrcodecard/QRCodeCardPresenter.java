@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.myinfo;
+package com.tender.hellojack.business.myinfo.qrcodecard;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
@@ -6,19 +6,19 @@ import com.tender.hellojack.data.ResourceRepository;
 import rx.subscriptions.CompositeSubscription;
 
 /**
- * Created by boyu on 2017/12/7.
+ * Created by boyu on 2017/12/8.
  */
 
-public class MyInfoPresenter implements MyInfoContract.Presenter {
+public class QRCodeCardPresenter implements QRCodeCardContract.Presenter {
 
     private final ResourceRepository mRepository;
-    private final MyInfoContract.View mView;
+    private final QRCodeCardContract.View mView;
     private final BaseSchedule mSchedule;
 
-    private CompositeSubscription mSubscription;
+    private CompositeSubscription  mSubscription;
     private boolean hasInit = false;
 
-    public MyInfoPresenter(ResourceRepository mRepository, MyInfoContract.View mView, BaseSchedule mSchedule) {
+    public QRCodeCardPresenter(ResourceRepository mRepository, QRCodeCardContract.View mView, BaseSchedule mSchedule) {
         this.mRepository = mRepository;
         this.mView = mView;
         this.mSchedule = mSchedule;
@@ -30,8 +30,8 @@ public class MyInfoPresenter implements MyInfoContract.Presenter {
     @Override
     public void start() {
         if (!hasInit) {
-            mView.initUIData();
-//            hasInit = true;
+            mView.initUIData();;
+            hasInit = true;
         }
     }
 }

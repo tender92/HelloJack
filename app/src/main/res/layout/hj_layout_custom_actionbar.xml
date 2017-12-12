@@ -26,4 +26,17 @@
         android:layout_gravity="right"
         android:src="@mipmap/hj_query_date_unselect"
         android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_right_text"
+        android:visibility="gone"
+        android:layout_gravity="right|center_vertical"
+        android:gravity="center"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/hj_selector_toolbar_btn_bg"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:text="保存"
+        android:textColor="@color/hj_white"
+        android:textSize="13sp"/>
 </android.support.v7.widget.Toolbar>

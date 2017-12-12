@@ -11,7 +11,7 @@
         android:background="@drawable/hj_shape_toolbar_bg"
         android:id="@+id/hj_view" />
 
-    <include layout="@layout/hj_custom_actionbar"/>
+    <include layout="@layout/hj_layout_custom_actionbar"/>
 
     <com.bm.library.PhotoView
         android:id="@+id/photo_view"

@@ -18,7 +18,9 @@ public class PrefManager implements IManager {
 
     private static final String USER_HEADER_PATH = "user_header_path";
     private static final String USER_ACCOUNT = "user_account";
-    private static String SCREEN_WIDTH = "screen_whidth";
+    private static final String USER_NAME = "user_name";
+    private static final String USER_GENDER = "user_gender";
+    private static String SCREEN_WIDTH = "screen_width";
     private static String SCREEN_HEIGHT = "screen_height";
 
     private PrefManager() {
@@ -39,6 +41,8 @@ public class PrefManager implements IManager {
         String uuid = UUID.randomUUID().toString();
         String account = "user" + uuid.substring(uuid.length() - 6);
         instance.setUserAccount(account);
+        instance.setUserName("Tender");
+        instance.setUserGender(1);
     }
 
     @Override
@@ -57,9 +61,20 @@ public class PrefManager implements IManager {
     public static String getUserAccount() {
         return instance.pre.getString(USER_ACCOUNT, "");
     }
-
     public static void setUserAccount(String account) {
         instance.pre.edit().putString(USER_ACCOUNT, account).commit();
+    }
+    public static String getUserName() {
+        return instance.pre.getString(USER_NAME, "");
+    }
+    public static void setUserName(String name) {
+        instance.pre.edit().putString(USER_NAME, name).commit();
+    }
+    public static int getUserGender() {
+        return instance.pre.getInt(USER_GENDER, 0);
+    }
+    public static void setUserGender(int gender) {
+        instance.pre.edit().putInt(USER_GENDER, gender).commit();
     }
 
     public static void saveScreenWidth(int width) {

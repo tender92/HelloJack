@@ -35,7 +35,7 @@
                 android:textSize="14sp"/>
 
             <ImageView
-                android:id="@+id/iv_gender"
+                android:id="@+id/iv_qrcode_gender"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_marginTop="11dp"
@@ -52,7 +52,7 @@
             />
 
         <TextView
-            android:id="@+id/tvTip"
+            android:id="@+id/tv_qrcode_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

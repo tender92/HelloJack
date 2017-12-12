@@ -7,7 +7,12 @@ import android.widget.TextView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.utils.App;
 import com.tender.hellojack.utils.DialogUtil;
+import com.tender.hellojack.utils.StringUtil;
+import com.trello.rxlifecycle.LifecycleTransformer;
+import com.trello.rxlifecycle.android.FragmentEvent;
 import com.trello.rxlifecycle.components.support.RxFragment;
+
+import me.drakeet.materialdialog.MaterialDialog;
 
 /**
  * Created by boyu on 2017/12/7.
@@ -18,6 +23,7 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
     protected Activity mActivity;
 
     private DialogUtil.CustomDialog mWaitingDialog;
+    private MaterialDialog mMaterialDialog;
 
     protected abstract boolean onBackPressed();
 
@@ -59,7 +65,38 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
         DialogUtil.showHint(App.getAppContext(), content);
     }
 
+    @Override
+    public void showMaterialDialog(String tip, String message, String positiveText, String negativeText, View.OnClickListener positiveBtnClickListener, View.OnClickListener negativeBtnClickListener) {
+        hideMaterialDialog();
+        mMaterialDialog = new MaterialDialog(mActivity);
+        if (StringUtil.hasValue(tip)) {
+            mMaterialDialog.setTitle(tip);
+        }
+        if (StringUtil.hasValue(message)) {
+            mMaterialDialog.setMessage(message);
+        }
+        if (StringUtil.hasValue(positiveText)) {
+            mMaterialDialog.setPositiveButton(positiveText, positiveBtnClickListener);
+        }
+        if (StringUtil.hasValue(negativeText)) {
+            mMaterialDialog.setNegativeButton(negativeText, negativeBtnClickListener);
+        }
+        mMaterialDialog.show();
+    }
+
+    @Override
+    public void hideMaterialDialog() {
+        if (mMaterialDialog != null) {
+            mMaterialDialog.dismiss();
+            mMaterialDialog = null;
+        }
+    }
+
     protected View getView(int resId) {
         return mActivity.findViewById(resId);
+    }
+
+    protected final  <T> LifecycleTransformer<T> bindEvent(FragmentEvent event) {
+        return this.<T>bindUntilEvent(event);
     }
 }
