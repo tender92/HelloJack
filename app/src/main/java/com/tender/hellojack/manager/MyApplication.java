@@ -15,7 +15,7 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
-import com.tender.lbs.LocationManager;
+import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.tools.TenderLog;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
@@ -40,7 +40,7 @@ public class MyApplication extends Application {
     public static Looper mMainLooper;//循环队列
     public static Handler mHandler;//主线程Handler
 
-    public LocationManager locationSevice;
+    public BDLocationImpl locationService;
 
     @Override
     public void onCreate() {
@@ -55,7 +55,7 @@ public class MyApplication extends Application {
         TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);
 
         //百度定位
-        locationSevice = LocationManager.getInstance(getApplicationContext());
+        locationService = BDLocationImpl.getInstance(getApplicationContext());
 
         initManager();
         moduleManager = new ModuleManager(this);

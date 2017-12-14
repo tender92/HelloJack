@@ -41,4 +41,8 @@ ext {
     BOTTOM_NAVIGATION_BAR_VERSION = '1.3.0'
     //选项条目控件
     OPTION_ITEM_VIEW_VERSION = '1.0.7'
+    //单选按钮标题提示框
+    METERIAL_DIALOG_VERSION = '1.2.2'
+    //城市选择
+    CITY_PICKER_VERSION = '1.2'
 }

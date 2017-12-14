@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="hj-mvp-model"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a new mvp activity">
+
+    <category value="MVP" />
+    <formfactor value="Mobile" />
+
+	<parameter
+        id="baseName"
+        name="前面名称"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="Main"
+        help="Activity, Fragment, Contract, Presenter的前缀" />
+
+    <parameter
+        id="activityName"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${baseName}Activity"
+        default="MainActivity"
+        help="Activity类。" />
+
+    <parameter
+        id="generateActivityLayout"
+        name="Generate Activity Layout File"
+        type="boolean"
+        default="false"
+        help="如果是true则创建布局xml，false则表示不需要创建" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${baseName}Fragment"
+        help="Fragment类" />
+
+    <parameter
+        id="contractName"
+        name="Contract Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${baseName}Contract"
+        help="MVP 契约类" />
+
+    <parameter
+        id="presenterName"
+        name="Presenter Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${baseName}Presenter"
+        help="Presenter类。P层" />
+
+    <parameter
+        id="contentLayoutName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="hj_fragment_${classToResource(fragmentName)}"
+        default="fragment_main"
+        help="Fragment的布局xml" />
+
+    <parameter
+        id="activityLayoutName"
+        name="Activity Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="hj_${activityToLayout(activityName)}"
+        default="activity_main"
+        visibility="generateActivityLayout"
+        help="Activity的布局xml" />
+    
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.tender.hellojack.business"
+        suggest="com.tender.hellojack.business"/>
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>

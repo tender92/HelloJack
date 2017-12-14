@@ -1,4 +1,4 @@
-package com.tender.lbs.manager;
+package com.tender.lbs.baidu;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -8,13 +8,13 @@ import com.baidu.location.Poi;
  * Created by boyu on 2017/11/3.
  */
 
-public class TenderLocationListener extends BDAbstractLocationListener {
+public class HJLocationListener extends BDAbstractLocationListener {
 
     private StringBuffer sb = new StringBuffer(256);
 
     private CallBack callBack;
 
-    public TenderLocationListener(CallBack callBack) {
+    public HJLocationListener(CallBack callBack) {
         this.callBack = callBack;
     }
 
@@ -25,6 +25,7 @@ public class TenderLocationListener extends BDAbstractLocationListener {
     @Override
     public void onReceiveLocation(BDLocation location) {
         if (location != null && location.getLocType() != BDLocation.TypeServerError) {
+
             callBack.returnLocation(location);
 
             sb.append("time : ");

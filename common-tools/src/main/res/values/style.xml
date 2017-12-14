@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Base application theme. -->
+    <style name="hj_tools_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="hj_tools_StartTheme" parent="hj_tools_AppTheme">
+        <!-- 欢迎页背景引用刚才写好的 -->
+        <item name="android:windowBackground">@mipmap/hj_tools_start_bg</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- <item name="android:windowIsTranslucent">true</item> --> <!-- 透明背景不要了 -->
+    </style>
+
     <style name="hj_tools_dialog_style" parent="android:style/Theme.Dialog">
         <!-- 背景透明 -->
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -16,6 +28,18 @@
         <item name="android:windowIsTranslucent">true</item>
         <!-- Dialog进入及退出动画 -->
         <item name="android:windowAnimationStyle">@style/hj_tools_dialog_style_animation</item>
+    </style>
+
+    <!--圆角Dialog-->
+    <style name="hj_tools_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
     </style>
 
     <!-- ActionSheet进出动画 -->

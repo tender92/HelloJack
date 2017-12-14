@@ -35,7 +35,7 @@
         android:name=".manager.MyApplication"
         android:allowBackup="true"
         android:supportsRtl="true"
-        android:theme="@style/hj_AppTheme">
+        android:theme="@style/hj_tools_AppTheme">
 
         <!-- 百度定位key -->
         <meta-data
@@ -169,7 +169,7 @@
         <activity
             android:name=".business.start.StartActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/hj_StartTheme">
+            android:theme="@style/hj_tools_StartTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

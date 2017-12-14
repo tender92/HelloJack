@@ -21,8 +21,8 @@ import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.manager.MyApplication;
 import com.tender.hellojack.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
-import com.tender.lbs.LocationManager;
-import com.tender.lbs.manager.TenderLocationListener;
+import com.tender.lbs.baidu.BDLocationImpl;
+import com.tender.lbs.baidu.HJLocationListener;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -33,7 +33,6 @@ import com.umeng.socialize.utils.ShareBoardlistener;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
 import rx.functions.Action1;
 
 /**
@@ -96,8 +95,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public void initUIData() {
         //获取locationservice实例，建议应用中只初始化1个location实例，然后使用，可以参考其他示例的activity，都是通过此种方式获取locationservice实例的
-        LocationManager locationManager = ((MyApplication)mActivity.getApplication()).locationSevice;
-        locationManager.registerListener(new TenderLocationListener(new TenderLocationListener.CallBack() {
+        BDLocationImpl locationManager = ((MyApplication)mActivity.getApplication()).locationService;
+        locationManager.registerListener(new HJLocationListener(new HJLocationListener.CallBack() {
             @Override
             public void returnLocation(BDLocation location) {
                 StringBuffer sb = new StringBuffer(256);

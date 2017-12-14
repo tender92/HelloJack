@@ -1,41 +1,39 @@
-package com.tender.lbs;
+package com.tender.lbs.baidu;
 
 import android.content.Context;
 
 import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.tender.lbs.manager.HJLocationListener;
 
 /**
  * Created by boyu on 2017/11/3.
  */
 
-public class LocationManager {
+public class BDLocationImpl {
 
-    private static LocationManager instance;
+    private static BDLocationImpl instance;
 
     private LocationClient client = null;
     private LocationClientOption mOption, mDIYOption;
     private Object objLock = new Object();
     private static HJLocationListener hjListener;
 
-    private LocationManager(Context context) {
+    private BDLocationImpl(Context context) {
         if (client == null) {
             client = new LocationClient(context);
             client.setLocOption(getDefaultLocationClientOption());
         }
     }
 
-    synchronized public static LocationManager getInstance(Context context) {
+    synchronized public static BDLocationImpl getInstance(Context context) {
         if (instance == null) {
-            instance = new LocationManager(context);
+            instance = new BDLocationImpl(context);
         }
         return instance;
     }
 
-    public void getLocation(HJLocationListener.LocationCallBack callBack) {
+    public void getLocation(HJLocationListener.CallBack callBack) {
         hjListener = new HJLocationListener(callBack);
         registerListener(hjListener);
         setLocationOption(getDefaultLocationClientOption());

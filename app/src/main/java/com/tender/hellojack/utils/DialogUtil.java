@@ -57,7 +57,7 @@ public class DialogUtil {
         private Context context;
 
         public WaitingDialog(@NonNull Context con, @NonNull String tip) {
-            super(con, R.style.hj_dialog);
+            super(con, R.style.hj_tools_dialog);
             content = tip;
             context = con;
         }
@@ -74,7 +74,7 @@ public class DialogUtil {
     public static class CustomDialog extends Dialog {
 
         public CustomDialog(Context context, View layout) {
-            super(context, R.style.hj_dialog);
+            super(context, R.style.hj_tools_dialog);
             setContentView(layout);
             Window window = getWindow();
             WindowManager.LayoutParams params = window.getAttributes();
@@ -83,7 +83,7 @@ public class DialogUtil {
         }
 
         public CustomDialog(Context context, int width, int height, View layout) {
-            super(context, R.style.hj_dialog);
+            super(context, R.style.hj_tools_dialog);
             setContentView(layout);
 
             Window window = getWindow();
@@ -109,7 +109,7 @@ public class DialogUtil {
         public SelectedDialog(Context context, String content, boolean scroll,
                               String yesStr, String noStr, Runnable runnableY,
                               Runnable runnableN) {
-            super(context, R.style.hj_dialog);
+            super(context, R.style.hj_tools_dialog);
             this.context = context;
             this.content = content;
             this.scroll = scroll;

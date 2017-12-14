@@ -1,7 +1,15 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tender.tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tender.tools">
 
     <application>
-
+        <!-- 高德地图定位key -->
+        <meta-data android:name="com.amap.api.v2.apikey"
+            android:value="7604a3999148e391cc476c7a66e07307"/>
+        <activity
+            android:name="com.zaaach.citypicker.CityPickerActivity"
+            android:theme="@style/hj_tools_AppTheme"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

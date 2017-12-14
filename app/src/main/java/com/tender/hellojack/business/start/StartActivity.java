@@ -1,30 +1,28 @@
 package com.tender.hellojack.business.start;
 
-import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import com.tender.hellojack.Const;
 import com.tender.hellojack.R;
-import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.base.checkpermission.CheckPermissionsActivity;
+import com.tender.hellojack.base.checkpermission.CheckPermissionsListener;
 import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.utils.DialogUtil;
 import com.tender.tools.utils.ActivityUtils;
 import com.tender.tools.utils.DisplayUtil;
 
+import java.util.List;
+
 /**
  * Created by boyu on 2017/12/7.
  */
 
-public class StartActivity extends BaseActivity {
+public class StartActivity extends CheckPermissionsActivity implements CheckPermissionsListener {
 
     private StartFragment contentFragment;
 
@@ -53,11 +51,43 @@ public class StartActivity extends BaseActivity {
             contentFragment = new StartFragment();
             ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(this, neededPermissions, this);
+        }
     }
 
     @Override
     public void onBackPressed() {
         contentFragment.onBackPressed();
         super.onBackPressed();
+    }
+
+    @Override
+    public void onGranted() {
+        contentFragment.delayToHome();
+    }
+
+    @Override
+    public void onDenied(List<String> permissions) {
+        StringBuilder deniedPermissions = new StringBuilder();
+        for (int i = 0; i < permissions.size(); i ++) {
+            deniedPermissions.append(permissions);
+        }
+        deniedPermissions.append("\n权限被拒绝，进入设置页面开通 \n");
+        DialogUtil.showConfirmDialog(StartActivity.this, deniedPermissions.toString(), "设置", "取消",
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        Uri uri = Uri.parse("package:" + getPackageName());
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri);
+                        startActivity(intent);
+                    }
+                }, new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
     }
 }

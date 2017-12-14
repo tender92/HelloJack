@@ -1,14 +1,13 @@
 package com.tender.hellojack.business.myinfo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ import com.lqr.imagepicker.ImagePicker;
 import com.lqr.imagepicker.bean.ImageItem;
 import com.lqr.imagepicker.ui.ImageGridActivity;
 import com.lqr.optionitemview.OptionItemView;
-import com.tender.hellojack.Const;
+import com.tender.tools.IntentConst;
 import com.tender.hellojack.R;
 import com.tender.hellojack.ShowBigImageActivity;
 import com.tender.hellojack.base.BaseFragment;
@@ -32,12 +31,11 @@ import com.tender.hellojack.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
-import com.tender.tools.TenderLog;
-import com.tender.tools.views.MyPopupWindow;
 import com.tender.tools.views.dialog.SelectRegionDialog;
 import com.tender.tools.views.dialog.WheelDialogCallBack;
 import com.tender.tools.views.wheelview.WheelModel;
 import com.tender.umengshare.DataAnalyticsManager;
+import com.zaaach.citypicker.CityPickerActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +87,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
             public void call(Void aVoid) {
                 DataAnalyticsManager.getInstance().onEvent(mActivity, "event_myinfo_change_header");
                 startActivityForResult(new Intent(mActivity, ImageGridActivity.class),
-                        Const.IRCode.MY_INFO_IMAGE_PICKER);
+                        IntentConst.IRCode.MY_INFO_IMAGE_PICKER);
             }
         });
         RxView.clicks(ivHeader).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -120,7 +118,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivAddress).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showToast("oivAddress");
+                showRegionDialog();
             }
         });
         RxView.clicks(oivGender).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -132,7 +130,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivRegion).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showRegionDialog();
+                startActivityForResult(new Intent(mActivity, CityPickerActivity.class), IntentConst.IRCode.MY_INFO_CITY_PICKER);
             }
         });
         RxView.clicks(oivSignature).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -163,7 +161,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Const.IRCode.MY_INFO_IMAGE_PICKER &&
+        if (requestCode == IntentConst.IRCode.MY_INFO_IMAGE_PICKER &&
                 resultCode == ImagePicker.RESULT_CODE_ITEMS) { //返回多张照片
             if (data != null) {
                 ArrayList<ImageItem> imageList = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
@@ -172,6 +170,12 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
                     PrefManager.setUserHeaderPath(path);
                     ImageLoaderUtil.loadLocalImage(path, ivHeader);
                 }
+            }
+        } else if (requestCode == IntentConst.IRCode.MY_INFO_CITY_PICKER &&
+                resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                oivRegion.setRightText(city);
             }
         }
     }
