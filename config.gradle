@@ -41,8 +41,19 @@ ext {
     BOTTOM_NAVIGATION_BAR_VERSION = '1.3.0'
     //选项条目控件
     OPTION_ITEM_VIEW_VERSION = '1.0.7'
+    //头像
+    CIRCLE_IMAGE_VIEW = '2.0.0'
     //单选按钮标题提示框
     METERIAL_DIALOG_VERSION = '1.2.2'
-    //城市选择
-    CITY_PICKER_VERSION = '1.2'
+    //单个城市选择
+    ZAAACH_CITY_PICKER_VERSION = '1.2'
+    //省市区选择器
+    LEEFENG_CITY_PICKER_VERSION = '1.0'
+    //万能适配器
+    ADAPTER_VERSION = '1.0.1'
+    //简单的RecyclerView
+    RECYCLER_VIEW_VERSION = '1.0.2'
+
+    // 网易云通信 添加依赖。注意，版本号必须一致。
+    NET_EASE_IM_VERSION = '4.4.0'
 }

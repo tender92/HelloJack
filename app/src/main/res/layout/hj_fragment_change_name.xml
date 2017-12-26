@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/hj_gray5">
+    android:background="@color/hj_tools_gray5">
 
     <com.tender.tools.views.ClearEditText
         android:id="@+id/cet_change_name_name"
@@ -15,7 +15,7 @@
         android:layout_marginTop="25dp"
         android:background="@null"
         android:drawablePadding="5dp"
-        android:drawableBottom="@drawable/hj_tools_shape_bottom_green"
+        android:drawableBottom="@drawable/hj_tools_shape_edit_text_bottom_green"
         android:gravity="bottom"
         android:maxLength="255"
         android:padding="5dp"
@@ -29,5 +29,5 @@
         android:layout_marginRight="15dp"
         android:text="好名字可以让你的朋友，更容易记住你"
         android:textSize="14sp"
-        android:textColor="@color/hj_gray1"/>
+        android:textColor="@color/hj_tools_gray1"/>
 </LinearLayout>

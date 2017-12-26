@@ -21,6 +21,7 @@ android {
         versionCode 1
         versionName "1.0"
         resourcePrefix "hj_"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
@@ -85,6 +86,7 @@ dependencies {
     compile project(':location-service')
     compile project(':message-push')
     compile project(':baidu-tts')
+    compile project(':instant-message')
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })
@@ -101,12 +103,6 @@ dependencies {
     compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
     compile "com.jakewharton:butterknife:${BUTTER_KNIFE_VERSION}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTER_KNIFE_VERSION}"
-    compile "com.lqr.imagepicker:library:${IMAGE_PICKER_VERSION}"
-    compile "com.nostra13.universalimageloader:universal-image-loader:${IMAGE_LOADER_VERSION}"
-    compile "com.bm.photoview:library:${PHOTO_VIEW_VERSION}"
-    compile "com.google.zxing:core:${GOOGLE_ZXING_CORE_VERSION}"
-    compile "cn.bingoogolapple:bga-qrcodecore:${QRCODE_CORE_VERSION}@aar"
-    compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"
     compile "pub.devrel:easypermissions:${QRCODE_SCAN_VERSION}"
 //    testCompile 'junit:junit:4.12'
 }

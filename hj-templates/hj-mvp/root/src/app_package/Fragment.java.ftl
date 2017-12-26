@@ -32,12 +32,22 @@ public class ${fragmentName} extends BaseFragment implements ${contractName}.Vie
     }
 
     @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
+    }
+
+    @Override
     public void setPresenter(${contractName}.Presenter presenter) {
         mPresenter = presenter;
     }
 
     @Override
-    protected boolean onBackPressed() {
-        return false;
+    protected void onBackPressed() {
+
     }
 }

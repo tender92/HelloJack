@@ -6,14 +6,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
-import android.view.View;
 
-import com.tender.hellojack.R;
 import com.tender.hellojack.base.checkpermission.CheckPermissionsActivity;
 import com.tender.hellojack.base.checkpermission.CheckPermissionsListener;
-import com.tender.hellojack.manager.PrefManager;
-import com.tender.hellojack.utils.DialogUtil;
-import com.tender.tools.utils.ActivityUtils;
+import com.tender.hellojack.business.home.HomeActivity;
+import com.tender.hellojack.business.login.LoginActivity;
+import com.tender.tools.manager.PrefManager;
+import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.TenderLog;
 import com.tender.tools.utils.DisplayUtil;
 
 import java.util.List;
@@ -24,18 +24,18 @@ import java.util.List;
 
 public class StartActivity extends CheckPermissionsActivity implements CheckPermissionsListener {
 
-    private StartFragment contentFragment;
+//    private StartFragment contentFragment;
 
     @Override
     protected void initLayout() {
-        setContentView(R.layout.hj_activity_model);
+//        setContentView(R.layout.hj_activity_model);
     }
 
     @Override
     protected void initToolbar() {
-        hideToolbar();
-        View view = findViewById(R.id.hj_view_fill_up);
-        view.setVisibility(View.GONE);
+//        hideToolbar();
+//        View view = findViewById(R.id.hj_view_fill_up);
+//        view.setVisibility(View.GONE);
     }
 
     @Override
@@ -46,11 +46,11 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
         PrefManager.saveScreenWidth(metrics.widthPixels - 2 * DisplayUtil.dip2px(this, 20));
         PrefManager.saveScreenHeight(metrics.heightPixels);
 
-        contentFragment = (StartFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
-        if (contentFragment == null) {
-            contentFragment = new StartFragment();
-            ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
-        }
+//        contentFragment = (StartFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
+//        if (contentFragment == null) {
+//            contentFragment = new StartFragment();
+//            ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
+//        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(this, neededPermissions, this);
@@ -59,13 +59,12 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
 
     @Override
     public void onBackPressed() {
-        contentFragment.onBackPressed();
         super.onBackPressed();
     }
 
     @Override
     public void onGranted() {
-        contentFragment.delayToHome();
+        delayToLogin();
     }
 
     @Override
@@ -79,7 +78,7 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
                 new Runnable() {
                     @Override
                     public void run() {
-                        Uri uri = Uri.parse("package:" + getPackageName());
+                        Uri uri = Uri.parse("package:" + StartActivity.this.getPackageName());
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, uri);
                         startActivity(intent);
                     }
@@ -89,5 +88,15 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
 
                     }
                 });
+    }
+
+    public void delayToLogin() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            TenderLog.e(e.getMessage());
+        }
+        startActivity(new Intent(this, HomeActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
     }
 }

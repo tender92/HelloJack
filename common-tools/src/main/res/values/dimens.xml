@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hj_tools_text_xlarge_size">20sp</dimen>
+    <dimen name="hj_tools_text_large_size">18sp</dimen>
+    <dimen name="hj_tools_text_big_size">16sp</dimen>
+    <dimen name="hj_tools_text_normal_size">14sp</dimen>
+    <dimen name="hj_tools_text_small_size">12sp</dimen>
+    <dimen name="hj_tools_text_smaller_size">10sp</dimen>
+</resources>

@@ -12,6 +12,10 @@ public interface IView<T> {
 
     void initUIData();
 
+    void showNetLoading(String tip);
+
+    void hideNetLoading();
+
     /**
      * 需要取消订阅的生命周期时机
      *

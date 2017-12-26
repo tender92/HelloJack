@@ -5,6 +5,6 @@
         android:centerX="0"
         android:centerY="0"
         android:startColor="#72b8ff"
-        android:endColor="@color/hj_toolbar_bg"
+        android:endColor="@color/hj_tools_toolbar_bg"
         android:type="linear"/>
 </shape>

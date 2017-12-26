@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_my_friends_item"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/hj_tools_white">
+
+    <TextView
+        android:id="@+id/tv_my_friends_letter_index"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:background="#E5E5E5"
+        android:gravity="center_vertical"
+        android:text="A"
+        android:paddingLeft="15dp"
+        android:textColor="#989898"
+        android:textSize="13sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:orientation="horizontal"
+        android:background="@drawable/hj_selector_option_item"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7.5dp"
+        android:paddingTop="7.5dp">
+        <ImageView
+            android:id="@+id/iv_my_friends_item_header"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/hj_mine_default_header"/>
+
+        <TextView
+            android:id="@+id/tv_my_friends_item_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:textColor="@color/hj_tools_gray0"
+            android:text="沧晓"/>
+
+        <CheckBox
+            android:id="@+id/cb_my_friends_item_select"
+            android:visibility="gone"
+            style="@style/hj_tools_custom_check_box"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_my_friends_item_line"
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:visibility="visible"
+        />
+</LinearLayout>

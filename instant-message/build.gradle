@@ -13,6 +13,10 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "armeabi-v7a", "x86","arm64-v8a","x86_64"
+        }
     }
     buildTypes {
         release {
@@ -29,4 +33,18 @@ dependencies {
     })
     compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
     testCompile 'junit:junit:4.12'
+
+    // 基础功能 (必需)
+    compile "com.netease.nimlib:basesdk:${NET_EASE_IM_VERSION}"
+    // 音视频和互动白板服务需要
+    compile "com.netease.nimlib:nrtc:${NET_EASE_IM_VERSION}"
+    // 音视频需要
+    compile "com.netease.nimlib:avchat:${NET_EASE_IM_VERSION}"
+    // 聊天室需要
+    compile "com.netease.nimlib:chatroom:${NET_EASE_IM_VERSION}"
+    // 互动白板服务需要
+    compile "com.netease.nimlib:rts:${NET_EASE_IM_VERSION}"
+    // 全文检索服务需要
+    compile "com.netease.nimlib:lucene:${NET_EASE_IM_VERSION}"
+    compile project(path: ':common-tools')
 }

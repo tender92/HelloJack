@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.tender.tools.R;
-import com.tender.tools.utils.StringUtil;
+import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.views.wheelview.WheelUtil;
 import com.tender.tools.views.wheelview.WheelView;
 

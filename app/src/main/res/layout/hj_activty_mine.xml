@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:background="@color/hj_gray5"
+    android:background="@color/hj_tools_gray5"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:text="Tender"
-                android:textColor="@color/hj_gray0"
+                android:textColor="@color/hj_tools_gray0"
                 android:textSize="@dimen/hj_text_large_size"/>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="微信号:"
-                    android:textColor="@color/hj_gray2"
+                    android:textColor="@color/hj_tools_gray2"
                     android:textSize="@dimen/hj_text_normal_size"/>
                 <TextView
                     android:id="@+id/tv_mine_account"
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:text="hdlgdx987"
-                    android:textColor="@color/hj_gray2"
+                    android:textColor="@color/hj_tools_gray2"
                     android:textSize="@dimen/hj_text_normal_size"/>
             </LinearLayout>
         </LinearLayout>

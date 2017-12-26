@@ -10,10 +10,10 @@ import com.baidu.tts.client.SpeechError;
 import com.baidu.tts.client.SpeechSynthesizer;
 import com.baidu.tts.client.SpeechSynthesizerListener;
 import com.baidu.tts.client.TtsMode;
-import com.tender.hellojack.utils.App;
 import com.tender.speech.SpeechConfig;
 import com.tender.speech.SpeechManager;
 import com.tender.tools.TenderLog;
+import com.tender.tools.utils.UIUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by boyu on 17/5/9.
  */
 public class SpeechService extends Service {
-    private SpeechManager speechManager = SpeechManager.getInstance(App.getAppContext());
+    private SpeechManager speechManager = SpeechManager.getInstance(UIUtil.getAppContext());
 
     @Override
     public IBinder onBind(Intent intent) {

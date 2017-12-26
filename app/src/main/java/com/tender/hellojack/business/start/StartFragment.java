@@ -1,6 +1,5 @@
 package com.tender.hellojack.business.start;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tender.hellojack.R;
-import com.tender.hellojack.business.home.HomeActivity;
-import com.tender.tools.TenderLog;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 /**
@@ -30,17 +27,8 @@ public class StartFragment extends RxFragment {
         super.onCreate(savedInstanceState);
     }
 
-    public void delayToHome() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            TenderLog.e(e.getMessage());
-        }
-        startActivity(new Intent(getActivity(), HomeActivity.class));
-    }
+    public void onBackPressed() {
 
-    public boolean onBackPressed() {
-        return false;
     }
 
 }

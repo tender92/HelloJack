@@ -30,6 +30,19 @@
         <item name="android:windowAnimationStyle">@style/hj_tools_dialog_style_animation</item>
     </style>
 
+    <!-- 带边框的EditText -->
+    <style name="hj_tools_edit_text_style">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textSize">@dimen/hj_tools_text_normal_size</item>
+        <item name="android:textColor">@color/hj_tools_gray10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColorHint">@color/hj_tools_gray3</item>
+    </style>
+
     <!--圆角Dialog-->
     <style name="hj_tools_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -60,5 +73,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.5dp</item>
         <item name="android:background">@color/hj_tools_line</item>
+    </style>
+
+    <style name="hj_tools_custom_check_box" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/hj_tools_selector_checkbox_bg</item>
     </style>
 </resources>

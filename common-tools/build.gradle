@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: "../config.gradle"
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
@@ -20,6 +21,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -29,12 +35,23 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile "com.android.support:appcompat-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
+    compile "com.android.support:cardview-v7:${ANDROID_DESIGN_SUPPORT_VERSION}"
     compile "com.contrarywind:Android-PickerView:${ANDROID_PICKER_VIEW_VERSION}"
     compile "org.apache.commons:commons-lang3:${APARCHE_COMMON_LANG3}"
     compile "com.ashokvarma.android:bottom-navigation-bar:${BOTTOM_NAVIGATION_BAR_VERSION}"
 
     compile "com.lqr.optionitemview:library:${OPTION_ITEM_VIEW_VERSION}"
     compile "me.drakeet.materialdialog:library:${METERIAL_DIALOG_VERSION}"
-    compile "com.zaaach:citypicker:${CITY_PICKER_VERSION}"
+    compile "com.zaaach:citypicker:${ZAAACH_CITY_PICKER_VERSION}"
+    compile "me.leefeng:citypicker:${LEEFENG_CITY_PICKER_VERSION}"
+    compile "de.hdodenhof:circleimageview:${CIRCLE_IMAGE_VIEW}"
+    compile "com.lqr.imagepicker:library:${IMAGE_PICKER_VERSION}"
+    compile "com.nostra13.universalimageloader:universal-image-loader:${IMAGE_LOADER_VERSION}"
+    compile "com.bm.photoview:library:${PHOTO_VIEW_VERSION}"
+    compile "com.google.zxing:core:${GOOGLE_ZXING_CORE_VERSION}"
+    compile "cn.bingoogolapple:bga-qrcodecore:${QRCODE_CORE_VERSION}@aar"
+    compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"
+    compile "com.lqr.recyclerview:library:${RECYCLER_VIEW_VERSION}"
+    compile "com.lqr.adapter:library:${ADAPTER_VERSION}"
     testCompile 'junit:junit:4.12'
 }

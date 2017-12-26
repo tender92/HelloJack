@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="To My Info"
-        android:textSize="@dimen/hj_text_size_40px"
-        android:textColor="@color/hj_white"
-        android:background="@color/hj_toolbar_bg"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
         android:layout_marginTop="10dp"
         android:gravity="center"/>
 
@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Share is Pleasure"
-        android:textSize="@dimen/hj_text_size_40px"
-        android:textColor="@color/hj_white"
-        android:background="@color/hj_toolbar_bg"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
         android:layout_marginTop="10dp"
         android:gravity="center"/>
 
@@ -31,8 +31,8 @@
         android:id="@+id/tv_home_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/hj_text_size_30px"
-        android:background="@color/hj_toolbar_bg"
+        android:padding="@dimen/hj_tools_text_size_30px"
+        android:background="@color/hj_tools_toolbar_bg"
         android:scrollbars="vertical"/>
 
     <com.tender.tools.views.RainbowBar

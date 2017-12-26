@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- universal -->
+    <color name="hj_tools_toolbar_bg">#59a2ea</color>
     <color name="hj_tools_white">#ffffff</color>
-    <color name="hj_tools_gray8">#D9D9D9</color>
     <color name="hj_tools_line">#D2D2D2</color>
 
     <color name="hj_tools_green1">#45C01A</color>
     <color name="hj_tools_green2">#A3DEA3</color>
     <color name="hj_tools_green3">#1AAD19</color>
+
+    <color name="hj_tools_gray0">#464646</color>
+    <color name="hj_tools_gray1">#7e7e7e</color>
+    <color name="hj_tools_gray2">#969696</color>
+    <color name="hj_tools_gray3">#c8969696</color>
+    <color name="hj_tools_gray4">#F5F5F5</color>
+    <color name="hj_tools_gray5">#EBEBEB</color>
+    <color name="hj_tools_gray8">#D9D9D9</color>
+    <color name="hj_tools_gray10">#4D5864</color>
+
+    <color name="hj_tools_black0">#000000</color>
+    <color name="hj_tools_black1">#99000000</color>
+
+    <color name="hj_tools_yellow0">#FFC51B</color>
+    <color name="hj_tools_yellow1">#E5A134</color>
+
+    <color name="hj_tools_red0">#ff0000</color>
+
+    <!-- BottomNavigationBar -->
+    <color name="hj_tools_home_bar_inactive">#4D5864</color>
+
+    <!--  -->
+    <color name="hj_tools_login_bg">#f6fafd</color>
+
+    <!-- DialogUtil -->
+    <color name="hj_tools_toast_start_color">#859cc7</color>
+    <color name="hj_tools_toast_end_color">#60708e</color>
+
+    <!--快速索引bar颜色-->
+    <color name="hj_tools_side_bar">#919091</color>
+    <color name="hj_tools_side_bar_pressed">#BFBFBF</color>
 </resources>

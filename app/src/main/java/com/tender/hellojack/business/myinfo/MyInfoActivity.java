@@ -15,8 +15,6 @@ public class MyInfoActivity extends BaseActivity {
 
     private MyInfoFragment contentFragment;
 
-
-
     @Override
     protected void initLayout() {
         setContentView(R.layout.hj_activity_model);
@@ -37,5 +35,10 @@ public class MyInfoActivity extends BaseActivity {
             new MyInfoPresenter(Injection.provideRepository(), contentFragment, Injection.provideSchedule());
             ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        contentFragment.onBackPressed();
     }
 }

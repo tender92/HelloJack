@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tender.tools">
 
+    <!-- 权限声明统一放在这里 -->
+
     <application>
         <!-- 高德地图定位key -->
         <meta-data android:name="com.amap.api.v2.apikey"

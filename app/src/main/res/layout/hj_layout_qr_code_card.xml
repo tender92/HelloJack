@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/hj_white"
+        android:background="@color/hj_tools_white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text="hdlgdx987"
-                android:textColor="@color/hj_gray0"
+                android:textColor="@color/hj_tools_gray0"
                 android:textSize="14sp"/>
 
             <ImageView
@@ -60,7 +60,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:textColor="@color/hj_gray1"
+            android:textColor="@color/hj_tools_gray1"
             android:textSize="12sp"/>
     </LinearLayout>
 </FrameLayout>

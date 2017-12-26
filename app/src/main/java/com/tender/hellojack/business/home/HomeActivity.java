@@ -11,8 +11,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseActivity;
+import com.tender.hellojack.business.mine.MineFragment;
+import com.tender.hellojack.business.mine.MinePresenter;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.hellojack.utils.DialogUtil;
+import com.tender.tools.utils.DialogUtil;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.views.dialog.SelectDateDialog;
 import com.tender.tools.views.dialog.WheelDialogCallBack;
@@ -38,6 +40,7 @@ public class HomeActivity extends BaseActivity {
 
     private ArrayList<Fragment> mFragmentList = new ArrayList<>();
     private HomeFragment mHomeFragment;
+    private MineFragment mMineFragment;
 
     @Override
     protected void initLayout() {
@@ -67,15 +70,15 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
 
-        bnbBottom.addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "我的")
+        bnbBottom.addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "首页")
                 .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
-                .setInActiveColorResource(R.color.hj_home_bar_inactive))
+                .setInActiveColorResource(R.color.hj_tools_home_bar_inactive))
                 .addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "我的")
                         .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
-                        .setInActiveColorResource(R.color.hj_home_bar_inactive))
+                        .setInActiveColorResource(R.color.hj_tools_home_bar_inactive))
                 .addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "我的")
                         .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
-                        .setInActiveColorResource(R.color.hj_home_bar_inactive))
+                        .setInActiveColorResource(R.color.hj_tools_home_bar_inactive))
                 .initialise();
         bnbBottom.setMode(BottomNavigationBar.MODE_FIXED);
         bnbBottom.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
@@ -99,12 +102,14 @@ public class HomeActivity extends BaseActivity {
         mHomeFragment = new HomeFragment();
         new HomePresenter(Injection.provideRepository(), mHomeFragment, Injection.provideSchedule());
         mFragmentList.add(mHomeFragment);
-        mHomeFragment = new HomeFragment();
-        new HomePresenter(Injection.provideRepository(), mHomeFragment, Injection.provideSchedule());
-        mFragmentList.add(mHomeFragment);
-        mHomeFragment = new HomeFragment();
-        new HomePresenter(Injection.provideRepository(), mHomeFragment, Injection.provideSchedule());
-        mFragmentList.add(mHomeFragment);
+
+        mMineFragment = new MineFragment();
+        new MinePresenter(Injection.provideRepository(), mMineFragment, Injection.provideSchedule());
+        mFragmentList.add(mMineFragment);
+
+        mMineFragment = new MineFragment();
+        new MinePresenter(Injection.provideRepository(), mMineFragment, Injection.provideSchedule());
+        mFragmentList.add(mMineFragment);
         vpContent.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
@@ -115,6 +120,7 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 bnbBottom.selectTab(position);
+                setTitleByPosition(position);
             }
 
             @Override
@@ -133,6 +139,20 @@ public class HomeActivity extends BaseActivity {
                 return mFragmentList.size();
             }
         });
+    }
+
+    private void setTitleByPosition(int position) {
+        switch (position) {
+            case 0:
+                updateTitle("首页");
+                break;
+            case 1:
+                updateTitle("我的");
+                break;
+            case 2:
+                updateTitle("我的");
+                break;
+        }
     }
 
     @Override

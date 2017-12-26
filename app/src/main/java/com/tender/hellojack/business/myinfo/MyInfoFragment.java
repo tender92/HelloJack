@@ -1,10 +1,7 @@
 package com.tender.hellojack.business.myinfo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,34 +17,33 @@ import com.lqr.imagepicker.ImagePicker;
 import com.lqr.imagepicker.bean.ImageItem;
 import com.lqr.imagepicker.ui.ImageGridActivity;
 import com.lqr.optionitemview.OptionItemView;
-import com.tender.tools.IntentConst;
 import com.tender.hellojack.R;
 import com.tender.hellojack.ShowBigImageActivity;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.myinfo.changename.ChangeNameActivity;
+import com.tender.hellojack.business.myinfo.changesignature.ChangeSignatureActivity;
 import com.tender.hellojack.business.myinfo.qrcodecard.QRCodeCardActivity;
-import com.tender.hellojack.manager.PrefManager;
-import com.tender.hellojack.utils.DialogUtil;
+import com.tender.tools.manager.PrefManager;
+import com.tender.tools.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
-import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
-import com.tender.tools.views.dialog.SelectRegionDialog;
-import com.tender.tools.views.dialog.WheelDialogCallBack;
-import com.tender.tools.views.wheelview.WheelModel;
+import com.tender.tools.IntentConst;
+import com.tender.tools.utils.string.StringUtil;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.zaaach.citypicker.CityPickerActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import me.leefeng.citypicker.CityPicker;
+import me.leefeng.citypicker.CityPickerListener;
 import rx.functions.Action1;
 
 /**
  * Created by boyu on 2017/12/7.
  */
 
-public class MyInfoFragment extends BaseFragment implements MyInfoContract.View {
+public class MyInfoFragment extends BaseFragment implements MyInfoContract.View, CityPickerListener {
 
     private MyInfoContract.Presenter mPresenter;
 
@@ -59,14 +55,8 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
     private TextView tvMale, tvFemale;
     private Drawable mGenderSelect, mGenderUnSelect;
 
-    private SelectRegionDialog regionDialog;
-    private int mWheelSelectIndexRegion = 0;
-    private List<WheelModel> regionData = new ArrayList<>();
-    private static final String[] PLANETS = new String[]{
-            "美国", "英国", "中国", "法国", "西班牙"};
-    private static final int[] PLANETS_NATIONAL = new int[]{
-            R.mipmap.hj_region_america, R.mipmap.hj_region_britain, R.mipmap.hj_region_china,
-            R.mipmap.hj_region_france, R.mipmap.hj_region_spain};
+    //省市区联动选择器
+    private CityPicker mCityPicker;
 
     @Nullable
     @Override
@@ -103,12 +93,6 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
                 startActivity(new Intent(mActivity, ChangeNameActivity.class));
             }
         });
-        RxView.clicks(oivAccount).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                showToast("oivAccount");
-            }
-        });
         RxView.clicks(oivQRCode).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
@@ -118,7 +102,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivAddress).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showRegionDialog();
+                mCityPicker.show();
             }
         });
         RxView.clicks(oivGender).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -136,21 +120,27 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         RxView.clicks(oivSignature).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                showToast("oivSignature");
+                startActivity(new Intent(mActivity, ChangeSignatureActivity.class));
             }
         });
         return root;
     }
 
     @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        for (int i = 0; i < PLANETS.length; i++) {
-            String kv = PLANETS[i];
-            Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(PLANETS_NATIONAL[i])).getBitmap();
-            regionData.add(new WheelModel(kv, bitmap, kv));
-        }
+        mCityPicker = new CityPicker(mActivity, this);
 
         mGenderSelect = mActivity.getResources().getDrawable(R.mipmap.hj_list_selected);
         mGenderUnSelect = mActivity.getResources().getDrawable(R.mipmap.hj_list_unselected);
@@ -176,13 +166,18 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
             if (data != null) {
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
                 oivRegion.setRightText(city);
+                PrefManager.setUserRegion(city);
             }
         }
     }
 
     @Override
-    protected boolean onBackPressed() {
-        return false;
+    protected void onBackPressed() {
+        if (mCityPicker.isShow()) {
+            mCityPicker.close();
+        } else {
+            mActivity.finish();
+        }
     }
 
     @Override
@@ -205,21 +200,15 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View 
         oivName.setRightText(PrefManager.getUserName());
         oivAccount.setRightText(PrefManager.getUserAccount());
         oivGender.setRightText(PrefManager.getUserGender() == 1 ? "男" : "女");
+        oivAddress.setRightText(PrefManager.getUserAddress());
+        oivRegion.setRightText(PrefManager.getUserRegion());
+        oivSignature.setRightText(PrefManager.getUserSignature());
     }
 
     @Override
-    public void showRegionDialog() {
-        if (regionDialog == null) {
-            regionDialog = new SelectRegionDialog(mActivity, mWheelSelectIndexRegion, true, regionData,
-                    new WheelDialogCallBack() {
-                        @Override
-                        public void onCallback(Context context, String selectString) {
-                            mWheelSelectIndexRegion = Integer.parseInt(selectString);
-                            oivRegion.setRightText(PLANETS[mWheelSelectIndexRegion]);
-                        }
-                    });
-        }
-        regionDialog.show();
+    public void getCity(String name) {
+        oivAddress.setRightText(name);
+        PrefManager.setUseAddress(name);
     }
 
     @Override

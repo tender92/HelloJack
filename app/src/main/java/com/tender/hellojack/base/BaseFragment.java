@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.tender.hellojack.R;
-import com.tender.hellojack.utils.App;
-import com.tender.hellojack.utils.DialogUtil;
-import com.tender.hellojack.utils.StringUtil;
+import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.string.StringUtil;
+import com.tender.tools.utils.UIUtil;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.android.FragmentEvent;
 import com.trello.rxlifecycle.components.support.RxFragment;
@@ -25,7 +25,7 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
     private DialogUtil.CustomDialog mWaitingDialog;
     private MaterialDialog mMaterialDialog;
 
-    protected abstract boolean onBackPressed();
+    protected abstract void onBackPressed();
 
     @Override
     public void onAttach(Activity activity) {
@@ -44,7 +44,7 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
     @Override
     public void showWaitingDialog(String tip) {
         hideWaitingDialog();
-        View root = View.inflate(mActivity, R.layout.hj_dialog_waiting, null);
+        View root = View.inflate(mActivity, R.layout.hj_tools_dialog_waiting, null);
         TextView tvTip = root.findViewById(R.id.tv_dialog_waiting_tip);
         tvTip.setText(tip);
         mWaitingDialog = new DialogUtil.CustomDialog(mActivity, root);
@@ -62,7 +62,7 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
 
     @Override
     public void showToast(String content) {
-        DialogUtil.showHint(App.getAppContext(), content);
+        UIUtil.showToast(content);
     }
 
     @Override

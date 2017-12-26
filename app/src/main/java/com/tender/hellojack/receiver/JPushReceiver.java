@@ -8,8 +8,8 @@ import android.text.TextUtils;
 
 import com.tender.hellojack.TestActivity;
 import com.tender.hellojack.service.SpeechService;
-import com.tender.hellojack.utils.StringUtil;
 import com.tender.tools.TenderLog;
+import com.tender.tools.utils.string.StringUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;

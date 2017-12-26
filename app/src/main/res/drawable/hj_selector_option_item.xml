@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/hj_gray8" android:state_pressed="true"></item>
-    <item android:drawable="@color/hj_white" android:state_pressed="false"></item>
-    <item android:drawable="@color/hj_white"></item>
+    <item android:drawable="@color/hj_tools_gray8" android:state_pressed="true"></item>
+    <item android:drawable="@color/hj_tools_white" android:state_pressed="false"></item>
+    <item android:drawable="@color/hj_tools_white"></item>
 </selector>

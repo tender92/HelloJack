@@ -2,7 +2,6 @@ package com.tender.hellojack.business.home;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,11 +14,10 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
 import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
-import com.tender.hellojack.MineActivity;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.hellojack.utils.DialogUtil;
+import com.tender.tools.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.lbs.baidu.HJLocationListener;
@@ -63,7 +61,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 .subscribe(new Action1<Void>() {
                     @Override
                     public void call(Void aVoid) {
-                        startActivity(new Intent(mActivity, MineActivity.class));
+
                     }
                 });
         RxView.clicks(btnShare).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
@@ -83,8 +81,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    protected boolean onBackPressed() {
-        return false;
+    protected void onBackPressed() {
+
     }
 
     @Override
@@ -182,6 +180,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }));
         locationManager.setLocationOption(locationManager.getDefaultLocationClientOption());
         locationManager.start();// start之后会默认发起一次定位请求，开发者无须判断isstart并主动调用request
+    }
+
+    @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
     }
 
     private void printLocationInfo(String s) {

@@ -2,6 +2,160 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/hj_tools_gray5">
 
+    <LinearLayout
+        android:id="@+id/ll_my_info"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/hj_selector_option_item"
+        android:orientation="horizontal"
+        android:paddingRight="3dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_mine_header"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/hj_mine_default_header"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="65dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tv_mine_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="Tender"
+                android:textColor="@color/hj_tools_gray0"
+                android:textSize="@dimen/hj_text_large_size"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="微信号:"
+                    android:textColor="@color/hj_tools_gray2"
+                    android:textSize="@dimen/hj_text_normal_size"/>
+                <TextView
+                    android:id="@+id/tv_mine_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="hdlgdx987"
+                    android:textColor="@color/hj_tools_gray2"
+                    android:textSize="@dimen/hj_text_normal_size"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_mine_qrcode"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/hj_qr_code"/>
+    </LinearLayout>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_scan"
+        style="@style/hj_tools_optionItem"
+        android:layout_marginTop="20dp"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_scan"
+        app:left_text="扫一扫"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_my_friends"
+        style="@style/hj_tools_optionItem"
+        android:layout_marginTop="20dp"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_my_friends"
+        app:left_text="我的朋友"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/hj_tools_white">
+        <View
+            style="@style/hj_tools_line1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_near_by"
+        style="@style/hj_tools_optionItem"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_near_by"
+        app:left_text="附近的人"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_card_packet"
+        style="@style/hj_tools_optionItem"
+        android:layout_marginTop="20dp"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_card_packet"
+        app:left_text="卡包"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/hj_tools_white">
+        <View
+            style="@style/hj_tools_line1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+    </LinearLayout>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_shop"
+        style="@style/hj_tools_optionItem"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_shop"
+        app:left_text="购物"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_setting"
+        style="@style/hj_tools_optionItem"
+        android:layout_marginTop="20dp"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_setting"
+        app:left_text="设置"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
 </LinearLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/hj_tools_login_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1.9"
+        android:layout_height="0dp"
+        android:background="@mipmap/hj_login_top_bg">
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.0"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2.85"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.tender.tools.views.ClearEditText
+                android:id="@+id/cet_register_user_account"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                style="@style/hj_tools_edit_text_style"
+                android:background="@drawable/hj_tools_shape_edit_text_bg"
+                android:drawableLeft="@mipmap/hj_login_input_account"
+                android:drawablePadding="10dp"
+                android:hint="填写用户号"/>
+
+            <com.tender.tools.views.ClearEditText
+                android:id="@+id/cet_register_user_name"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                style="@style/hj_tools_edit_text_style"
+                android:background="@drawable/hj_tools_shape_edit_text_bg"
+                android:drawableLeft="@mipmap/hj_login_input_user"
+                android:drawablePadding="10dp"
+                android:hint="填写昵称"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/hj_tools_shape_edit_text_bg">
+                <com.tender.tools.views.ClearEditText
+                    android:id="@+id/cet_register_user_pwd"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    style="@style/hj_tools_edit_text_style"
+                    android:drawableLeft="@mipmap/hj_login_input_pwd"
+                    android:drawablePadding="10dp"
+                    android:inputType="textPassword"
+                    android:hint="填写密码"/>
+                <ImageView
+                    android:id="@+id/iv_register_pwd_show"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/hj_login_pwd_hide"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register_register"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/hj_tools_selector_button_bg"
+                android:text="注册"
+                android:textColor="@color/hj_tools_white"
+                android:textSize="@dimen/hj_tools_text_big_size"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+    </RelativeLayout>
+</LinearLayout>

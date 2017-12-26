@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.hellojack.utils.DialogUtil;
+import com.tender.tools.utils.DialogUtil;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 

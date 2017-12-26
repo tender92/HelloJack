@@ -8,7 +8,7 @@ import com.tender.hellojack.base.IView;
  */
 public class MineContract {
     interface View extends IView<Presenter> {
-
+        void showMyQRCode();
     }
 
     interface Presenter extends IPresenter {

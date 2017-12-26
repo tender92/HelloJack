@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
-import com.tender.hellojack.manager.PrefManager;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
-import com.tender.hellojack.utils.App;
-import com.tender.hellojack.utils.StringUtil;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.string.StringUtil;
+import com.tender.tools.utils.UIUtil;
 
 import cn.bingoogolapple.qrcode.zxing.QRCodeEncoder;
 
@@ -50,8 +50,8 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
     }
 
     @Override
-    protected boolean onBackPressed() {
-        return false;
+    protected void onBackPressed() {
+
     }
 
     @Override
@@ -78,7 +78,7 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
                 final Bitmap codeWithLogo5 = QRCodeEncoder.syncEncodeQRCode(mQRCodeStr,
                         DisplayUtil.dip2px(mActivity, 200));
 
-                App.postTaskSafely(new Runnable() {
+                UIUtil.postTaskSafely(new Runnable() {
                     @Override
                     public void run() {
                         ivQRCode.setImageBitmap(codeWithLogo5);
@@ -86,5 +86,15 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
                 });
             }
         });
+    }
+
+    @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
     }
 }

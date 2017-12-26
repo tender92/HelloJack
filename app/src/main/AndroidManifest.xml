@@ -176,15 +176,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".business.home.HomeActivity" />
-        <activity android:name=".MineActivity" />
+        <!-- <activity -->
+        <!-- android:name=".business.home.HomeActivity" -->
+        <!-- android:configChanges="keyboardHidden|orientation" /> -->
         <activity android:name=".business.myinfo.MyInfoActivity" />
         <activity android:name=".ShowBigImageActivity" />
         <activity android:name=".TestActivity" />
+        <activity android:name=".business.home.HomeActivity" />
         <activity android:name=".business.myinfo.qrcodecard.QRCodeCardActivity" />
         <activity android:name=".business.myinfo.changename.ChangeNameActivity" />
         <activity android:name=".business.myinfo.changesignature.ChangeSignatureActivity" />
-        <activity android:name=".business.mine.MineActivity" />
+        <activity android:name=".business.login.LoginActivity" />
+        <activity android:name=".business.register.RegisterActivity" />
+        <activity android:name=".business.mine.cardpacket.CardPacketActivity" />
+        <activity android:name=".business.mine.cardpacket.coupon.CouponActivity" />
+        <activity android:name=".business.mine.scan.ScanActivity" />
+        <activity android:name=".business.webview.WebViewActivity" />
+        <activity android:name=".business.mine.myfriends.MyFriendsActivity" />
+        <activity android:name=".business.userinfo.UserInfoActivity" />
     </application>
 
 </manifest>

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
-import com.tender.hellojack.manager.PrefManager;
-import com.tender.hellojack.utils.StringUtil;
+import com.tender.tools.manager.PrefManager;
+import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.views.ClearEditText;
 
 public class ChangeNameFragment extends BaseFragment implements ChangeNameContract.View {
@@ -36,7 +36,17 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
         String userName = PrefManager.getUserName();
         cetName.setText(userName);
         cetName.setSelection(0, cetName.getText().length());
-        cetName.findFocus();
+        cetName.requestFocus();
+    }
+
+    @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
     }
 
     @Override
@@ -45,8 +55,8 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
     }
 
     @Override
-    protected boolean onBackPressed() {
-        return false;
+    protected void onBackPressed() {
+
     }
 
     public Runnable clickBtnSaveName() {

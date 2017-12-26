@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/hj_gray5">
+    android:background="@color/hj_tools_gray5">
 
     <LinearLayout
         android:id="@+id/ll_my_info_header"
@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="15dp"
             android:text="头像"
-            android:textColor="@color/hj_black0"
+            android:textColor="@color/hj_tools_black0"
             android:textSize="@dimen/hj_text_normal_size"/>
 
         <ImageView
@@ -45,11 +45,11 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="昵称"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
         app:right_text="CSDN_LQR"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 
@@ -63,11 +63,11 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="用户号"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
         app:right_text="sky_lqr"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 
@@ -81,7 +81,7 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="二维码名片"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
         app:right_image_margin_right="20dp"
@@ -97,10 +97,10 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="我的地址"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 
@@ -110,10 +110,10 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="性别"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 
@@ -127,10 +127,10 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="地区"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 
@@ -144,10 +144,10 @@
         style="@style/hj_tools_optionItem"
         android:background="@drawable/hj_tools_selector_option_item"
         app:left_text="个性签名"
-        app:left_text_color="@color/hj_black0"
+        app:left_text_color="@color/hj_tools_black0"
         app:left_text_margin_left="15dp"
         app:left_text_size="15sp"
-        app:right_text_color="@color/hj_gray2"
+        app:right_text_color="@color/hj_tools_gray2"
         app:right_text_margin_right="20dp"
         app:right_text_size="@dimen/hj_text_normal_size"/>
 </LinearLayout>

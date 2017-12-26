@@ -17,6 +17,7 @@ import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.tools.TenderLog;
+import com.tender.tools.manager.PrefManager;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
@@ -29,16 +30,11 @@ import java.util.Set;
  * Created by boyu on 2017/10/19.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends NimApplication {
 
     private IManager[] managers;
     private static Set<Activity> activities = new HashSet<>();
     private ModuleManager moduleManager;
-
-    public static Thread mMainThread;//主线程
-    public static long mMainThreadId;//主线程id
-    public static Looper mMainLooper;//循环队列
-    public static Handler mHandler;//主线程Handler
 
     public BDLocationImpl locationService;
 
@@ -46,10 +42,10 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        mMainThread = Thread.currentThread();
-        mMainThreadId = mMainThread.getId();
-        mMainLooper = getMainLooper();
-        mHandler = new Handler();
+        moduleManager = new ModuleManager(this);
+        moduleManager.onInit();
+
+        initNim();
 
         //日志框架初始化
         TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);
@@ -57,9 +53,8 @@ public class MyApplication extends Application {
         //百度定位
         locationService = BDLocationImpl.getInstance(getApplicationContext());
 
-        initManager();
-        moduleManager = new ModuleManager(this);
-        moduleManager.onInit();
+        //用户账号统计
+        DataAnalyticsManager.getInstance().onProfileSignIn("com.tender.hellojack", PrefManager.getUserAccount());
 
 
         initUmengShare();
@@ -92,22 +87,6 @@ public class MyApplication extends Application {
         //增加各平台key配置
         PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
         //...
-    }
-
-    /**
-     * 初始化各Manager
-     */
-    private void initManager() {
-        managers = new IManager[]{
-                PrefManager.getInstance()
-        };
-
-        for (IManager manager : managers) {
-            manager.init(getApplicationContext());
-        }
-
-        //用户账号统计
-        DataAnalyticsManager.getInstance().onProfileSignIn("com.tender.hellojack", PrefManager.getUserAccount());
     }
 
     /**

@@ -3,6 +3,8 @@ package com.tender.hellojack.data;
 import com.tender.hellojack.data.local.LocalResource;
 import com.tender.hellojack.data.remote.RemoteResource;
 
+import rx.Observable;
+
 /**
  * Created by boyu on 2017/12/7.
  */
@@ -22,5 +24,15 @@ public class ResourceRepository implements IResource {
             instance = new ResourceRepository(localResource, remoteResource);
         }
         return instance;
+    }
+
+    @Override
+    public Observable<Object> login(String userName, String token) {
+        return remoteResource.login(userName, token);
+    }
+
+    @Override
+    public Observable<Object> register(String account, String name, String pwd) {
+        return remoteResource.register(account, name, pwd);
     }
 }

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/hj_white"
+            android:background="@color/hj_tools_white"
             android:orientation="vertical" />
 
         <com.ashokvarma.bottomnavigation.BottomNavigationBar
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/hj_white"
+            android:background="@color/hj_tools_white"
             app:bnbActiveColor="#0076fd"
             app:bnbBackgroundStyle="background_style_static" />
     </LinearLayout>

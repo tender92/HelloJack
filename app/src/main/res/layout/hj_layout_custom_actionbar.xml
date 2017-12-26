@@ -14,15 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/hj_white"
-        android:textSize="@dimen/hj_text_size_48px" />
+        android:textColor="@color/hj_tools_white"
+        android:textSize="@dimen/hj_tools_text_size_48px" />
 
     <ImageView
         android:id="@+id/btn_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/hj_text_size_45px"
-        android:padding="@dimen/hj_text_size_10px"
+        android:layout_marginRight="@dimen/hj_tools_text_size_45px"
+        android:padding="@dimen/hj_tools_text_size_10px"
         android:layout_gravity="right"
         android:src="@mipmap/hj_query_date_unselect"
         android:visibility="gone" />
@@ -37,6 +37,6 @@
         android:layout_width="60dp"
         android:layout_height="30dp"
         android:text="保存"
-        android:textColor="@color/hj_white"
+        android:textColor="@color/hj_tools_white"
         android:textSize="13sp"/>
 </android.support.v7.widget.Toolbar>
