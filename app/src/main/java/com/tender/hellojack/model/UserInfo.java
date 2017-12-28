@@ -10,9 +10,10 @@ import java.io.Serializable;
 
 public class UserInfo implements Serializable {
     public String account;//账号
+    public String displayName;//显示名称
     public String name;//昵称
     public String avatar;//头像路径
-    public String signatur;//签名
+    public String signature;//签名
     public GenderEnum gender;//性别
     public String email;//邮箱
     public String birthDay;//生日 格式yyyy-MM-dd

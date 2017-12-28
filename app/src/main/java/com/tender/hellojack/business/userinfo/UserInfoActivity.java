@@ -21,7 +21,7 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void initToolbar() {
-
+        updateTitle("详细资料");
     }
 
     @Override

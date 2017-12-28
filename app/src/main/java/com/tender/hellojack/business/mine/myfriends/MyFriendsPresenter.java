@@ -89,6 +89,7 @@ public class MyFriendsPresenter implements MyFriendsContract.Presenter {
     public UserInfo getUserInfo(String account) {
         UserInfo userInfo = new UserInfo();
         userInfo.account = "xiaoming";
+        userInfo.displayName = "大锤子哥";
         userInfo.address = "上海市浦东新区张衡路";
         userInfo.avatar = PrefManager.getUserHeaderPath();
         userInfo.birthDay = "1996-03-08";
@@ -97,7 +98,7 @@ public class MyFriendsPresenter implements MyFriendsContract.Presenter {
         userInfo.mobile = "13888888888";
         userInfo.name = "小明";
         userInfo.region = "上海市";
-        userInfo.signatur = "小明不迟到";
+        userInfo.signature = "小明不迟到";
         return userInfo;
     }
 

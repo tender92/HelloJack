@@ -23,7 +23,7 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
 
     protected Toolbar mToolbar;
     private TextView mTitle;
-    private ImageView mTitleRightImg;
+    protected ImageView mTitleRightImg;
     protected Button mTitleRightBtn;
 
     private DialogUtil.CustomDialog mWaitingDialog;

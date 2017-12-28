@@ -53,5 +53,7 @@ dependencies {
     compile "cn.bingoogolapple:bga-zxing:${QRCODE_CORE_VERSION}@aar"
     compile "com.lqr.recyclerview:library:${RECYCLER_VIEW_VERSION}"
     compile "com.lqr.adapter:library:${ADAPTER_VERSION}"
+    compile "cn.bingoogolapple:bga-refreshlayout:${REFRESH_LAYOUT_VERSION}"
+    compile "com.blankj:utilcode:${UTIL_CODE_VERSION}"
     testCompile 'junit:junit:4.12'
 }

@@ -194,6 +194,7 @@
         <activity android:name=".business.webview.WebViewActivity" />
         <activity android:name=".business.mine.myfriends.MyFriendsActivity" />
         <activity android:name=".business.userinfo.UserInfoActivity" />
+        <activity android:name=".business.session.SessionActivity" />
     </application>
 
 </manifest>

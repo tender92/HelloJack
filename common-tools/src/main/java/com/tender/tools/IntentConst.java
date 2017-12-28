@@ -19,5 +19,6 @@ public class IntentConst {
         public static final String WEB_VIEW_TITLE = "title";
         public static final String WEB_VIEW_URL = "url";
         public static final String MY_FRIENDS_ACCOUNT = "account";
+        public static final String USER_INFO_USER = "user";
     }
 }

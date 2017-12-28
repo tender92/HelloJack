@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:orientation="horizontal"
-        android:background="@drawable/hj_selector_option_item"
+        android:background="@drawable/hj_tools_selector_option_item"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"

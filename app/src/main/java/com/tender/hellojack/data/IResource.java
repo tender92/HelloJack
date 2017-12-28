@@ -1,5 +1,7 @@
 package com.tender.hellojack.data;
 
+import com.tender.hellojack.model.UserInfo;
+
 import rx.Observable;
 
 /**
@@ -10,4 +12,6 @@ public interface IResource {
     Observable<Object> login(String userName, String token);
 
     Observable<Object> register(String account, String name, String pwd);
+
+    Observable<UserInfo> getUserInfo(String account);
 }

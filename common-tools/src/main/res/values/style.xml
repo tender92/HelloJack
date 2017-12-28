@@ -78,4 +78,18 @@
     <style name="hj_tools_custom_check_box" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/hj_tools_selector_checkbox_bg</item>
     </style>
+
+    <style name="hj_tools_session_function_image" >
+        <item name="android:layout_width">55dp</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:background">@drawable/hj_tools_shape_rect_stroke_corner_gray</item>
+    </style>
+
+    <style name="hj_tools_session_function_text" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/hj_tools_gray1</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

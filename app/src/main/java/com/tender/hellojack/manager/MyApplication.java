@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.lqr.emoji.LQRUIKit;
 import com.lqr.imagepicker.ImagePicker;
 import com.lqr.imagepicker.view.CropImageView;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -46,6 +47,9 @@ public class MyApplication extends NimApplication {
         moduleManager.onInit();
 
         initNim();
+
+        //emoji aar初始化
+        LQRUIKit.init(getApplicationContext());
 
         //日志框架初始化
         TenderLog.initLogConfig("hellojack", BuildConfig.DEBUG);

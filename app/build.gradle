@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 apply from: "../config.gradle"
 
+repositories {
+    flatDir { dirs 'libs' }
+}
+
 configurations.all {
     //Error:Conflict with dependency ‘com.google.code.findbugs:jsr305’
     resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
@@ -87,6 +91,7 @@ dependencies {
     compile project(':message-push')
     compile project(':baidu-tts')
     compile project(':instant-message')
+    compile(name: 'emoji_library', ext: 'aar')
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
 //    })

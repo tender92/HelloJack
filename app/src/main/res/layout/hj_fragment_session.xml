@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--内容功能区-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/hj_tools_gray5">
+        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+            android:id="@+id/rl_session_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <com.lqr.recyclerview.LQRRecyclerView
+                android:id="@+id/rv_session_recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/hj_tools_gray4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                style="@style/hj_tools_line1"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:id="@+id/iv_session_audio"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="5dp"
+                    android:src="@mipmap/hj_session_voice"/>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:id="@+id/et_session_input_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@null"
+                        android:drawableBottom="@drawable/hj_tools_selector_edit_text_bottom_bg"/>
+
+                    <Button
+                        android:id="@+id/btn_session_audio"
+                        android:visibility="gone"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="按住 说话"
+                        android:background="@drawable/hj_tools_selector_session_audio_button_bg"
+                        android:textColor="@color/hj_tools_gray1"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/iv_session_emo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/hj_session_emo"/>
+
+                <ImageView
+                    android:id="@+id/iv_session_add"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="7dp"
+                    android:src="@mipmap/hj_session_add"/>
+
+                <Button
+                    android:id="@+id/btn_session_send"
+                    android:layout_width="43dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/hj_selector_toolbar_btn_bg"
+                    android:text="发送"
+                    android:textColor="@color/hj_tools_white"
+                    android:textSize="13sp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:visibility="visible"
+                android:id="@+id/fl_session_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--表情贴图区-->
+                <com.lqr.emoji.EmoticonPickerView
+                    android:id="@+id/epv_session_emo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+
+                <!--功能区-->
+                <LinearLayout
+                    android:id="@+id/ll_session_function"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <View
+                        style="@style/hj_tools_line1"/>
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vp_session_function"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                    </android.support.v4.view.ViewPager>
+
+                    <com.tender.tools.views.DotView
+                        android:id="@+id/dv_session_dots"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--录音图片动画-->
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/fl_session_play_audio"
+        android:layout_centerInParent="true"
+        android:background="@drawable/hj_tools_shape_button_bg_unselect"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp">
+        <Chronometer
+            android:id="@+id/c_session_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="00:00"
+            android:textColor="@color/hj_tools_white"
+            android:textSize="45sp"/>
+
+        <LinearLayout
+            android:layout_width="188dp"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_session_chronometer_tip"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="手指上滑，取消发送"
+                android:textSize="20sp"
+                android:textColor="@color/hj_tools_white"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

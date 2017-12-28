@@ -3,6 +3,7 @@ package com.tender.hellojack.data.remote;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.tender.hellojack.data.IResource;
+import com.tender.hellojack.model.UserInfo;
 import com.tender.instant.message.contact.ContactHttpClient;
 import com.tender.instant.message.nimsdk.NimAccountSDK;
 
@@ -73,5 +74,10 @@ public class RemoteResource implements IResource {
                 });
             }
         });
+    }
+
+    @Override
+    public Observable<UserInfo> getUserInfo(String account) {
+        return null;
     }
 }

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/hj_selector_option_item"
+        android:background="@drawable/hj_tools_selector_option_item"
         android:orientation="horizontal"
         android:paddingRight="3dp"
         android:gravity="center_vertical">

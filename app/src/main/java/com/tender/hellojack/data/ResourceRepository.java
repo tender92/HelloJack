@@ -2,6 +2,7 @@ package com.tender.hellojack.data;
 
 import com.tender.hellojack.data.local.LocalResource;
 import com.tender.hellojack.data.remote.RemoteResource;
+import com.tender.hellojack.model.UserInfo;
 
 import rx.Observable;
 
@@ -34,5 +35,10 @@ public class ResourceRepository implements IResource {
     @Override
     public Observable<Object> register(String account, String name, String pwd) {
         return remoteResource.register(account, name, pwd);
+    }
+
+    @Override
+    public Observable<UserInfo> getUserInfo(String account) {
+        return localResource.getUserInfo(account);
     }
 }
