@@ -27,6 +27,9 @@ import com.umeng.socialize.UMShareAPI;
 import java.util.HashSet;
 import java.util.Set;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by boyu on 2017/10/19.
  */
@@ -45,6 +48,8 @@ public class MyApplication extends NimApplication {
 
         moduleManager = new ModuleManager(this);
         moduleManager.onInit();
+
+        initRealm();
 
         initNim();
 
@@ -71,6 +76,18 @@ public class MyApplication extends NimApplication {
     public void onTerminate() {
         super.onTerminate();
         moduleManager.onTerminate();
+    }
+
+    void initRealm() {
+        Realm.init(this);
+
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .name("jack.realm")
+                .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+
+        Realm.setDefaultConfiguration(config);
     }
 
     private void initBaiduTTS() {

@@ -37,6 +37,7 @@ import com.tender.hellojack.business.session.function.FuncPagerAdapter;
 import com.tender.hellojack.model.Message;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.ScheduleProvider;
+import com.tender.instant.message.sticker.StickerAttachment;
 import com.tender.tools.IntentConst;
 import com.tender.tools.utils.KeyBoardUtils;
 import com.tender.tools.utils.UIUtil;
@@ -106,22 +107,22 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_session, container, false);
-        etInputContent = root.findViewById(R.id.et_session_input_content);
-        btnAudio = root.findViewById(R.id.btn_session_audio);
-        btnSend = root.findViewById(R.id.btn_session_send);
-        ivAudio = root.findViewById(R.id.iv_session_audio);
-        ivAdd = root.findViewById(R.id.iv_session_add);
-        ivEmo = root.findViewById(R.id.iv_session_emo);
-        epvEmo = root.findViewById(R.id.epv_session_emo);
-        flBottom = root.findViewById(R.id.fl_session_bottom);
-        flPlayAudio = root.findViewById(R.id.fl_session_play_audio);
-        rvMessages = root.findViewById(R.id.rv_session_recycle_view);
-        tvChronometerTip = root.findViewById(R.id.tv_session_chronometer_tip);
-        cTimer = root.findViewById(R.id.c_session_chronometer);
-        llFunction = root.findViewById(R.id.ll_session_function);
-        rlMessage = root.findViewById(R.id.rl_session_refresh_layout);
-        vpFunction = root.findViewById(R.id.vp_session_function);
-        dtBottom = root.findViewById(R.id.dv_session_dots);
+        etInputContent = (EditText) root.findViewById(R.id.et_session_input_content);
+        btnAudio = (Button) root.findViewById(R.id.btn_session_audio);
+        btnSend = (Button) root.findViewById(R.id.btn_session_send);
+        ivAudio = (ImageView) root.findViewById(R.id.iv_session_audio);
+        ivAdd = (ImageView) root.findViewById(R.id.iv_session_add);
+        ivEmo = (ImageView) root.findViewById(R.id.iv_session_emo);
+        epvEmo = (EmoticonPickerView) root.findViewById(R.id.epv_session_emo);
+        flBottom = (FrameLayout) root.findViewById(R.id.fl_session_bottom);
+        flPlayAudio = (FrameLayout) root.findViewById(R.id.fl_session_play_audio);
+        rvMessages = (LQRRecyclerView) root.findViewById(R.id.rv_session_recycle_view);
+        tvChronometerTip = (TextView) root.findViewById(R.id.tv_session_chronometer_tip);
+        cTimer = (Chronometer) root.findViewById(R.id.c_session_chronometer);
+        llFunction = (LinearLayout) root.findViewById(R.id.ll_session_function);
+        rlMessage = (BGARefreshLayout) root.findViewById(R.id.rl_session_refresh_layout);
+        vpFunction = (ViewPager) root.findViewById(R.id.vp_session_function);
+        dtBottom = (DotView) root.findViewById(R.id.dv_session_dots);
 
         RxView.clicks(ivAudio).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
@@ -555,15 +556,17 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
     }
 
     @Override
-    public void onStickerSelected(String s, String s1) {
-
+    public void onStickerSelected(String catalog, String chartlet) {
+        StickerAttachment stickerAttachment = new StickerAttachment(catalog, chartlet);
+        mPresenter.sendCustomMessage("贴图消息", stickerAttachment);
     }
     //Emoji选择监听 结束
 
     //消息刷新列表控件 代理 开始
+    private boolean mIsFirstLoadHistory = true;
     @Override
     public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
-
+        rlMessage.endRefreshing();
     }
 
     @Override

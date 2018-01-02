@@ -62,15 +62,15 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_my_info, container, false);
-        llHeader = root.findViewById(R.id.ll_my_info_header);
-        ivHeader = root.findViewById(R.id.iv_my_info_header);
-        oivName = root.findViewById(R.id.oiv_my_info_name);
-        oivAccount = root.findViewById(R.id.oiv_my_info_account);
-        oivQRCode = root.findViewById(R.id.oiv_my_info_qr_code);
-        oivAddress = root.findViewById(R.id.oiv_my_info_address);
-        oivGender = root.findViewById(R.id.oiv_my_info_sex);
-        oivRegion = root.findViewById(R.id.oiv_my_info_region);
-        oivSignature = root.findViewById(R.id.oiv_my_info_signature);
+        llHeader = (LinearLayout) root.findViewById(R.id.ll_my_info_header);
+        ivHeader = (ImageView) root.findViewById(R.id.iv_my_info_header);
+        oivName = (OptionItemView) root.findViewById(R.id.oiv_my_info_name);
+        oivAccount = (OptionItemView) root.findViewById(R.id.oiv_my_info_account);
+        oivQRCode = (OptionItemView) root.findViewById(R.id.oiv_my_info_qr_code);
+        oivAddress = (OptionItemView) root.findViewById(R.id.oiv_my_info_address);
+        oivGender = (OptionItemView) root.findViewById(R.id.oiv_my_info_sex);
+        oivRegion = (OptionItemView) root.findViewById(R.id.oiv_my_info_region);
+        oivSignature = (OptionItemView) root.findViewById(R.id.oiv_my_info_signature);
 
         RxView.clicks(llHeader).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
@@ -215,8 +215,8 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
     public void showGenderDialog() {
         if (genderDialog == null) {
             View root = LayoutInflater.from(mActivity).inflate(R.layout.hj_layout_select_gender, null);
-            tvMale = root.findViewById(R.id.tv_gender_male);
-            tvFemale = root.findViewById(R.id.tv_gender_female);
+            tvMale = (TextView) root.findViewById(R.id.tv_gender_male);
+            tvFemale = (TextView) root.findViewById(R.id.tv_gender_female);
             RxView.clicks(tvMale).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
                 @Override
                 public void call(Void aVoid) {

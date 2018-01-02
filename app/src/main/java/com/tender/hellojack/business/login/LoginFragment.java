@@ -79,13 +79,13 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_login, container, false);
-        rvRegion = root.findViewById(R.id.rv_login_select_region);
-        cetAccount = root.findViewById(R.id.cet_login_account);
-        cetUserPwd = root.findViewById(R.id.cet_login_user_pwd);
-        ivPwdShow = root.findViewById(R.id.iv_login_pwd_show);
-        btnLogin = root.findViewById(R.id.btn_login_login);
-        tvRegion = root.findViewById(R.id.tv_login_region);
-        tvRegister = root.findViewById(R.id.tv_login_register);
+        rvRegion = (RelativeLayout) root.findViewById(R.id.rv_login_select_region);
+        cetAccount = (ClearEditText) root.findViewById(R.id.cet_login_account);
+        cetUserPwd = (ClearEditText) root.findViewById(R.id.cet_login_user_pwd);
+        ivPwdShow = (ImageView) root.findViewById(R.id.iv_login_pwd_show);
+        btnLogin = (Button) root.findViewById(R.id.btn_login_login);
+        tvRegion = (TextView) root.findViewById(R.id.tv_login_region);
+        tvRegister = (TextView) root.findViewById(R.id.tv_login_register);
 
         RxView.clicks(rvRegion).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override

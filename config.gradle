@@ -1,9 +1,9 @@
 ext {
     // Sdk and tools
     MIN_SDK_VERSION = 19
-    TARGET_SDK_VERSION = 26
-    COMPILE_SDK_VERSION = 26
-    BUILD_TOOL_VERSION = '26.0.2'
+    TARGET_SDK_VERSION = 25
+    COMPILE_SDK_VERSION = 25
+    BUILD_TOOL_VERSION = '25.0.2'
 
     // RxJava
     RXJAVA_VERSION = "1.2.4"
@@ -26,8 +26,8 @@ ext {
     GOOGLE_ZXING_CORE_VERSION = '3.2.1'
     QRCODE_CORE_VERSION = '1.1.7'
     QRCODE_SCAN_VERSION = '0.2.1'
-    //Android support包
-    ANDROID_DESIGN_SUPPORT_VERSION = '26.0.0-alpha1'
+    //Android support包  26.0.0-alpha1
+    ANDROID_DESIGN_SUPPORT_VERSION = '25.1.1'
     //友盟统计
     UMENG_STATISTICS_VERSION = 'latest.integration'
     //极光推送
@@ -55,6 +55,8 @@ ext {
     RECYCLER_VIEW_VERSION = '1.0.2'
     //下拉刷新上拉加载更多控件
     REFRESH_LAYOUT_VERSION = '1.1.7@aar'
+    // 开关控件
+    SWITCH_BUTTON_VERSION = '1.4.4'
 
     // 网易云通信 添加依赖。注意，版本号必须一致。
     NET_EASE_IM_VERSION = '4.4.0'

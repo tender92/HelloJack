@@ -35,11 +35,11 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_layout_qr_code_card, container, false);
-        ivHeader = root.findViewById(R.id.iv_qrcode_card_header);
-        ivGender = root.findViewById(R.id.iv_qrcode_gender);
-        ivQRCode = root.findViewById(R.id.iv_qrcode_card);
-        tvAccount = root.findViewById(R.id.tv_qrcode_card_account);
-        tvTip = root.findViewById(R.id.tv_qrcode_tip);
+        ivHeader = (ImageView) root.findViewById(R.id.iv_qrcode_card_header);
+        ivGender = (ImageView) root.findViewById(R.id.iv_qrcode_gender);
+        ivQRCode = (ImageView) root.findViewById(R.id.iv_qrcode_card);
+        tvAccount = (TextView) root.findViewById(R.id.tv_qrcode_card_account);
+        tvTip = (TextView) root.findViewById(R.id.tv_qrcode_tip);
         return root;
     }
 

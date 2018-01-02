@@ -42,9 +42,9 @@ public class SelectRegionDialog extends Dialog implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hj_tools_wheel_select_region);
-        tvConfirm = findViewById(R.id.tv_wheel_dialog_confirm);
-        tvCancel = findViewById(R.id.tv_wheel_dialog_cancel);
-        wheelView = findViewById(R.id.wheel_view_region);
+        tvConfirm = (TextView) findViewById(R.id.tv_wheel_dialog_confirm);
+        tvCancel = (TextView) findViewById(R.id.tv_wheel_dialog_cancel);
+        wheelView = (WheelView) findViewById(R.id.wheel_view_region);
 
         wheelView.setIsShowIcon(isShowIcon);
         wheelView.setIsLoop(false);

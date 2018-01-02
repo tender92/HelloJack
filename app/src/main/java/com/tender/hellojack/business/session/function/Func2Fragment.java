@@ -22,7 +22,7 @@ public class Func2Fragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_session_func2, container, false);
-        llVoice = root.findViewById(R.id.ll_session_fun_voice);
+        llVoice = (LinearLayout) root.findViewById(R.id.ll_session_fun_voice);
         return root;
     }
 

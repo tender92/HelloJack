@@ -44,11 +44,11 @@ public class SelectDateDialog extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hj_tools_wheel_select_date);
-        tvConfirm = findViewById(R.id.tv_wheel_dialog_confirm);
-        tvCancel = findViewById(R.id.tv_wheel_dialog_cancel);
-        wvYear = findViewById(R.id.wheel_view_year);
-        wvMonth = findViewById(R.id.wheel_view_month);
-        wvDay = findViewById(R.id.wheel_view_day);
+        tvConfirm = (TextView) findViewById(R.id.tv_wheel_dialog_confirm);
+        tvCancel = (TextView) findViewById(R.id.tv_wheel_dialog_cancel);
+        wvYear = (WheelView) findViewById(R.id.wheel_view_year);
+        wvMonth = (WheelView) findViewById(R.id.wheel_view_month);
+        wvDay = (WheelView) findViewById(R.id.wheel_view_day);
 
         wvMonth.setIsLoop(true);
         wvDay.setIsLoop(true);

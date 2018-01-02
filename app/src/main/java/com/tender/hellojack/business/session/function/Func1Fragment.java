@@ -29,14 +29,14 @@ public class Func1Fragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_session_func1, container, false);
-        llImage = root.findViewById(R.id.ll_session_fun_image);
-        llRecord = root.findViewById(R.id.ll_session_fun_record);
-        llRedPacket = root.findViewById(R.id.ll_session_fun_red_packet);
-        llTransfer = root.findViewById(R.id.ll_session_fun_transfer);
-        llLocation = root.findViewById(R.id.ll_session_fun_location);
-        llVideo = root.findViewById(R.id.ll_session_fun_video);
-        llCollection = root.findViewById(R.id.ll_session_fun_collection);
-        llBusinessCard = root.findViewById(R.id.ll_session_fun_business_card);
+        llImage = (LinearLayout) root.findViewById(R.id.ll_session_fun_image);
+        llRecord = (LinearLayout) root.findViewById(R.id.ll_session_fun_record);
+        llRedPacket = (LinearLayout) root.findViewById(R.id.ll_session_fun_red_packet);
+        llTransfer = (LinearLayout) root.findViewById(R.id.ll_session_fun_transfer);
+        llLocation = (LinearLayout) root.findViewById(R.id.ll_session_fun_location);
+        llVideo = (LinearLayout) root.findViewById(R.id.ll_session_fun_video);
+        llCollection = (LinearLayout) root.findViewById(R.id.ll_session_fun_collection);
+        llBusinessCard = (LinearLayout) root.findViewById(R.id.ll_session_fun_business_card);
 
         RxView.clicks(llImage).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override

@@ -32,8 +32,8 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_change_signature, container, false);
-        etSignature = root.findViewById(R.id.et_change_signature);
-        tvCount = root.findViewById(R.id.tv_change_signature_Count);
+        etSignature = (EditText) root.findViewById(R.id.et_change_signature);
+        tvCount = (TextView) root.findViewById(R.id.tv_change_signature_Count);
         return root;
     }
 

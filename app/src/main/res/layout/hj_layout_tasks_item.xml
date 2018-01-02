@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_tasks_item"
+        style="@style/hj_tools_optionItem"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_tasks_task_item"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"
+        app:right_text_color="@color/hj_tools_gray2"
+        app:right_text_size="@dimen/hj_text_normal_size"
+        />
+</LinearLayout>

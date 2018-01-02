@@ -34,7 +34,7 @@ public class WebViewFragment extends BaseFragment implements WebViewContract.Vie
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_web_view, container, false);
 
-        pwvWebView = root.findViewById(R.id.pwv_web_view);
+        pwvWebView = (ProgressWebView) root.findViewById(R.id.pwv_web_view);
         return root;
     }
 

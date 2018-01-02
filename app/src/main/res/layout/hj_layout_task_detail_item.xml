@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_list_detail_item"
+    android:orientation="horizontal"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/hj_tools_selector_option_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_list_detail_task_title"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:text="Task Title"
+        android:textColor="@color/hj_tools_green1"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tv_list_detail_task_note"
+        android:maxLines="1"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:text="Task Note"
+        android:textSize="16sp"/>
+
+    <CheckBox
+        android:id="@+id/cb_list_detail_item"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

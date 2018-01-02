@@ -1,5 +1,6 @@
 package com.tender.hellojack.model;
 
+import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.model.enums.MsgDirectionEnum;
 import com.tender.hellojack.model.enums.MsgTypeEnum;
 
@@ -15,4 +16,5 @@ public class Message implements Serializable {
     public MsgDirectionEnum msgDirection;//消息方向
     public String content;//消息内容
     public long time;//时间
+    public MsgAttachment attachment;//消息附件对象
 }

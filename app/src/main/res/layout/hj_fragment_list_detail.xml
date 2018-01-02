@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.lqr.recyclerview.LQRRecyclerView
+        android:id="@+id/rv_list_detail_done_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rv_orientation="vertical"
+        app:rv_type="grid">
+
+    </com.lqr.recyclerview.LQRRecyclerView>
+</LinearLayout>

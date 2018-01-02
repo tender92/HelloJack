@@ -62,17 +62,17 @@ public class MyFriendsFragment extends BaseFragment implements MyFriendsContract
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_my_friends, container, false);
-        rvContact = root.findViewById(R.id.rv_my_friends_contact);
-        qibLettes = root.findViewById(R.id.qib_my_friends);
-        tvSelectLetter = root.findViewById(R.id.tv_my_friends_select_letter);
+        rvContact = (LQRRecyclerView) root.findViewById(R.id.rv_my_friends_contact);
+        qibLettes = (QuickIndexBar) root.findViewById(R.id.qib_my_friends);
+        tvSelectLetter = (TextView) root.findViewById(R.id.tv_my_friends_select_letter);
 
         vHeadView = View.inflate(mActivity, R.layout.hj_layout_my_friends_head_view, null);
-        llNewFriend = vHeadView.findViewById(R.id.ll_my_friends_new_friends);
-        llGroupChat = vHeadView.findViewById(R.id.ll_my_friends_group_chat);
-        llTag = vHeadView.findViewById(R.id.ll_my_friends_tag);
-        llOfficial = vHeadView.findViewById(R.id.ll_my_friends_official);
-        tvNewFriendsUnread = vHeadView.findViewById(R.id.tv_my_friends_new_friends_unread);
-        tvGroupChatUnread = vHeadView.findViewById(R.id.tv_my_friends_group_chat_unread);
+        llNewFriend = (LinearLayout) vHeadView.findViewById(R.id.ll_my_friends_new_friends);
+        llGroupChat = (LinearLayout) vHeadView.findViewById(R.id.ll_my_friends_group_chat);
+        llTag = (LinearLayout) vHeadView.findViewById(R.id.ll_my_friends_tag);
+        llOfficial = (LinearLayout) vHeadView.findViewById(R.id.ll_my_friends_official);
+        tvNewFriendsUnread = (TextView) vHeadView.findViewById(R.id.tv_my_friends_new_friends_unread);
+        tvGroupChatUnread = (TextView) vHeadView.findViewById(R.id.tv_my_friends_group_chat_unread);
 
         tvFootView = new TextView(mActivity);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(mActivity,50));

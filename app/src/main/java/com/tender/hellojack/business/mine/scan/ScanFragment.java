@@ -125,15 +125,15 @@ public class ScanFragment extends BaseFragment implements ScanContract.View, QRC
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_scan, container, false);
-        zvScan = root.findViewById(R.id.zv_scan_zxing);
-        ivScanCode = root.findViewById(R.id.iv_scan_scan_code);
-        ivCover = root.findViewById(R.id.iv_scan_cover);
-        ivVista = root.findViewById(R.id.iv_scan_vista);
-        ivTranslate = root.findViewById(R.id.iv_scan_translate);
-        llScan = root.findViewById(R.id.ll_scan_scan);
-        llCover = root.findViewById(R.id.ll_scan_cover);
-        llVista = root.findViewById(R.id.ll_scan_vista);
-        llTranslate = root.findViewById(R.id.ll_scan_translate);
+        zvScan = (ZXingView) root.findViewById(R.id.zv_scan_zxing);
+        ivScanCode = (ImageView) root.findViewById(R.id.iv_scan_scan_code);
+        ivCover = (ImageView) root.findViewById(R.id.iv_scan_cover);
+        ivVista = (ImageView) root.findViewById(R.id.iv_scan_vista);
+        ivTranslate = (ImageView) root.findViewById(R.id.iv_scan_translate);
+        llScan = (LinearLayout) root.findViewById(R.id.ll_scan_scan);
+        llCover = (LinearLayout) root.findViewById(R.id.ll_scan_cover);
+        llVista = (LinearLayout) root.findViewById(R.id.ll_scan_vista);
+        llTranslate = (LinearLayout) root.findViewById(R.id.ll_scan_translate);
 
         RxView.clicks(llScan).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override

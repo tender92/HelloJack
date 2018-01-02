@@ -45,7 +45,7 @@ abstract public class BaseFragment extends RxFragment implements IDialog, IToast
     public void showWaitingDialog(String tip) {
         hideWaitingDialog();
         View root = View.inflate(mActivity, R.layout.hj_tools_dialog_waiting, null);
-        TextView tvTip = root.findViewById(R.id.tv_dialog_waiting_tip);
+        TextView tvTip = (TextView) root.findViewById(R.id.tv_dialog_waiting_tip);
         tvTip.setText(tip);
         mWaitingDialog = new DialogUtil.CustomDialog(mActivity, root);
         mWaitingDialog.show();

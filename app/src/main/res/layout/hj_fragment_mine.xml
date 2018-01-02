@@ -115,6 +115,18 @@
         app:left_text_size="16sp"/>
 
     <com.lqr.optionitemview.OptionItemView
+        android:id="@+id/oiv_mine_tasks"
+        style="@style/hj_tools_optionItem"
+        android:layout_marginTop="20dp"
+        app:left_image_margin_left="20dp"
+        android:background="@drawable/hj_tools_selector_option_item"
+        app:left_image_margin_right="18dp"
+        app:left_src="@mipmap/hj_mine_tasks"
+        app:left_text="我的任务"
+        app:left_text_color="@color/hj_tools_black0"
+        app:left_text_size="16sp"/>
+
+    <com.lqr.optionitemview.OptionItemView
         android:id="@+id/oiv_mine_card_packet"
         style="@style/hj_tools_optionItem"
         android:layout_marginTop="20dp"

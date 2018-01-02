@@ -20,5 +20,9 @@ public class IntentConst {
         public static final String WEB_VIEW_URL = "url";
         public static final String MY_FRIENDS_ACCOUNT = "account";
         public static final String USER_INFO_USER = "user";
+        public static final String List_ITEM_ID = "list_item_id";
+        public static final String List_ITEM_TITLE = "list_item_title";
+        public static final String TASK_ITEM_ID = "task_item_id";
+        public static final String TASK_ITEM_TITLE = "task_item_title";
     }
 }

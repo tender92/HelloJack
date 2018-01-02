@@ -53,9 +53,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_home, container, false);
-        btnMyInfo = root.findViewById(R.id.btn_home_my_info);
-        btnShare = root.findViewById(R.id.btn_home_share);
-        tvLocationInfo = root.findViewById(R.id.tv_home_location);
+        btnMyInfo = (Button) root.findViewById(R.id.btn_home_my_info);
+        btnShare = (Button) root.findViewById(R.id.btn_home_share);
+        tvLocationInfo = (TextView) root.findViewById(R.id.tv_home_location);
 
         RxView.clicks(btnMyInfo).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
                 .subscribe(new Action1<Void>() {

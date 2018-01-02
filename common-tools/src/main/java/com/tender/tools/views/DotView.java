@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.tender.tools.R;
+
 /**
  * @创建者 CSDN_LQR
  * @描述 表情下方的一排小圆点

@@ -1,5 +1,6 @@
 package com.tender.hellojack.business.session;
 
+import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
 import com.tender.hellojack.model.Message;
@@ -25,5 +26,6 @@ public class SessionContract {
     interface Presenter extends IPresenter {
         List<Message> loadHistoryData();
         void sendMessage(String content);
+        void sendCustomMessage(String content, MsgAttachment attachment);
     }
 }

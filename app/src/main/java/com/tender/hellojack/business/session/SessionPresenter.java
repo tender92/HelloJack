@@ -1,5 +1,6 @@
 package com.tender.hellojack.business.session;
 
+import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.hellojack.model.Message;
@@ -60,6 +61,19 @@ public class SessionPresenter implements SessionContract.Presenter {
         message.time = TimeUtils.getNowTimeMills();
         message.uuid = UUIDGenerator.generate();
         message.content = content;
+        messages.add(message);
+        mView.showSendMsg(message);
+    }
+
+    @Override
+    public void sendCustomMessage(String content, MsgAttachment attachment) {
+        Message message = new Message();
+        message.msgType = MsgTypeEnum.custom;
+        message.msgDirection = MsgDirectionEnum.Out;
+        message.time = TimeUtils.getNowTimeMills();
+        message.uuid = UUIDGenerator.generate();
+        message.content = content;
+        message.attachment = attachment;
         messages.add(message);
         mView.showSendMsg(message);
     }

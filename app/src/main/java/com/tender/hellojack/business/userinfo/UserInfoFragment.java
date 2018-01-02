@@ -46,14 +46,14 @@ public class UserInfoFragment extends BaseFragment implements UserInfoContract.V
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_user_info, container, false);
-        ivHeader = root.findViewById(R.id.iv_user_info_header);
-        ivGender = root.findViewById(R.id.iv_user_info_gender);
-        tvAlias = root.findViewById(R.id.tv_user_info_alias);
-        tvAccount = root.findViewById(R.id.tv_user_info_account);
-        tvName = root.findViewById(R.id.tv_user_info_name);
-        oivRegion = root.findViewById(R.id.oiv_user_info_region);
-        oivSignature = root.findViewById(R.id.oiv_user_info_signature);
-        btnSendMessage = root.findViewById(R.id.btn_user_info_send_message);
+        ivHeader = (ImageView) root.findViewById(R.id.iv_user_info_header);
+        ivGender = (ImageView) root.findViewById(R.id.iv_user_info_gender);
+        tvAlias = (TextView) root.findViewById(R.id.tv_user_info_alias);
+        tvAccount = (TextView) root.findViewById(R.id.tv_user_info_account);
+        tvName = (TextView) root.findViewById(R.id.tv_user_info_name);
+        oivRegion = (OptionItemView) root.findViewById(R.id.oiv_user_info_region);
+        oivSignature = (OptionItemView) root.findViewById(R.id.oiv_user_info_signature);
+        btnSendMessage = (Button) root.findViewById(R.id.btn_user_info_send_message);
 
         RxView.clicks(btnSendMessage).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override

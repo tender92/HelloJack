@@ -20,6 +20,8 @@ import com.tender.hellojack.business.mine.cardpacket.CardPacketActivity;
 import com.tender.hellojack.business.mine.myfriends.MyFriendsActivity;
 import com.tender.hellojack.business.mine.scan.ScanActivity;
 import com.tender.hellojack.business.myinfo.MyInfoActivity;
+import com.tender.hellojack.business.setting.SettingActivity;
+import com.tender.hellojack.business.tasks.TasksActivity;
 import com.tender.hellojack.business.webview.WebViewActivity;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
 import com.tender.hellojack.utils.ScheduleProvider;
@@ -45,7 +47,8 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     private ImageView ivHeader, ivQRCode;
     private LinearLayout llMyInfo;
     private TextView tvName, tvAccount;
-    private OptionItemView oivCardPacket, oivScan, oivShop, oivNearBy, oivMyFriends;
+    private OptionItemView oivCardPacket, oivScan, oivShop, oivNearBy,
+            oivMyFriends, oivSetting, oivTasks;
 
     @Override
     public void onResume() {
@@ -56,16 +59,18 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_mine, container, false);
-        ivHeader = root.findViewById(R.id.iv_mine_header);
-        ivQRCode = root.findViewById(R.id.iv_mine_qrcode);
-        llMyInfo = root.findViewById(R.id.ll_my_info);
-        tvName = root.findViewById(R.id.tv_mine_name);
-        tvAccount = root.findViewById(R.id.tv_mine_account);
-        oivCardPacket = root.findViewById(R.id.oiv_mine_card_packet);
-        oivScan = root.findViewById(R.id.oiv_mine_scan);
-        oivShop = root.findViewById(R.id.oiv_mine_shop);
-        oivNearBy = root.findViewById(R.id.oiv_mine_near_by);
-        oivMyFriends = root.findViewById(R.id.oiv_mine_my_friends);
+        ivHeader = (ImageView) root.findViewById(R.id.iv_mine_header);
+        ivQRCode = (ImageView) root.findViewById(R.id.iv_mine_qrcode);
+        llMyInfo = (LinearLayout) root.findViewById(R.id.ll_my_info);
+        tvName = (TextView) root.findViewById(R.id.tv_mine_name);
+        tvAccount = (TextView) root.findViewById(R.id.tv_mine_account);
+        oivCardPacket = (OptionItemView) root.findViewById(R.id.oiv_mine_card_packet);
+        oivScan = (OptionItemView) root.findViewById(R.id.oiv_mine_scan);
+        oivShop = (OptionItemView) root.findViewById(R.id.oiv_mine_shop);
+        oivNearBy = (OptionItemView) root.findViewById(R.id.oiv_mine_near_by);
+        oivMyFriends = (OptionItemView) root.findViewById(R.id.oiv_mine_my_friends);
+        oivSetting = (OptionItemView) root.findViewById(R.id.oiv_mine_setting);
+        oivTasks = (OptionItemView) root.findViewById(R.id.oiv_mine_tasks);
 
         RxView.clicks(llMyInfo).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
@@ -96,6 +101,18 @@ public class MineFragment extends BaseFragment implements MineContract.View {
             @Override
             public void call(Void aVoid) {
                 startActivity(new Intent(mActivity, ScanActivity.class));
+            }
+        });
+        RxView.clicks(oivSetting).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                startActivity(new Intent(mActivity, SettingActivity.class));
+            }
+        });
+        RxView.clicks(oivTasks).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                startActivity(new Intent(mActivity, TasksActivity.class));
             }
         });
         RxView.clicks(oivShop).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -160,10 +177,10 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     @Override
     public void showMyQRCode() {
         View root = View.inflate(mActivity, R.layout.hj_layout_qr_code_card, null);
-        ImageView ivHeader = root.findViewById(R.id.iv_qrcode_card_header);
-        ImageView ivGender = root.findViewById(R.id.iv_qrcode_gender);
-        final ImageView ivQRCode = root.findViewById(R.id.iv_qrcode_card);
-        TextView tvAccount = root.findViewById(R.id.tv_qrcode_card_account);
+        ImageView ivHeader = (ImageView) root.findViewById(R.id.iv_qrcode_card_header);
+        ImageView ivGender = (ImageView) root.findViewById(R.id.iv_qrcode_gender);
+        final ImageView ivQRCode = (ImageView) root.findViewById(R.id.iv_qrcode_card);
+        TextView tvAccount = (TextView) root.findViewById(R.id.tv_qrcode_card_account);
 
         tvAccount.setText(PrefManager.getUserAccount());
         ivGender.setImageResource(PrefManager.getUserGender() == 1 ? R.mipmap.hj_gender_male : R.mipmap.hj_gender_female);

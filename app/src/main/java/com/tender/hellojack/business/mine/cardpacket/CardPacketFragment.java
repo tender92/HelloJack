@@ -33,7 +33,7 @@ public class CardPacketFragment extends BaseFragment implements CardPacketContra
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_card_packet, container, false);
-        cvFriendCoupon = root.findViewById(R.id.cv_card_packet_friend_coupon);
+        cvFriendCoupon = (CardView) root.findViewById(R.id.cv_card_packet_friend_coupon);
 
         RxView.clicks(cvFriendCoupon).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override

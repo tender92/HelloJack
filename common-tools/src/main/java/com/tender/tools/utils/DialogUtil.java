@@ -33,7 +33,7 @@ public class DialogUtil {
     public static void showHint(Context context, String txt) {
         Toast toast = new Toast(context);
         View view = LayoutInflater.from(context).inflate(R.layout.hj_tools_dialog_toast, null);
-        TextView msg = view.findViewById(R.id.toast_short_msg);
+        TextView msg = (TextView) view.findViewById(R.id.toast_short_msg);
         msg.setTextSize(TypedValue.COMPLEX_UNIT_PX, UIUtil.getDimension(R.dimen.hj_tools_text_big_size));
         msg.setText(txt);
         toast.setView(view);
@@ -66,7 +66,7 @@ public class DialogUtil {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             View root = View.inflate(context, R.layout.hj_tools_dialog_waiting, null);
-            TextView tvTip = root.findViewById(R.id.tv_dialog_waiting_tip);
+            TextView tvTip = (TextView) root.findViewById(R.id.tv_dialog_waiting_tip);
             tvTip.setText(content);
         }
     }
@@ -124,14 +124,14 @@ public class DialogUtil {
             try {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.hj_tools_dialog_select_yes_or_no);
-                selectDialog = findViewById(R.id.btn_prompt_two_yes);
-                btn_layout = findViewById(R.id.btn_layout);
-                ScrollView scrollView = findViewById(R.id.scroll_prompt_two_context);
-                TextView shortTextView = findViewById(R.id.txt_prompt_two_content_short);
-                exitDialog = findViewById(R.id.btn_prompt_two_no);
+                selectDialog = (Button) findViewById(R.id.btn_prompt_two_yes);
+                btn_layout = (LinearLayout) findViewById(R.id.btn_layout);
+                ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_prompt_two_context);
+                TextView shortTextView = (TextView) findViewById(R.id.txt_prompt_two_content_short);
+                exitDialog = (Button) findViewById(R.id.btn_prompt_two_no);
 //                selectDialog.setBackgroundResource(R.drawable.hj_dialog_white_blue_left);
 //                exitDialog.setBackgroundResource(R.drawable.hj_dialog_white_blue_right);
-                longTextView = findViewById(R.id.txt_prompt_two_context_long);
+                longTextView = (TextView) findViewById(R.id.txt_prompt_two_context_long);
 
                 selectDialog.setTextSize(TypedValue.COMPLEX_UNIT_PX, context
                         .getResources().getDimension(R.dimen.hj_tools_text_big_size));

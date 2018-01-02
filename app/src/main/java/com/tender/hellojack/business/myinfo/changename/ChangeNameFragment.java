@@ -27,7 +27,7 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_change_name, container, false);
-        cetName = root.findViewById(R.id.cet_change_name_name);
+        cetName = (ClearEditText) root.findViewById(R.id.cet_change_name_name);
         return root;
     }
 

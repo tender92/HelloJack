@@ -45,11 +45,11 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_register, container, false);
-        cetUserAccount = root.findViewById(R.id.cet_register_user_account);
-        cetUserName = root.findViewById(R.id.cet_register_user_name);
-        cetUserPwd = root.findViewById(R.id.cet_register_user_pwd);
-        btnRegister = root.findViewById(R.id.btn_register_register);
-        ivPwdShow = root.findViewById(R.id.iv_register_pwd_show);
+        cetUserAccount = (ClearEditText) root.findViewById(R.id.cet_register_user_account);
+        cetUserName = (ClearEditText) root.findViewById(R.id.cet_register_user_name);
+        cetUserPwd = (ClearEditText) root.findViewById(R.id.cet_register_user_pwd);
+        btnRegister = (Button) root.findViewById(R.id.btn_register_register);
+        ivPwdShow = (ImageView) root.findViewById(R.id.iv_register_pwd_show);
 
         RxView.clicks(btnRegister).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
