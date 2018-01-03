@@ -15,6 +15,6 @@ public class UserInfoContract {
     }
 
     interface Presenter extends IPresenter {
-        void handleIntentParams(Intent intent);
+        void getUserInfo(String account);
     }
 }

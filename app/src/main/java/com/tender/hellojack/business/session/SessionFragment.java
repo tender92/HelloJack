@@ -84,6 +84,8 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
     private FuncPagerAdapter mBottomFucAdapter;
     private List<BaseFragment> mFragments;
 
+    private String userAccount;
+
     //消息列表相关
     private List<Message> messages = new ArrayList<>();
     private SessionAdapter adapter;
@@ -93,6 +95,16 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
             rvMessages.moveToPosition(messages.size() - 1);
         }
     };
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            userAccount = intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_ACCOUNT);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -328,6 +340,11 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
         rvScrollToBottom();
     }
 
+    @Override
+    public void notifyDataChanged() {
+        adapter.notifyDataSetChanged();
+    }
+
     /**
      * 设置表情、贴图控件
      */
@@ -414,13 +431,8 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
 
     private void setAdapter() {
         if (adapter == null) {
-            Intent intent = mActivity.getIntent();
-            if (intent != null) {
-                UserInfo userInfo = (UserInfo)intent.getSerializableExtra(IntentConst.IRParam.USER_INFO_USER);
-                adapter = new SessionAdapter(mActivity, messages, userInfo);
-            } else {
-                adapter = new SessionAdapter(mActivity, messages, new UserInfo());
-            }
+            UserInfo userInfo = mPresenter.getUserInfo(userAccount);
+            adapter = new SessionAdapter(mActivity, messages, userInfo);
             rvMessages.setAdapter(adapter);
         } else {
             adapter.notifyDataSetChanged();

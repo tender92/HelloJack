@@ -2,7 +2,11 @@ package com.tender.hellojack.business.myinfo.qrcodecard;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
+import com.tender.hellojack.data.local.UserRepository;
+import com.tender.hellojack.model.UserInfo;
 
+import io.realm.RealmChangeListener;
+import io.realm.RealmModel;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -33,5 +37,17 @@ public class QRCodeCardPresenter implements QRCodeCardContract.Presenter {
             mView.initUIData();;
             hasInit = true;
         }
+    }
+
+    @Override
+    public void getMineInfo(String account) {
+        final UserInfo mine = UserRepository.getInstance().getUser(account).get(0);
+        mine.addChangeListener(new RealmChangeListener<RealmModel>() {
+            @Override
+            public void onChange(RealmModel realmModel) {
+                mView.showMineInfo(mine);
+            }
+        });
+        mView.showMineInfo(mine);
     }
 }

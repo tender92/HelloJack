@@ -1,5 +1,6 @@
 package com.tender.hellojack.business.myinfo.qrcodecard;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
+import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
+import com.tender.tools.IntentConst;
 import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.DisplayUtil;
 import com.tender.tools.utils.string.StringUtil;
@@ -31,6 +34,8 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
     private ImageView ivHeader, ivGender, ivQRCode;
     private TextView tvAccount, tvTip;
 
+    private String account;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,6 +46,16 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
         tvAccount = (TextView) root.findViewById(R.id.tv_qrcode_card_account);
         tvTip = (TextView) root.findViewById(R.id.tv_qrcode_tip);
         return root;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            account = intent.getStringExtra(IntentConst.IRParam.MINE_ACCOUNT);
+        }
     }
 
     @Override
@@ -61,17 +76,32 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
 
     @Override
     public void initUIData() {
-        tvAccount.setText(PrefManager.getUserAccount());
-        ivGender.setImageResource(PrefManager.getUserGender() == 1 ? R.mipmap.hj_gender_male : R.mipmap.hj_gender_female);
+        mPresenter.getMineInfo(account);
+    }
+
+    @Override
+    public void showNetLoading(String tip) {
+        super.showWaitingDialog(tip);
+    }
+
+    @Override
+    public void hideNetLoading() {
+        super.hideWaitingDialog();
+    }
+
+    @Override
+    public void showMineInfo(UserInfo userInfo) {
+        tvAccount.setText(account);
+        ivGender.setImageResource(userInfo.getGender() == 1 ? R.mipmap.hj_gender_male : R.mipmap.hj_gender_female);
         tvTip.setText("扫一扫上面的二维码图案，加我微信");
-        String headerPath = PrefManager.getUserHeaderPath();
+        String headerPath = userInfo.getAvatar();
         if (StringUtil.hasValue(headerPath)) {
             ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
         } else {
             ivHeader.setImageResource(R.mipmap.hj_mine_default_header);
         }
 
-        final String mQRCodeStr = PrefManager.getUserAccount();
+        final String mQRCodeStr = account;
         ThreadPoolFactory.getNormalPool().execute(new Runnable() {
             @Override
             public void run() {
@@ -86,15 +116,5 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
                 });
             }
         });
-    }
-
-    @Override
-    public void showNetLoading(String tip) {
-        super.showWaitingDialog(tip);
-    }
-
-    @Override
-    public void hideNetLoading() {
-        super.hideWaitingDialog();
     }
 }

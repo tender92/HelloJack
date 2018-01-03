@@ -14,11 +14,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.tender.hellojack.BuildConfig;
+import com.tender.hellojack.data.local.UserRepository;
+import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.tools.TenderLog;
 import com.tender.tools.manager.PrefManager;
+import com.tender.tools.utils.string.StringUtil;
+import com.tender.tools.utils.string.UUIDGenerator;
 import com.tender.umengshare.DataAnalyticsManager;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
@@ -61,6 +65,12 @@ public class MyApplication extends NimApplication {
 
         //百度定位
         locationService = BDLocationImpl.getInstance(getApplicationContext());
+
+        if (!StringUtil.hasValue(PrefManager.getUserAccount())) {
+            String uuid = UUIDGenerator.generate();
+            final String account = "user" + uuid.substring(uuid.length() - 6);
+            PrefManager.setUserAccount(account);
+        }
 
         //用户账号统计
         DataAnalyticsManager.getInstance().onProfileSignIn("com.tender.hellojack", PrefManager.getUserAccount());

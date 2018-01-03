@@ -8,10 +8,11 @@ import com.tender.hellojack.base.IView;
  */
 public class ChangeNameContract {
     interface View extends IView<Presenter> {
-
+        void showMineName(String name);
     }
 
     interface Presenter extends IPresenter {
-
+        void getMineInfo(String account);
+        void updateUserName(String account, String name);
     }
 }

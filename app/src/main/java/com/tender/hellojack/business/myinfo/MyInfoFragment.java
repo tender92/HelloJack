@@ -23,6 +23,7 @@ import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.myinfo.changename.ChangeNameActivity;
 import com.tender.hellojack.business.myinfo.changesignature.ChangeSignatureActivity;
 import com.tender.hellojack.business.myinfo.qrcodecard.QRCodeCardActivity;
+import com.tender.hellojack.model.UserInfo;
 import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
@@ -58,6 +59,8 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
     //省市区联动选择器
     private CityPicker mCityPicker;
 
+    private String mineAccount;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -84,19 +87,25 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             @Override
             public void call(Void aVoid) {
                 DataAnalyticsManager.getInstance().onEvent(mActivity, "event_myinfo_show_header");
-                startActivity(new Intent(mActivity, ShowBigImageActivity.class));
+                Intent intent = new Intent(mActivity, ShowBigImageActivity.class);
+                intent.putExtra(IntentConst.IRParam.MINE_ACCOUNT, mineAccount);
+                startActivity(intent);
             }
         });
         RxView.clicks(oivName).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                startActivity(new Intent(mActivity, ChangeNameActivity.class));
+                Intent intent = new Intent(mActivity, ChangeNameActivity.class);
+                intent.putExtra(IntentConst.IRParam.MINE_ACCOUNT, mineAccount);
+                startActivity(intent);
             }
         });
         RxView.clicks(oivQRCode).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                startActivity(new Intent(mActivity, QRCodeCardActivity.class));
+                Intent intent = new Intent(mActivity, QRCodeCardActivity.class);
+                intent.putExtra(IntentConst.IRParam.MINE_ACCOUNT, mineAccount);
+                startActivity(intent);
             }
         });
         RxView.clicks(oivAddress).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
@@ -120,7 +129,9 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
         RxView.clicks(oivSignature).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
-                startActivity(new Intent(mActivity, ChangeSignatureActivity.class));
+                Intent intent = new Intent(mActivity, ChangeSignatureActivity.class);
+                intent.putExtra(IntentConst.IRParam.MINE_ACCOUNT, mineAccount);
+                startActivity(intent);
             }
         });
         return root;
@@ -140,6 +151,11 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            mineAccount = intent.getStringExtra(IntentConst.IRParam.MINE_ACCOUNT);
+        }
+
         mCityPicker = new CityPicker(mActivity, this);
 
         mGenderSelect = mActivity.getResources().getDrawable(R.mipmap.hj_list_selected);
@@ -157,7 +173,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
                 ArrayList<ImageItem> imageList = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 if (imageList != null && imageList.size() > 0) {
                     String path = imageList.get(0).path;
-                    PrefManager.setUserHeaderPath(path);
+                    mPresenter.updateMineAvatar(mineAccount, path);
                     ImageLoaderUtil.loadLocalImage(path, ivHeader);
                 }
             }
@@ -166,7 +182,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             if (data != null) {
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
                 oivRegion.setRightText(city);
-                PrefManager.setUserRegion(city);
+                mPresenter.updateMineRegion(mineAccount, city);
             }
         }
     }
@@ -193,22 +209,13 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
 
     @Override
     public void initUIData() {
-        String headerPath = PrefManager.getUserHeaderPath();
-        if (StringUtil.hasValue(headerPath)) {
-            ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
-        }
-        oivName.setRightText(PrefManager.getUserName());
-        oivAccount.setRightText(PrefManager.getUserAccount());
-        oivGender.setRightText(PrefManager.getUserGender() == 1 ? "男" : "女");
-        oivAddress.setRightText(PrefManager.getUserAddress());
-        oivRegion.setRightText(PrefManager.getUserRegion());
-        oivSignature.setRightText(PrefManager.getUserSignature());
+        mPresenter.getMineInfo(mineAccount);
     }
 
     @Override
     public void getCity(String name) {
         oivAddress.setRightText(name);
-        PrefManager.setUseAddress(name);
+        mPresenter.updateMineAddress(mineAccount, name);
     }
 
     @Override
@@ -220,7 +227,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             RxView.clicks(tvMale).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
                 @Override
                 public void call(Void aVoid) {
-                    PrefManager.setUserGender(1);
+                    mPresenter.updateMineGender(mineAccount,1);
                     updateGenderDialog(1);
                     genderDialog.dismiss();
                     oivGender.setRightText("男");
@@ -229,7 +236,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             RxView.clicks(tvFemale).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
                 @Override
                 public void call(Void aVoid) {
-                    PrefManager.setUserGender(0);
+                    mPresenter.updateMineGender(mineAccount,0);
                     updateGenderDialog(0);
                     genderDialog.dismiss();
                     oivGender.setRightText("女");
@@ -238,8 +245,24 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             genderDialog = new DialogUtil.CustomDialog(mActivity, root);
 
         }
-        updateGenderDialog(PrefManager.getUserGender());
+        updateGenderDialog(mPresenter.getMineGender(mineAccount));
         genderDialog.show();
+    }
+
+    @Override
+    public void showMineInfo(UserInfo mineInfo) {
+        String headerPath = mineInfo.getAvatar();
+        if (StringUtil.hasValue(headerPath)) {
+            ImageLoaderUtil.loadLocalImage(headerPath, ivHeader);
+        } else {
+            ivHeader.setImageResource(R.mipmap.hj_mine_default_header);
+        }
+        oivName.setRightText(mineInfo.getName());
+        oivAccount.setRightText(mineInfo.getAccount());
+        oivGender.setRightText(mineInfo.getGender() == 1 ? "男" : "女");
+        oivAddress.setRightText(mineInfo.getAddress());
+        oivRegion.setRightText(mineInfo.getRegion());
+        oivSignature.setRightText(mineInfo.getSignature());
     }
 
     private void updateGenderDialog(int gender) {

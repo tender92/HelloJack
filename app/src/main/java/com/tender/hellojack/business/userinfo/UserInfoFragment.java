@@ -35,7 +35,18 @@ public class UserInfoFragment extends BaseFragment implements UserInfoContract.V
     private OptionItemView oivRegion, oivSignature;
     private Button btnSendMessage;
 
-    private UserInfo currentUser = null;
+    private String userAccount;
+    private String userDisplayName;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            userAccount = intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_ACCOUNT);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -59,7 +70,8 @@ public class UserInfoFragment extends BaseFragment implements UserInfoContract.V
             @Override
             public void call(Void aVoid) {
                 Intent intent = new Intent(mActivity, SessionActivity.class);
-                intent.putExtra(IntentConst.IRParam.USER_INFO_USER, currentUser);
+                intent.putExtra(IntentConst.IRParam.MY_FRIENDS_ACCOUNT, userAccount);
+                intent.putExtra(IntentConst.IRParam.MY_FRIENDS_DISPLAY_NAME, userDisplayName);
                 startActivity(intent);
             }
         });
@@ -69,7 +81,7 @@ public class UserInfoFragment extends BaseFragment implements UserInfoContract.V
 
     @Override
     public void initUIData() {
-        mPresenter.handleIntentParams(mActivity.getIntent());
+        mPresenter.getUserInfo(userAccount);
     }
 
     @Override
@@ -94,23 +106,23 @@ public class UserInfoFragment extends BaseFragment implements UserInfoContract.V
 
     @Override
     public void showUserInfo(UserInfo userInfo) {
-        currentUser = userInfo;
-        if (StringUtil.hasValue(userInfo.avatar)) {
-            ImageLoaderUtil.loadLocalImage(userInfo.avatar, ivHeader);
+        if (StringUtil.hasValue(userInfo.getAvatar())) {
+            ImageLoaderUtil.loadLocalImage(userInfo.getAvatar(), ivHeader);
         } else {
             ivHeader.setImageResource(R.mipmap.hj_mine_default_header);
         }
-        if (userInfo.gender == GenderEnum.MALE) {
+        if (userInfo.getGender() == 1) {
             ivGender.setImageResource(R.mipmap.hj_gender_male);
-        } else if (userInfo.gender == GenderEnum.FEMALE) {
+        } else if (userInfo.getGender() == 0) {
             ivGender.setImageResource(R.mipmap.hj_gender_female);
         } else {
             ivGender.setVisibility(View.GONE);
         }
-        tvAlias.setText(userInfo.displayName);
-        tvAccount.setText(userInfo.account);
-        tvName.setText(userInfo.name);
-        oivRegion.setRightText(userInfo.region);
-        oivSignature.setRightText(userInfo.signature);
+        userDisplayName = userInfo.getDisplayName();
+        tvAlias.setText(userDisplayName);
+        tvAccount.setText(userInfo.getAccount());
+        tvName.setText(userInfo.getName());
+        oivRegion.setRightText(userInfo.getRegion());
+        oivSignature.setRightText(userInfo.getSignature());
     }
 }

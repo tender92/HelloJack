@@ -1,5 +1,6 @@
 package com.tender.hellojack.business.myinfo.changename;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.tools.IntentConst;
 import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.views.ClearEditText;
@@ -17,6 +19,17 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
     private ChangeNameContract.Presenter mPresenter;
 
     private ClearEditText cetName;
+
+    private String account;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            account = intent.getStringExtra(IntentConst.IRParam.MINE_ACCOUNT);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -33,10 +46,7 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
 
     @Override
     public void initUIData() {
-        String userName = PrefManager.getUserName();
-        cetName.setText(userName);
-        cetName.setSelection(0, cetName.getText().length());
-        cetName.requestFocus();
+        mPresenter.getMineInfo(account);
     }
 
     @Override
@@ -65,7 +75,7 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
             public void run() {
                 String userName = cetName.getText().toString();
                 if (StringUtil.hasValue(userName.trim())) {
-                    PrefManager.setUserName(userName);
+                    mPresenter.updateUserName(account, userName);
                     showToast("保存成功");
                     mActivity.finish();
                 } else {
@@ -78,5 +88,12 @@ public class ChangeNameFragment extends BaseFragment implements ChangeNameContra
                 }
             }
         };
+    }
+
+    @Override
+    public void showMineName(String name) {
+        cetName.setText(name);
+        cetName.setSelection(0, cetName.getText().length());
+        cetName.requestFocus();
     }
 }

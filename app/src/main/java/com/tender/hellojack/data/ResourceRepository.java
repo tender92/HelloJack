@@ -36,9 +36,4 @@ public class ResourceRepository implements IResource {
     public Observable<Object> register(String account, String name, String pwd) {
         return remoteResource.register(account, name, pwd);
     }
-
-    @Override
-    public Observable<UserInfo> getUserInfo(String account) {
-        return localResource.getUserInfo(account);
-    }
 }

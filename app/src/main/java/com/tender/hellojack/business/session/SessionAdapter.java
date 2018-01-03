@@ -79,7 +79,7 @@ public class SessionAdapter extends LQRAdapterForRecyclerView<Message> {
 
     private void setHeader(LQRViewHolderForRecyclerView helper, Message item) {
         CircleImageView civHeader = helper.getView(R.id.civ_session_item_send_avatar);
-        String avatar = PrefManager.getUserHeaderPath();
+        String avatar = userInfo.getAvatar();
         if (StringUtil.hasValue(avatar)) {
             ImageLoaderUtil.loadLocalImage(avatar, civHeader);
         } else {

@@ -1,5 +1,6 @@
 package com.tender.hellojack.business.myinfo.changesignature;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.tools.IntentConst;
 import com.tender.tools.TenderLog;
 import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.string.StringUtil;
@@ -22,6 +24,18 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
 
     private EditText etSignature;
     private TextView tvCount;
+
+    private String account;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            account = intent.getStringExtra(IntentConst.IRParam.MINE_ACCOUNT);
+        }
+    }
 
     @Override
     public void onResume() {
@@ -39,11 +53,7 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
 
     @Override
     public void initUIData() {
-        String signature = PrefManager.getUserSignature();
-        etSignature.setText(signature);
-        etSignature.setSelection(signature.length());
-        etSignature.requestFocus();
-        tvCount.setText(String.valueOf(20 - signature.length()));
+        mPresenter.getMineInfo(account);
 
         initListener();
     }
@@ -103,7 +113,7 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
             public void run() {
                 String signature = etSignature.getText().toString();
                 if (StringUtil.hasValue(signature.trim())) {
-                    PrefManager.setUserSignature(signature);
+                    mPresenter.updateUserSignature(account, signature);
                     showToast("保存成功");
                     mActivity.finish();
                 } else {
@@ -116,5 +126,13 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
                 }
             }
         };
+    }
+
+    @Override
+    public void showMineSignature(String signature) {
+        etSignature.setText(signature);
+        etSignature.setSelection(signature.length());
+        etSignature.requestFocus();
+        tvCount.setText(String.valueOf(20 - signature.length()));
     }
 }

@@ -4,9 +4,12 @@ import android.content.Intent;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
+import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.tools.IntentConst;
 
+import io.realm.RealmChangeListener;
+import io.realm.RealmModel;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Func1;
@@ -43,41 +46,14 @@ public class UserInfoPresenter implements UserInfoContract.Presenter {
     }
 
     @Override
-    public void handleIntentParams(Intent intent) {
-        mSubscription.add(Observable.just(intent)
-                .filter(new Func1<Intent, Boolean>() {
-                    @Override
-                    public Boolean call(Intent intent) {
-                        return intent != null;
-                    }
-                })
-                .map(new Func1<Intent, String>() {
-                    @Override
-                    public String call(Intent intent) {
-                        return intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_ACCOUNT);
-                    }
-                })
-                .flatMap(new Func1<String, Observable<UserInfo>>() {
-                    @Override
-                    public Observable<UserInfo> call(String account) {
-                        return mRepository.getUserInfo(account);
-                    }
-                })
-                .subscribe(new Subscriber<UserInfo>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(UserInfo userInfo) {
-                        mView.showUserInfo(userInfo);
-                    }
-                }));
+    public void getUserInfo(String account) {
+        final UserInfo userInfo = UserRepository.getInstance().getUser(account).get(0);
+        userInfo.addChangeListener(new RealmChangeListener<RealmModel>() {
+            @Override
+            public void onChange(RealmModel realmModel) {
+                mView.showUserInfo(userInfo);
+            }
+        });
+        mView.showUserInfo(userInfo);
     }
 }

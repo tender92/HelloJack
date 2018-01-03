@@ -24,20 +24,18 @@ public class SessionActivity extends BaseActivity {
 
     @Override
     protected void initToolbar() {
-        Intent getIntent = getIntent();
-        if (getIntent != null) {
-            final UserInfo user = (UserInfo) getIntent().getSerializableExtra(IntentConst.IRParam.USER_INFO_USER);
-            if (user != null) {
-                updateTitle(user.displayName);
-                showRightImage(true);
-                mTitleRightImg.setImageResource(R.mipmap.hj_session_user);
-                clickRightImage(new Runnable() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            String title = intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_DISPLAY_NAME);
+            updateTitle(title);
+            showRightImage(true);
+            mTitleRightImg.setImageResource(R.mipmap.hj_session_user);
+            clickRightImage(new Runnable() {
                     @Override
                     public void run() {
                         finish();
                     }
                 });
-            }
         }
     }
 

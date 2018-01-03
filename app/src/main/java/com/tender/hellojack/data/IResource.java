@@ -12,6 +12,4 @@ public interface IResource {
     Observable<Object> login(String userName, String token);
 
     Observable<Object> register(String account, String name, String pwd);
-
-    Observable<UserInfo> getUserInfo(String account);
 }

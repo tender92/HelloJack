@@ -2,16 +2,17 @@ package com.tender.hellojack.business.mine.myfriends;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
+import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.model.Contact;
 import com.tender.hellojack.model.Friend;
 import com.tender.hellojack.model.UserInfo;
-import com.tender.hellojack.model.enums.GenderEnum;
-import com.tender.tools.manager.PrefManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.realm.RealmChangeListener;
+import io.realm.RealmResults;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -45,72 +46,88 @@ public class MyFriendsPresenter implements MyFriendsContract.Presenter {
     }
 
     @Override
-    public List<Friend> getFriends() {
+    public void initContacts() {
         List<Friend> friends = new ArrayList<>();
         Friend friend = new Friend();
-        friend.account = "xiaoming1";
-        friend.alias = "朱长江";
+        friend.setAccount("xiaoming1");
+        friend.setAlias("朱长江");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming2";
-        friend.alias = "沈亦臻";
+        friend.setAccount("xiaoming2");
+        friend.setAlias("沈亦臻");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming3";
-        friend.alias = "崔皓月";
+        friend.setAccount("xiaoming3");
+        friend.setAlias("崔皓月");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming3";
-        friend.alias = "莫晓俊";
+        friend.setAccount("xiaoming4");
+        friend.setAlias("莫晓俊");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming3";
-        friend.alias = "莫晓娜";
+        friend.setAccount("xiaoming5");
+        friend.setAlias("莫晓娜");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming3";
-        friend.alias = "星星";
+        friend.setAccount("xiaoming6");
+        friend.setAlias("星星");
         friends.add(friend);
 
         friend = new Friend();
-        friend.account = "xiaoming3";
-        friend.alias = "X先生";
+        friend.setAccount("xiaoming7");
+        friend.setAlias("X先生");
         friends.add(friend);
 
-        return friends;
+        for (int i = 0; i < friends.size(); i ++) {
+            UserRepository.getInstance().addNewFriend(friends.get(i), null, null);//创建朋友
+
+            UserInfo userInfo = new UserInfo();//创建用户
+            userInfo.setAccount(friends.get(i).getAccount());
+            userInfo.setDisplayName("大锤子哥");
+            userInfo.setAddress("上海市浦东新区张衡路");
+            userInfo.setAvatar("");
+            userInfo.setBirthDay("1996-03-08");
+            userInfo.setEmail("hdlgdx987@163.com");
+            userInfo.setGender(1);
+            userInfo.setMobile("13888888888");
+            userInfo.setName("小明");
+            userInfo.setRegion("上海市");
+            userInfo.setSignature("小明不迟到");
+            UserRepository.getInstance().addNewUser(userInfo, null, null);
+
+            Contact contact = new Contact(friends.get(i), userInfo);
+            UserRepository.getInstance().addNewContact(contact, null, null);
+        }
     }
 
     @Override
-    public UserInfo getUserInfo(String account) {
-        UserInfo userInfo = new UserInfo();
-        userInfo.account = "xiaoming";
-        userInfo.displayName = "大锤子哥";
-        userInfo.address = "上海市浦东新区张衡路";
-        userInfo.avatar = PrefManager.getUserHeaderPath();
-        userInfo.birthDay = "1996-03-08";
-        userInfo.email = "hdlgdx987@163.com";
-        userInfo.gender = GenderEnum.MALE;
-        userInfo.mobile = "13888888888";
-        userInfo.name = "小明";
-        userInfo.region = "上海市";
-        userInfo.signature = "小明不迟到";
-        return userInfo;
+    public List<Contact> getSortedContacts() {
+        RealmResults<Contact> contacts = UserRepository.getInstance().getAllContacts();
+        contacts.addChangeListener(new RealmChangeListener<RealmResults<Contact>>() {
+            @Override
+            public void onChange(RealmResults<Contact> contacts) {
+                sortContacts(contacts);
+                mView.notifyDataChanged();
+            }
+        });
+        sortContacts(contacts);
+        return contacts;
     }
 
     @Override
     public void sortContacts(List<Contact> contacts) {
-        Collections.sort(contacts);// 排序后由于#号排在上面，故得把#号的部分集合移到集合的最下面
+//        Collections.sort(contacts);// 排序后由于#号排在上面，故得把#号的部分集合移到集合的最下面
 
         List<Contact> specialList = new ArrayList<Contact>();
 
         for (int i = 0; i < contacts.size(); i++) {
             // 将属于#号的集合分离开来
-            if (contacts.get(i).mPinyin.equals("#")) {
+            if (contacts.get(i).getmPinyin().equals("#")) {
                 specialList.add(contacts.get(i));
             }
         }

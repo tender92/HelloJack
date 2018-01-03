@@ -2,7 +2,11 @@ package com.tender.hellojack.business.myinfo.changesignature;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
+import com.tender.hellojack.data.local.UserRepository;
+import com.tender.hellojack.model.UserInfo;
 
+import io.realm.RealmChangeListener;
+import io.realm.RealmModel;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -33,5 +37,22 @@ public class ChangeSignaturePresenter implements ChangeSignatureContract.Present
             mView.initUIData();
             hasInit = true;
         }
+    }
+
+    @Override
+    public void getMineInfo(String account) {
+        final UserInfo userInfo = UserRepository.getInstance().getUser(account).get(0);
+        userInfo.addChangeListener(new RealmChangeListener<RealmModel>() {
+            @Override
+            public void onChange(RealmModel realmModel) {
+                mView.showMineSignature(userInfo.getSignature());
+            }
+        });
+        mView.showMineSignature(userInfo.getSignature());
+    }
+
+    @Override
+    public void updateUserSignature(String account, String signature) {
+        UserRepository.getInstance().updateUserSignature(account, signature);
     }
 }

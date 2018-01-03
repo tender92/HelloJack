@@ -15,11 +15,12 @@ public class MyFriendsContract {
     interface View extends IView<Presenter> {
         void showSelectLetter(String letter);
         void showHeaderViewUnread();
+        void notifyDataChanged();
     }
 
     interface Presenter extends IPresenter {
-        List<Friend> getFriends();
-        UserInfo getUserInfo(String account);
+        void initContacts();
+        List<Contact> getSortedContacts();
         void sortContacts(List<Contact> contacts);
     }
 }

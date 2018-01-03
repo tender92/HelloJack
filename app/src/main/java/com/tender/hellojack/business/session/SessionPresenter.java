@@ -3,7 +3,9 @@ package com.tender.hellojack.business.session;
 import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
+import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.model.Message;
+import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.model.enums.MsgDirectionEnum;
 import com.tender.hellojack.model.enums.MsgTypeEnum;
 import com.tender.tools.manager.PrefManager;
@@ -14,6 +16,8 @@ import com.tender.tools.utils.string.UUIDGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.RealmChangeListener;
+import io.realm.RealmModel;
 import rx.subscriptions.CompositeSubscription;
 
 /**
@@ -46,6 +50,18 @@ public class SessionPresenter implements SessionContract.Presenter {
             mView.initUIData();
             hasInit = true;
         }
+    }
+
+    @Override
+    public UserInfo getUserInfo(String account) {
+        UserInfo userInfo = UserRepository.getInstance().getUser(account).get(0);
+        userInfo.addChangeListener(new RealmChangeListener<RealmModel>() {
+            @Override
+            public void onChange(RealmModel realmModel) {
+                mView.notifyDataChanged();
+            }
+        });
+        return userInfo;
     }
 
     @Override

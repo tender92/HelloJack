@@ -75,9 +75,4 @@ public class RemoteResource implements IResource {
             }
         });
     }
-
-    @Override
-    public Observable<UserInfo> getUserInfo(String account) {
-        return null;
-    }
 }
