@@ -164,6 +164,10 @@ public class MyApplication extends NimApplication {
         activities.add(activity);
     }
 
+    public static void removeActivity(Activity activity) {
+        activities.remove(activity);
+    }
+
     public static void exit(int status) {
         for (Activity activity : activities) {
             activity.finish();

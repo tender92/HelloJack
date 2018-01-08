@@ -72,6 +72,7 @@ abstract public class BaseActivity extends RxAppCompatActivity implements IToolB
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        MyApplication.removeActivity(this);
     }
 
     protected void initCustomActionBarUI() {

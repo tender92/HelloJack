@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/hj_tools_gray5">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="聊天记录"
+        android:textColor="@color/hj_tools_gray2"
+        android:textSize="14sp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/hj_tools_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="微信号"
+            app:right_text="hdlgdx987"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="QQ号"
+            app:right_text="960432662"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="手机号"
+            app:right_text="158xxxxxxxx"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="通讯录黑名单"
+            app:right_text="未绑定"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="安全"
+        android:textColor="@color/hj_tools_gray2"
+        android:textSize="14sp"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/hj_tools_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="声音锁"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="微信密码"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="账号保护"
+            app:right_text="已保护"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="手机安全防护"
+            app:right_text="未启用"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="微信安全中心"/>
+    </LinearLayout>
+</LinearLayout>

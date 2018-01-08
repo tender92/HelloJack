@@ -28,6 +28,8 @@
 
     <color name="hj_tools_red0">#ff0000</color>
 
+    <color name="hj_tools_blue0">#576B95</color>
+
     <!-- BottomNavigationBar -->
     <color name="hj_tools_home_bar_inactive">#4D5864</color>
 

@@ -196,11 +196,11 @@
         <activity android:name=".business.userinfo.UserInfoActivity" />
         <activity android:name=".business.session.SessionActivity" />
         <activity android:name=".business.setting.SettingActivity" />
-        <activity android:name=".business.setting.newmessage.NewMessageNotifyActivity" />
         <activity android:name=".business.tasks.TasksActivity" />
         <activity android:name=".business.tasks.listdetail.ListDetailActivity" />
         <activity android:name=".business.tasks.addtasktolist.AddTaskToListActivity" />
         <activity android:name=".business.tasks.taskdetail.TaskDetailActivity" />
+        <activity android:name=".business.setting.nodisturb.NoDisturbActivity" />
     </application>
 
 </manifest>

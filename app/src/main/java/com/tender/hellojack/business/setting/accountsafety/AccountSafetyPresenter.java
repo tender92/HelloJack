@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.setting;
+package com.tender.hellojack.business.setting.accountsafety;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
@@ -8,17 +8,17 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by boyu
  */
-public class SettingPresenter implements SettingContract.Presenter {
+public class AccountSafetyPresenter implements AccountSafetyContract.Presenter {
 
     private final ResourceRepository mRepository;
-    private final SettingContract.View mView;
+    private final AccountSafetyContract.View mView;
     private final BaseSchedule mSchedule;
 
     private CompositeSubscription mSubscription;
 
     private boolean hasInit = false;
 
-    public SettingPresenter(ResourceRepository mRepository, SettingContract.View mView, BaseSchedule mSchedule) {
+    public AccountSafetyPresenter(ResourceRepository mRepository, AccountSafetyContract.View mView, BaseSchedule mSchedule) {
         this.mRepository = mRepository;
         this.mView = mView;
         this.mSchedule = mSchedule;

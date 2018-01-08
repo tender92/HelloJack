@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.lqr.optionitemview.OptionItemView;
@@ -30,12 +29,10 @@ import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.AppConst;
 import com.tender.tools.IntentConst;
-import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.DialogUtil;
 import com.tender.tools.utils.DisplayUtil;
 import com.tender.tools.utils.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.string.UUIDGenerator;
 import com.tender.umengshare.DataAnalyticsManager;
 
 import java.util.concurrent.TimeUnit;

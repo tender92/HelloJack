@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/hj_tools_gray5">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/hj_setting_about_wechat"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="HelloJack(海纳百川)"
+            android:textColor="@color/hj_tools_gray2"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/hj_tools_white"
+        android:orientation="vertical">
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text="去评分"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"/>
+
+        <View
+        style="@style/hj_tools_line1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text="功能介绍"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"/>
+
+        <View
+            style="@style/hj_tools_line1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text="系统通知"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"/>
+
+        <View
+            style="@style/hj_tools_line1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text="帮助与反馈"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"/>
+
+        <View
+            style="@style/hj_tools_line1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            />
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text="版本更新"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:right_text="1.0.0"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_size="14sp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="使用条款和隐私政策"
+            android:textSize="14sp"
+            android:textColor="@color/hj_tools_blue0"/>
+    </RelativeLayout>
+</LinearLayout>

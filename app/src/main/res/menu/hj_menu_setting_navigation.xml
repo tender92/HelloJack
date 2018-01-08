@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_new_message"
+        android:title="新消息提醒"
+        android:icon="@mipmap/hj_setting_new_message" />
+
+    <item
+        android:id="@+id/menu_item_no_disturb"
+        android:title="勿扰模式"
+        android:icon="@mipmap/hj_setting_no_disturb" />
+
+    <item
+        android:id="@+id/menu_item_chat"
+        android:title="聊天"
+        android:icon="@mipmap/hj_setting_chat" />
+
+    <item
+        android:id="@+id/menu_item_privacy"
+        android:title="隐私"
+        android:icon="@mipmap/hj_setting_privacy" />
+
+    <item
+        android:id="@+id/menu_item_common"
+        android:title="通用"
+        android:icon="@mipmap/hj_setting_common" />
+
+    <item
+        android:id="@+id/menu_item_safety"
+        android:title="账号与安全"
+        android:icon="@mipmap/hj_setting_safety" />
+
+    <item
+        android:id="@+id/menu_item_about"
+        android:title="关于微信"
+        android:icon="@mipmap/hj_setting_about" />
+
+    <item
+        android:id="@+id/menu_item_exit"
+        android:title="退出"
+        android:icon="@mipmap/hj_setting_exit" />
+</menu>

@@ -16,6 +16,10 @@ import com.tender.tools.utils.DialogUtil;
 import com.tender.tools.TenderLog;
 import com.tender.tools.utils.DisplayUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.List;
 
 /**
@@ -51,6 +55,8 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
 //            contentFragment = new StartFragment();
 //            ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
 //        }
+
+        testIn();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(this, neededPermissions, this);
@@ -98,5 +104,22 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
         }
         startActivity(new Intent(this, HomeActivity.class));
 //        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+
+    private void testIn() {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray arrayName = new JSONArray().put("小明").put("小刘").put("小丕");
+        JSONArray arraySex = new JSONArray().put(1).put(0);
+        JSONArray arrayFriends = new JSONArray().put(new Exception("你错了！")).put(new Exception("我错了"));
+        try {
+            jsonObject.put("test", "textIn");
+            jsonObject.put("name", arrayName);
+            jsonObject.put("sex", arraySex);
+            jsonObject.put("friend", arrayFriends);
+            TenderLog.d(jsonObject.toString());
+        } catch (JSONException e) {
+            TenderLog.e(e.getMessage());
+        }
     }
 }

@@ -39,9 +39,6 @@ public class ActivityUtils {
                                     Fragment fragment, int frameId, List<Fragment> fragmentsToHide) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        if (!fragment.isAdded()) {
-            transaction.add(frameId, fragment);
-        }
 
         if (fragmentsToHide != null) {
             for (Fragment f : fragmentsToHide) {
@@ -51,8 +48,18 @@ public class ActivityUtils {
             }
         }
 
+        if (!fragment.isAdded()) {
+            transaction.add(frameId, fragment);
+        }
+
         transaction.show(fragment);
         transaction.commit();
+    }
+
+    public static void replaceFragment(FragmentManager fragmentManager,
+                                       Fragment fragment, int frameId) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(frameId, fragment);
     }
 
     /**

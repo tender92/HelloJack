@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/hj_tools_gray5">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:background="@color/hj_tools_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/hj_tools_black0"
+                android:textSize="16sp"
+                android:text="开启横屏模式"/>
+            <com.kyleduo.switchbutton.SwitchButton
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                app:kswBackDrawable="@drawable/hj_tools_switch_button_bg"
+                app:kswBackMeasureRatio="1.8"
+                app:kswThumbDrawable="@drawable/hj_tools_selector_switch_button"
+                app:kswThumbMarginBottom="-4dp"
+                app:kswThumbMarginLeft="-2dp"
+                app:kswThumbMarginRight="-2dp"
+                app:kswThumbMarginTop="-0dp"
+                app:kswThumbWidth="10dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="朋友圈小视频"
+            app:right_text="3G / 4G 和 Wi-Fi"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="自动下载微信安装包"
+            app:right_text="从不"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="多语言"
+            app:right_text="跟随系统"
+            app:right_text_color="@color/hj_tools_gray2"
+            app:right_text_margin_right="20dp"
+            app:right_text_size="14sp"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="字体大小"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="功能"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="流量统计"/>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/hj_tools_line1"/>
+
+        <com.lqr.optionitemview.OptionItemView
+            style="@style/hj_tools_optionItem"
+            app:left_text_color="@color/hj_tools_black0"
+            app:left_text_margin_left="15dp"
+            app:left_text_size="16sp"
+            app:left_text="清理微信存储空间"/>
+    </LinearLayout>
+</LinearLayout>

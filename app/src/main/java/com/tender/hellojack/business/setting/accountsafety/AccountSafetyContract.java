@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.setting;
+package com.tender.hellojack.business.setting.accountsafety;
 
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
@@ -6,7 +6,7 @@ import com.tender.hellojack.base.IView;
 /**
  * Created by boyu
  */
-public class SettingContract {
+public class AccountSafetyContract {
     interface View extends IView<Presenter> {
 
     }

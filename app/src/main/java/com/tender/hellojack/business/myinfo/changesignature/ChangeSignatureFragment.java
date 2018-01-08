@@ -131,8 +131,10 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
     @Override
     public void showMineSignature(String signature) {
         etSignature.setText(signature);
-        etSignature.setSelection(signature.length());
         etSignature.requestFocus();
-        tvCount.setText(String.valueOf(20 - signature.length()));
+        if (StringUtil.hasValue(signature)) {
+            etSignature.setSelection(signature.length());
+            tvCount.setText(String.valueOf(20 - signature.length()));
+        }
     }
 }
