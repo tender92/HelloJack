@@ -6,14 +6,12 @@ import android.view.Menu;
 
 import com.bm.library.PhotoView;
 import com.tender.hellojack.base.BaseActivity;
-import com.tender.hellojack.data.local.TasksRepository;
 import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.IntentConst;
-import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

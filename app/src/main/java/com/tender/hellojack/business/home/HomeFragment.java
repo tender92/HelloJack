@@ -17,7 +17,7 @@ import com.orhanobut.logger.Logger;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.lbs.baidu.HJLocationListener;

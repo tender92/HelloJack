@@ -1,4 +1,4 @@
-package com.tender.tools.utils;
+package com.tender.tools.utils.ui;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.tender.tools.R;
 import com.tender.tools.manager.PrefManager;
+import com.tender.tools.utils.ui.UIUtil;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

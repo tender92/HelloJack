@@ -9,12 +9,12 @@ import android.util.DisplayMetrics;
 
 import com.tender.hellojack.base.checkpermission.CheckPermissionsActivity;
 import com.tender.hellojack.base.checkpermission.CheckPermissionsListener;
+import com.tender.hellojack.business.guide.GuideActivity;
 import com.tender.hellojack.business.home.HomeActivity;
-import com.tender.hellojack.business.login.LoginActivity;
 import com.tender.tools.manager.PrefManager;
-import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.tools.TenderLog;
-import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,18 +28,14 @@ import java.util.List;
 
 public class StartActivity extends CheckPermissionsActivity implements CheckPermissionsListener {
 
-//    private StartFragment contentFragment;
-
     @Override
     protected void initLayout() {
-//        setContentView(R.layout.hj_activity_model);
+
     }
 
     @Override
     protected void initToolbar() {
-//        hideToolbar();
-//        View view = findViewById(R.id.hj_view_fill_up);
-//        view.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -49,13 +45,6 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
         DisplayMetrics metrics = getResources().getDisplayMetrics();
         PrefManager.saveScreenWidth(metrics.widthPixels - 2 * DisplayUtil.dip2px(this, 20));
         PrefManager.saveScreenHeight(metrics.heightPixels);
-
-//        contentFragment = (StartFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
-//        if (contentFragment == null) {
-//            contentFragment = new StartFragment();
-//            ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
-//        }
-
         testIn();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -102,8 +91,7 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
         } catch (InterruptedException e) {
             TenderLog.e(e.getMessage());
         }
-        startActivity(new Intent(this, HomeActivity.class));
-//        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, GuideActivity.class));
     }
 
 

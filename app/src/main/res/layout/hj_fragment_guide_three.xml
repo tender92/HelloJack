@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_guide_three_small_text"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_guide_three_small_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hj_guide_three_small_text"/>
+
+        <View
+            android:id="@+id/v_guide_three_small_text"
+            android:background="@color/hj_tools_white"
+            android:layout_gravity="center|top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_guide_three_big_text"
+        android:layout_toRightOf="@+id/fl_guide_three_small_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_guide_three_big_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hj_guide_three_big_text"/>
+
+        <View
+            android:id="@+id/v_guide_three_big_text"
+            android:background="@color/hj_tools_white"
+            android:layout_gravity="center|bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_guide_three_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/hj_guide_three_bg"/>
+
+        <ImageView
+            android:id="@+id/iv_guide_three_cloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:src="@mipmap/hj_guide_three_cloud"/>
+
+        <ImageView
+            android:id="@+id/iv_guide_three_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:src="@mipmap/hj_guide_three_star"/>
+
+        <Button
+            android:id="@+id/btn_guide_three_go_home"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="90dp"
+            android:background="@drawable/hj_tools_selector_btn_blue"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="立即体验"
+            android:textColor="@color/hj_tools_white"
+            android:textSize="20dp"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</RelativeLayout>

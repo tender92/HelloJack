@@ -21,16 +21,14 @@ import com.lqr.imagepicker.bean.ImageItem;
 import com.lqr.imagepicker.ui.ImageGridActivity;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
-import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.tools.IntentConst;
 import com.tender.tools.factory.PopupWindowFactory;
-import com.tender.tools.utils.DisplayUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
 
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 import cn.bingoogolapple.qrcode.core.QRCodeView;

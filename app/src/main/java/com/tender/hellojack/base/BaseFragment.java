@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.tender.hellojack.R;
-import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.android.FragmentEvent;
 import com.trello.rxlifecycle.components.support.RxFragment;

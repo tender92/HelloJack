@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.tender.hellojack.utils.ScheduleProvider;
-import com.tender.tools.utils.KeyBoardUtils;
+import com.tender.tools.utils.ui.KeyBoardUtils;
 
 import java.util.concurrent.TimeUnit;
 

@@ -8,7 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseActivity;
@@ -29,7 +28,7 @@ import com.tender.hellojack.business.setting.privacy.PrivacyPresenter;
 import com.tender.hellojack.manager.MyApplication;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.utils.ActivityUtils;
-import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.ui.DialogUtil;
 
 import java.util.ArrayList;
 import java.util.List;

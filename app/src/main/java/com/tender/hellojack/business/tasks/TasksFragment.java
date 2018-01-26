@@ -23,7 +23,7 @@ import com.tender.hellojack.business.tasks.listdetail.ListDetailActivity;
 import com.tender.hellojack.model.task.TaskList;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.tools.IntentConst;
-import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

@@ -7,7 +7,7 @@ import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.tender.instant.message.UserInfoConst;
 import com.tender.instant.message.utils.UserInfoSP;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 
 /**
  * Created by boyu on 2017/12/15.

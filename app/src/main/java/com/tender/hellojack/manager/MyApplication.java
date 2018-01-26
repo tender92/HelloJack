@@ -13,6 +13,7 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.squareup.leakcanary.LeakCanary;
 import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.model.UserInfo;
@@ -49,6 +50,13 @@ public class MyApplication extends NimApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
 
         moduleManager = new ModuleManager(this);
         moduleManager.onInit();

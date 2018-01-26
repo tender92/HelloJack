@@ -9,8 +9,8 @@ import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseActivity;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.utils.ActivityUtils;
-import com.tender.tools.utils.DialogUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.DialogUtil;
+import com.tender.tools.utils.ui.UIUtil;
 
 /**
  * Created by boyu

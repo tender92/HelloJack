@@ -1,4 +1,4 @@
-package com.tender.tools.utils;
+package com.tender.tools.utils.ui;
 
 import android.content.Context;
 

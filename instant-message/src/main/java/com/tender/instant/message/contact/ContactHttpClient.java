@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.tender.instant.message.config.NimServers;
 import com.tender.tools.TenderLog;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.MD5;
 
 import java.io.UnsupportedEncodingException;

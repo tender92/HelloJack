@@ -16,10 +16,9 @@ import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.IntentConst;
-import com.tender.tools.manager.PrefManager;
-import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 
 import cn.bingoogolapple.qrcode.zxing.QRCodeEncoder;
 

@@ -13,7 +13,7 @@ import com.baidu.tts.client.TtsMode;
 import com.tender.speech.SpeechConfig;
 import com.tender.speech.SpeechManager;
 import com.tender.tools.TenderLog;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 
 import java.util.HashMap;
 import java.util.Map;

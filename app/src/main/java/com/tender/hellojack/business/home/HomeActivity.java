@@ -14,7 +14,7 @@ import com.tender.hellojack.base.BaseActivity;
 import com.tender.hellojack.business.mine.MineFragment;
 import com.tender.hellojack.business.mine.MinePresenter;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.tools.utils.DialogUtil;
+import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.views.dialog.SelectDateDialog;
 import com.tender.tools.views.dialog.WheelDialogCallBack;

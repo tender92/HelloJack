@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,7 +23,7 @@ import com.tender.hellojack.business.tasks.taskdetail.TaskDetailActivity;
 import com.tender.hellojack.model.task.Task;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.tools.IntentConst;
-import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
 import com.tender.tools.views.dialog.HintDialog;
 
 import java.util.List;

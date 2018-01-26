@@ -19,17 +19,14 @@ import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.userinfo.UserInfoActivity;
 import com.tender.hellojack.model.Contact;
-import com.tender.hellojack.model.Friend;
-import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.IntentConst;
-import com.tender.tools.utils.DisplayUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.views.QuickIndexBar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 

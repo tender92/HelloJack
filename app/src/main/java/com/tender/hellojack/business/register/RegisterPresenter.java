@@ -4,7 +4,7 @@ import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.tools.utils.NetworkUtil;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.trello.rxlifecycle.android.FragmentEvent;
 
 import rx.Observable;

@@ -201,6 +201,8 @@
         <activity android:name=".business.tasks.addtasktolist.AddTaskToListActivity" />
         <activity android:name=".business.tasks.taskdetail.TaskDetailActivity" />
         <activity android:name=".business.setting.nodisturb.NoDisturbActivity" />
+        <activity android:name=".business.guide.GuideActivity" />
+        <activity android:name=".business.guide.guideone.GuideOneActivity" />
     </application>
 
 </manifest>

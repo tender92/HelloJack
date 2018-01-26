@@ -39,8 +39,8 @@ import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.instant.message.sticker.StickerAttachment;
 import com.tender.tools.IntentConst;
-import com.tender.tools.utils.KeyBoardUtils;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.KeyBoardUtils;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.views.DotView;
 

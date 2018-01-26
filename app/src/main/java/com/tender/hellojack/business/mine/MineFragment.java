@@ -29,9 +29,9 @@ import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.AppConst;
 import com.tender.tools.IntentConst;
-import com.tender.tools.utils.DialogUtil;
-import com.tender.tools.utils.DisplayUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.DialogUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
 import com.tender.umengshare.DataAnalyticsManager;
 
@@ -60,6 +60,7 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
+        mPresenter.getMineInfo();
     }
 
     @Override
@@ -158,7 +159,6 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     @Override
     public void initUIData() {
         mPresenter.createMine();
-        mPresenter.getMineInfo();
     }
 
     @Override

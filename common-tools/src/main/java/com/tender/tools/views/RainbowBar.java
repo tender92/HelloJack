@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.tender.tools.R;
-import com.tender.tools.utils.DisplayUtil;
+import com.tender.tools.utils.ui.DisplayUtil;
 
 /**
  * Created by boyu on 2017/11/16.

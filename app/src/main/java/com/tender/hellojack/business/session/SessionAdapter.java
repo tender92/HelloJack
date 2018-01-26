@@ -12,9 +12,8 @@ import com.tender.hellojack.model.Message;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.model.enums.MsgTypeEnum;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
-import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.TimeUtils;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.tender.tools.utils.string.StringUtil;
 
 import java.util.List;

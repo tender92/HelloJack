@@ -7,7 +7,7 @@ import com.tender.instant.message.model.UserCache;
 import com.tender.instant.message.nimsdk.NimAccountSDK;
 import com.tender.instant.message.nimsdk.NimUserInfoSDK;
 import com.tender.tools.utils.string.StringUtil;
-import com.tender.tools.utils.UIUtil;
+import com.tender.tools.utils.ui.UIUtil;
 import com.trello.rxlifecycle.android.FragmentEvent;
 
 import java.util.ArrayList;

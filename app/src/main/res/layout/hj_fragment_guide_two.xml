@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_guide_two_small_text"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_guide_two_small_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hj_guide_two_small_text"/>
+
+        <View
+            android:id="@+id/v_guide_two_small_text"
+            android:background="@color/hj_tools_white"
+            android:layout_gravity="center|top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_guide_two_big_text"
+        android:layout_toRightOf="@+id/fl_guide_two_small_text"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_guide_two_big_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/hj_guide_two_big_text"/>
+
+        <View
+            android:id="@+id/v_guide_two_big_text"
+            android:background="@color/hj_tools_white"
+            android:layout_gravity="center|bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_guide_two_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/hj_guide_two_bg"/>
+
+        <ImageView
+            android:id="@+id/iv_guide_two_packet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/hj_guide_two_packet"/>
+
+        <ImageView
+            android:id="@+id/iv_guide_two_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/hj_guide_two_coin"/>
+    </FrameLayout>
+</RelativeLayout>

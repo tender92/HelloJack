@@ -11,7 +11,6 @@ import com.tender.hellojack.business.tasks.listdetail.EditActionViewHolder;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.IntentConst;
 import com.tender.tools.utils.ActivityUtils;
-import com.tender.tools.utils.UIUtil;
 
 /**
  * Created by boyu
