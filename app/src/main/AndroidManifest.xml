@@ -180,7 +180,6 @@
         <!-- android:name=".business.home.HomeActivity" -->
         <!-- android:configChanges="keyboardHidden|orientation" /> -->
         <activity android:name=".business.myinfo.MyInfoActivity" />
-        <activity android:name=".ShowBigImageActivity" />
         <activity android:name=".TestActivity" />
         <activity android:name=".business.home.HomeActivity" />
         <activity android:name=".business.myinfo.qrcodecard.QRCodeCardActivity" />
@@ -200,9 +199,11 @@
         <activity android:name=".business.tasks.listdetail.ListDetailActivity" />
         <activity android:name=".business.tasks.addtasktolist.AddTaskToListActivity" />
         <activity android:name=".business.tasks.taskdetail.TaskDetailActivity" />
-        <activity android:name=".business.setting.nodisturb.NoDisturbActivity" />
         <activity android:name=".business.guide.GuideActivity" />
         <activity android:name=".business.guide.guideone.GuideOneActivity" />
+        <activity android:name=".business.home.once.OnceActivity" />
+        <activity android:name=".business.translate.TranslateActivity" />
+        <activity android:name=".business.showimage.ShowImageActivity" />
     </application>
 
 </manifest>

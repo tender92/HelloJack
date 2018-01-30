@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.setting.nodisturb;
+package com.tender.hellojack.business.home.once;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import com.tender.tools.utils.ActivityUtils;
 /**
  * Created by boyu
  */
-public class NoDisturbActivity extends BaseActivity {
+public class OnceActivity extends BaseActivity {
 
-    private NoDisturbFragment contentFragment;
+    private OnceFragment contentFragment;
 
     @Override
     protected void initLayout() {
@@ -20,18 +20,13 @@ public class NoDisturbActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        contentFragment = (NoDisturbFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
+        contentFragment = (OnceFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
         if (contentFragment == null) {
-            contentFragment = new NoDisturbFragment();
-            new NoDisturbPresenter(Injection.provideRepository(), contentFragment, Injection.provideSchedule());
+            contentFragment = new OnceFragment();
+            new OncePresenter(Injection.provideRepository(), contentFragment, Injection.provideSchedule());
             ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
         }
     }

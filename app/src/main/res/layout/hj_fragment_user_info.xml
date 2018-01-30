@@ -6,6 +6,8 @@
     android:orientation="vertical"
     android:background="@color/hj_tools_gray5">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <LinearLayout
         android:id="@+id/ll_user_info"
         android:layout_width="match_parent"

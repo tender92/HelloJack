@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <cn.bingoogolapple.qrcode.zxing.ZXingView
         android:id="@+id/zv_scan_zxing"
         android:layout_width="match_parent"

@@ -20,11 +20,6 @@ public class RegisterActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("注册账号");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

@@ -1,6 +1,9 @@
 package com.tender.hellojack.base;
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +13,7 @@ import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.utils.ui.UIUtil;
 import com.trello.rxlifecycle.LifecycleTransformer;
 import com.trello.rxlifecycle.android.FragmentEvent;
+import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 import me.drakeet.materialdialog.MaterialDialog;
@@ -20,17 +24,26 @@ import me.drakeet.materialdialog.MaterialDialog;
 
 abstract public class BaseFragment extends RxFragment implements IDialog, IToast {
 
-    protected Activity mActivity;
+    protected RxAppCompatActivity mActivity;
+
+    protected Toolbar mToolbar;
+    protected TextView mTitle;
 
     private DialogUtil.CustomDialog mWaitingDialog;
     private MaterialDialog mMaterialDialog;
 
-    protected abstract void onBackPressed();
+    abstract protected void initToolbar();
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initToolbar();
+    }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mActivity = activity;
+        mActivity = (RxAppCompatActivity) activity;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,8 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_mine, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         ivHeader = (ImageView) root.findViewById(R.id.iv_mine_header);
         ivQRCode = (ImageView) root.findViewById(R.id.iv_mine_qrcode);
         llMyInfo = (LinearLayout) root.findViewById(R.id.ll_my_info);
@@ -177,11 +180,6 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     }
 
     @Override
-    protected void onBackPressed() {
-
-    }
-
-    @Override
     public void showMyQRCode(UserInfo userInfo) {
         View root = View.inflate(mActivity, R.layout.hj_layout_qr_code_card, null);
         ImageView ivHeader = (ImageView) root.findViewById(R.id.iv_qrcode_card_header);
@@ -234,6 +232,23 @@ public class MineFragment extends BaseFragment implements MineContract.View {
             tvName.setText(name);
         } else {
             tvName.setText(account);
+        }
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("我的");
         }
     }
 }

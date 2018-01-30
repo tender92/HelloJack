@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:background="@color/hj_tools_gray5">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <com.tender.tools.views.ClearEditText
         android:id="@+id/cet_change_name_name"
         android:layout_width="match_parent"

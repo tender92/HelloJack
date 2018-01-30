@@ -23,23 +23,6 @@ public class SessionActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            String title = intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_DISPLAY_NAME);
-            updateTitle(title);
-            showRightImage(true);
-            mTitleRightImg.setImageResource(R.mipmap.hj_session_user);
-            clickRightImage(new Runnable() {
-                    @Override
-                    public void run() {
-                        finish();
-                    }
-                });
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import com.tender.hellojack.base.BaseFragment;
  * Created by boyu on 2018/1/26.
  */
 
-public class GuideTwoFragment extends BaseFragment implements GuideActivity.PlayAnimation {
+public class GuideTwoFragment extends Fragment implements GuideActivity.PlayAnimation {
 
     private static final long ANIMATOR_DURATION = 5400L;
 
@@ -68,11 +69,6 @@ public class GuideTwoFragment extends BaseFragment implements GuideActivity.Play
         return root;
     }
 
-    @Override
-    protected void onBackPressed() {
-
-    }
-
     private void initAnimation() {
         vaSmallText.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -92,7 +88,7 @@ public class GuideTwoFragment extends BaseFragment implements GuideActivity.Play
         });
         vaBigText.setDuration(ANIMATOR_DURATION / 2);
 
-        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity, R.animator.hj_animator_guide_alpha);
+        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.hj_animator_guide_alpha);
         asBackground.setTarget(flBackground);
 
         taCoin = new TranslateAnimation(0f, 0f, -300f, 0f);// 位移动画，从button的上方300像素位置开始

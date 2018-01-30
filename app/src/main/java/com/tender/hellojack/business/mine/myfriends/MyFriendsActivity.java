@@ -20,11 +20,6 @@ public class MyFriendsActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("通讯录");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

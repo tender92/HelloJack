@@ -23,11 +23,6 @@ public class ScanActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("扫一扫");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

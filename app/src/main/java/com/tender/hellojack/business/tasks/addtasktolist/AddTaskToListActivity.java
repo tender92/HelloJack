@@ -23,11 +23,6 @@ public class AddTaskToListActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("添加任务列表");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -39,20 +34,5 @@ public class AddTaskToListActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.tender.tools.R.menu.hj_tools_menu_confirm, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        if (android.R.id.home == itemId) {
-            finish();
-        } else if (com.tender.tools.R.id.menu_confirm == itemId) {
-            contentFragment.addTaskList();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

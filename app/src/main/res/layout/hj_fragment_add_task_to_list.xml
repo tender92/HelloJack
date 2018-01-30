@@ -5,6 +5,8 @@
     android:background="@color/hj_tools_gray5"
     android:orientation="vertical">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <TextView
         android:id="@+id/tv_add_task_to_list_title"
         android:layout_marginTop="20dp"

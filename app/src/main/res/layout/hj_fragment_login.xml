@@ -5,6 +5,8 @@
     android:orientation="vertical"
     android:background="@color/hj_tools_login_bg">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_weight="1.9"

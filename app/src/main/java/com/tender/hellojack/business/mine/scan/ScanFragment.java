@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -123,6 +124,8 @@ public class ScanFragment extends BaseFragment implements ScanContract.View, QRC
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_scan, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         zvScan = (ZXingView) root.findViewById(R.id.zv_scan_zxing);
         ivScanCode = (ImageView) root.findViewById(R.id.iv_scan_scan_code);
         ivCover = (ImageView) root.findViewById(R.id.iv_scan_cover);
@@ -180,11 +183,6 @@ public class ScanFragment extends BaseFragment implements ScanContract.View, QRC
     @Override
     public void setPresenter(ScanContract.Presenter presenter) {
         mPresenter = presenter;
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     @Override
@@ -264,5 +262,22 @@ public class ScanFragment extends BaseFragment implements ScanContract.View, QRC
     public void vibrate() {
         Vibrator vibrator = (Vibrator) mActivity.getSystemService(Context.VIBRATOR_SERVICE);
         vibrator.vibrate(200);
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("扫一扫");
+        }
     }
 }

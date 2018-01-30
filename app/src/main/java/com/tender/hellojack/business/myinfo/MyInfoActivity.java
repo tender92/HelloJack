@@ -21,11 +21,6 @@ public class MyInfoActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("个人信息");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

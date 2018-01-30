@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,11 @@ import com.lqr.imagepicker.bean.ImageItem;
 import com.lqr.imagepicker.ui.ImageGridActivity;
 import com.lqr.optionitemview.OptionItemView;
 import com.tender.hellojack.R;
-import com.tender.hellojack.ShowBigImageActivity;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.myinfo.changename.ChangeNameActivity;
 import com.tender.hellojack.business.myinfo.changesignature.ChangeSignatureActivity;
 import com.tender.hellojack.business.myinfo.qrcodecard.QRCodeCardActivity;
+import com.tender.hellojack.business.showimage.ShowImageActivity;
 import com.tender.hellojack.model.UserInfo;
 import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
@@ -64,6 +65,8 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_my_info, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         llHeader = (LinearLayout) root.findViewById(R.id.ll_my_info_header);
         ivHeader = (ImageView) root.findViewById(R.id.iv_my_info_header);
         oivName = (OptionItemView) root.findViewById(R.id.oiv_my_info_name);
@@ -86,7 +89,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             @Override
             public void call(Void aVoid) {
                 DataAnalyticsManager.getInstance().onEvent(mActivity, "event_myinfo_show_header");
-                Intent intent = new Intent(mActivity, ShowBigImageActivity.class);
+                Intent intent = new Intent(mActivity, ShowImageActivity.class);
                 intent.putExtra(IntentConst.IRParam.MINE_ACCOUNT, mineAccount);
                 startActivity(intent);
             }
@@ -185,9 +188,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
             }
         }
     }
-
-    @Override
-    protected void onBackPressed() {
+    public void onBackPressed() {
         if (mCityPicker.isShow()) {
             mCityPicker.close();
         } else {
@@ -271,6 +272,23 @@ public class MyInfoFragment extends BaseFragment implements MyInfoContract.View,
         } else {
             tvMale.setCompoundDrawables(null, null, mGenderUnSelect, null);
             tvFemale.setCompoundDrawables(null, null, mGenderSelect, null);
+        }
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("个人信息");
         }
     }
 }

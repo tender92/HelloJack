@@ -20,11 +20,6 @@ public class CouponActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("优惠券");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

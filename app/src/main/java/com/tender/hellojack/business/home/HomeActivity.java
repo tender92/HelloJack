@@ -1,6 +1,5 @@
 package com.tender.hellojack.business.home;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -13,11 +12,11 @@ import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseActivity;
 import com.tender.hellojack.business.mine.MineFragment;
 import com.tender.hellojack.business.mine.MinePresenter;
+import com.tender.hellojack.business.translate.TranslateFragment;
+import com.tender.hellojack.business.translate.TranslatePresenter;
 import com.tender.hellojack.manager.MyApplication;
-import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.Injection;
-import com.tender.tools.views.dialog.SelectDateDialog;
-import com.tender.tools.views.dialog.WheelDialogCallBack;
+import com.tender.tools.utils.ui.DialogUtil;
 
 import java.util.ArrayList;
 
@@ -40,29 +39,12 @@ public class HomeActivity extends BaseActivity {
 
     private ArrayList<Fragment> mFragmentList = new ArrayList<>();
     private HomeFragment mHomeFragment;
+    private TranslateFragment mTranslate;
     private MineFragment mMineFragment;
 
     @Override
     protected void initLayout() {
         setContentView(R.layout.hj_activity_home);
-    }
-
-    @Override
-    protected void initToolbar() {
-        showLeftButton(false);
-        showRightImage(true);
-        updateTitle("HomeActivity");
-        clickRightImage(new Runnable() {
-            @Override
-            public void run() {
-                new SelectDateDialog(HomeActivity.this, "", new WheelDialogCallBack() {
-                    @Override
-                    public void onCallback(Context context, String selectString) {
-                        DialogUtil.showHint(HomeActivity.this, selectString);
-                    }
-                }).show();
-            }
-        });
     }
 
     @Override
@@ -73,8 +55,8 @@ public class HomeActivity extends BaseActivity {
         bnbBottom.addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "首页")
                 .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
                 .setInActiveColorResource(R.color.hj_tools_home_bar_inactive))
-                .addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "我的")
-                        .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
+                .addItem(new BottomNavigationItem(R.mipmap.hj_home_translate_active, "翻译")
+                        .setInactiveIconResource(R.mipmap.hj_home_translate_inactive)
                         .setInActiveColorResource(R.color.hj_tools_home_bar_inactive))
                 .addItem(new BottomNavigationItem(R.mipmap.hj_home_mine_active, "我的")
                         .setInactiveIconResource(R.mipmap.hj_home_mine_inactive)
@@ -103,9 +85,9 @@ public class HomeActivity extends BaseActivity {
         new HomePresenter(Injection.provideRepository(), mHomeFragment, Injection.provideSchedule());
         mFragmentList.add(mHomeFragment);
 
-        mMineFragment = new MineFragment();
-        new MinePresenter(Injection.provideRepository(), mMineFragment, Injection.provideSchedule());
-        mFragmentList.add(mMineFragment);
+        mTranslate = new TranslateFragment();
+        new TranslatePresenter(Injection.provideRepository(), mTranslate, Injection.provideSchedule());
+        mFragmentList.add(mTranslate);
 
         mMineFragment = new MineFragment();
         new MinePresenter(Injection.provideRepository(), mMineFragment, Injection.provideSchedule());
@@ -120,7 +102,6 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onPageSelected(int position) {
                 bnbBottom.selectTab(position);
-                setTitleByPosition(position);
             }
 
             @Override
@@ -139,20 +120,6 @@ public class HomeActivity extends BaseActivity {
                 return mFragmentList.size();
             }
         });
-    }
-
-    private void setTitleByPosition(int position) {
-        switch (position) {
-            case 0:
-                updateTitle("首页");
-                break;
-            case 1:
-                updateTitle("我的");
-                break;
-            case 2:
-                updateTitle("我的");
-                break;
-        }
     }
 
     @Override

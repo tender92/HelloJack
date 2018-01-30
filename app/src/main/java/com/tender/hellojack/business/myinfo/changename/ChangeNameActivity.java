@@ -20,12 +20,6 @@ public class ChangeNameActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("更改名字");
-        showRightBtn(true);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -35,6 +29,5 @@ public class ChangeNameActivity extends BaseActivity {
             new ChangeNamePresenter(Injection.provideRepository(), contentFragment, Injection.provideSchedule());
             ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
         }
-        clickRightBtn(contentFragment.clickBtnSaveName());
     }
 }

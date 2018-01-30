@@ -18,8 +18,6 @@
             android:layout_height="@dimen/hj_status_bar_height"
             android:background="@drawable/hj_shape_toolbar_bg" />
 
-        <include layout="@layout/hj_layout_custom_actionbar"/>
-
         <FrameLayout
             android:id="@+id/fl_setting_content"
             android:layout_width="match_parent"

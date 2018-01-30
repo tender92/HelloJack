@@ -21,11 +21,6 @@ public class TasksActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("任务列表");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TasksRepository.getInstance().initRealm();

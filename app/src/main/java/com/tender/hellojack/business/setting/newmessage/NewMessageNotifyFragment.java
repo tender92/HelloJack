@@ -2,12 +2,16 @@ package com.tender.hellojack.business.setting.newmessage;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.hellojack.business.setting.SettingActivity;
 
 public class NewMessageNotifyFragment extends BaseFragment implements NewMessageNotifyContract.View {
 
@@ -22,6 +26,8 @@ public class NewMessageNotifyFragment extends BaseFragment implements NewMessage
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_new_message_notify, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
 
         return root;
     }
@@ -47,7 +53,20 @@ public class NewMessageNotifyFragment extends BaseFragment implements NewMessage
     }
 
     @Override
-    protected void onBackPressed() {
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_setting_menu);
+            mActivity.setSupportActionBar(mToolbar);
 
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((SettingActivity)mActivity).dlSetting.openDrawer(Gravity.START);
+                }
+            });
+
+            mTitle.setText("新消息提醒");
+        }
     }
 }

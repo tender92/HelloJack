@@ -7,12 +7,15 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
@@ -22,7 +25,7 @@ import com.tender.hellojack.business.home.HomeActivity;
  * Created by boyu on 2018/1/26.
  */
 
-public class GuideThreeFragment extends BaseFragment implements GuideActivity.PlayAnimation {
+public class GuideThreeFragment extends Fragment implements GuideActivity.PlayAnimation {
 
     private static final long ANIMATOR_DURATION = 5400L;
 
@@ -50,7 +53,7 @@ public class GuideThreeFragment extends BaseFragment implements GuideActivity.Pl
         btnGoHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mActivity, HomeActivity.class);
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,11 +76,6 @@ public class GuideThreeFragment extends BaseFragment implements GuideActivity.Pl
         return root;
     }
 
-    @Override
-    protected void onBackPressed() {
-
-    }
-
     private void initAnimation() {
         vaSmallText.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -97,13 +95,13 @@ public class GuideThreeFragment extends BaseFragment implements GuideActivity.Pl
         });
         vaBigText.setDuration(ANIMATOR_DURATION / 2);
 
-        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity, R.animator.hj_animator_guide_alpha);
+        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.hj_animator_guide_alpha);
         asBackground.setTarget(flBackground);
 
-        asCloud = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity, R.animator.hj_animator_guiede_cloud);
+        asCloud = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.hj_animator_guiede_cloud);
         asCloud.setTarget(ivCloud);
 
-        asStar = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity, R.animator.hj_animator_guiede_star);
+        asStar = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.hj_animator_guiede_star);
         asStar.setTarget(ivStar);
 
     }

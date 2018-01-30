@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <Button
-        android:id="@+id/btn_home_my_info"
+        android:id="@+id/btn_home_once"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="To My Info"
+        android:text="一次性框架试用"
         android:textSize="@dimen/hj_tools_text_size_40px"
         android:textColor="@color/hj_tools_white"
         android:background="@color/hj_tools_toolbar_bg"

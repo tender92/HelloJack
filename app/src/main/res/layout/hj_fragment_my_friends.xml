@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.lqr.recyclerview.LQRRecyclerView
-        android:id="@+id/rv_my_friends_contact"
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:rv_orientation="vertical"
-        app:rv_type="grid">
+        android:layout_height="match_parent">
 
-    </com.lqr.recyclerview.LQRRecyclerView>
+        <com.lqr.recyclerview.LQRRecyclerView
+            android:id="@+id/rv_my_friends_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:rv_orientation="vertical"
+            app:rv_type="grid">
 
-    <com.tender.tools.views.QuickIndexBar
-        android:id="@+id/qib_my_friends"
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"/>
+        </com.lqr.recyclerview.LQRRecyclerView>
 
-    <TextView
-        android:id="@+id/tv_my_friends_select_letter"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/hj_tools_shape_rect_stroke_gray"
-        android:gravity="center"
-        android:text="A"
-        android:textColor="@color/hj_tools_green1"
-        android:textSize="20dp"
-        android:visibility="gone"/>
-</RelativeLayout>
+        <com.tender.tools.views.QuickIndexBar
+            android:id="@+id/qib_my_friends"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/tv_my_friends_select_letter"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/hj_tools_shape_rect_stroke_gray"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@color/hj_tools_green1"
+            android:textSize="20dp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>
+

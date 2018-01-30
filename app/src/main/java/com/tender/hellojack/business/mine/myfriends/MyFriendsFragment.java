@@ -3,6 +3,7 @@ package com.tender.hellojack.business.mine.myfriends;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,6 +58,8 @@ public class MyFriendsFragment extends BaseFragment implements MyFriendsContract
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_my_friends, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         rvContact = (LQRRecyclerView) root.findViewById(R.id.rv_my_friends_contact);
         qibLettes = (QuickIndexBar) root.findViewById(R.id.qib_my_friends);
         tvSelectLetter = (TextView) root.findViewById(R.id.tv_my_friends_select_letter);
@@ -125,11 +128,6 @@ public class MyFriendsFragment extends BaseFragment implements MyFriendsContract
     @Override
     public void setPresenter(MyFriendsContract.Presenter presenter) {
         mPresenter = presenter;
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     private void setAdapter() {
@@ -213,5 +211,22 @@ public class MyFriendsFragment extends BaseFragment implements MyFriendsContract
     @Override
     public void notifyDataChanged() {
         mAdapter.notifyDataSetChangedWrapper();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("通讯录");
+        }
     }
 }

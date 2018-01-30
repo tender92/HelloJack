@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,8 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_layout_qr_code_card, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         ivHeader = (ImageView) root.findViewById(R.id.iv_qrcode_card_header);
         ivGender = (ImageView) root.findViewById(R.id.iv_qrcode_gender);
         ivQRCode = (ImageView) root.findViewById(R.id.iv_qrcode_card);
@@ -61,11 +64,6 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
     public void onResume() {
         super.onResume();
         mPresenter.start();
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     @Override
@@ -115,5 +113,22 @@ public class QRCodeCardFragment extends BaseFragment implements QRCodeCardContra
                 });
             }
         });
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("二维码名片");
+        }
     }
 }

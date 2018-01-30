@@ -1,14 +1,17 @@
 package com.tender.hellojack.business.webview;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
@@ -33,7 +36,8 @@ public class WebViewFragment extends BaseFragment implements WebViewContract.Vie
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_web_view, container, false);
-
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         pwvWebView = (ProgressWebView) root.findViewById(R.id.pwv_web_view);
         return root;
     }
@@ -70,8 +74,7 @@ public class WebViewFragment extends BaseFragment implements WebViewContract.Vie
         mPresenter = presenter;
     }
 
-    @Override
-    protected void onBackPressed() {
+    public void onBackPressed() {
         isLoading = false;
         //如果当前浏览器可以后退，则后退上一个页面
         if (pwvWebView.canGoBack()) {
@@ -92,6 +95,33 @@ public class WebViewFragment extends BaseFragment implements WebViewContract.Vie
                 TenderLog.e(e.getMessage());
             }
             pwvWebView = null;
+        }
+    }
+
+    @Override
+    protected void initToolbar() {
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            String title = intent.getStringExtra(IntentConst.IRParam.WEB_VIEW_TITLE);
+            if (mToolbar != null) {
+                mToolbar.setTitle("");
+                mToolbar.setNavigationIcon(R.mipmap.hj_tools_webview_delete);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mActivity.finish();
+                    }
+                });
+                mActivity.setSupportActionBar(mToolbar);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mActivity.finish();
+                    }
+                });
+
+                mTitle.setText(title);
+            }
         }
     }
 

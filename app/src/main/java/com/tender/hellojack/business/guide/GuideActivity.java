@@ -29,11 +29,6 @@ public class GuideActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

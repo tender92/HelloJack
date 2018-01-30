@@ -43,7 +43,7 @@ import butterknife.ButterKnife;
 public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.dl_setting_layout)
-    DrawerLayout dlSetting;
+    public DrawerLayout dlSetting;
     @BindView(R.id.nm_setting_navigation)
     NavigationView nmSetting;
 
@@ -68,18 +68,6 @@ public class SettingActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("新消息提醒");
-        mToolbar.setNavigationIcon(R.mipmap.hj_setting_menu);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dlSetting.openDrawer(Gravity.START);
-            }
-        });
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -96,7 +84,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("新消息提醒");
                         if (newMessageNotifyFragment == null) {
                             newMessageNotifyFragment = new NewMessageNotifyFragment();
                             fragments.add(newMessageNotifyFragment);
@@ -112,7 +99,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("勿扰模式");
                         if (noDisturbFragment == null) {
                             noDisturbFragment = new NoDisturbFragment();
                             fragments.add(noDisturbFragment);
@@ -128,7 +114,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("聊天");
                         if (chatFragment == null) {
                             chatFragment = new ChatFragment();
                             fragments.add(chatFragment);
@@ -144,7 +129,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("隐私");
                         if (privacyFragment == null) {
                             privacyFragment = new PrivacyFragment();
                             fragments.add(privacyFragment);
@@ -160,7 +144,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("通用");
                         if (commonFragment == null) {
                             commonFragment = new CommonFragment();
                             fragments.add(commonFragment);
@@ -175,7 +158,6 @@ public class SettingActivity extends BaseActivity {
                         if (currentItem == lastItem) {
                             return false;
                         }
-                        updateTitle("账号与安全");
                         if (accountSafetyFragment == null) {
                             accountSafetyFragment = new AccountSafetyFragment();
                             fragments.add(accountSafetyFragment);
@@ -191,7 +173,6 @@ public class SettingActivity extends BaseActivity {
                             dlSetting.closeDrawers();
                             return false;
                         }
-                        updateTitle("关于微信");
                         if (aboutWeChatFragment == null) {
                             aboutWeChatFragment = new AboutWeChatFragment();
                             fragments.add(aboutWeChatFragment);

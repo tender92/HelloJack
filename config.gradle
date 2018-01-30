@@ -66,4 +66,8 @@ ext {
 
     //内存泄漏检测 https://github.com/square/leakcanary
     LEAKCANARY_ANDROID_VERSION = '1.5.4'
+    //一次性框架
+    ONE_VERSION = '1.2.1'
+    //崩溃异常捕获
+    CRASH_WOODPECKER = '2.1.1'
 }

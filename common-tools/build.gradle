@@ -49,6 +49,8 @@ dependencies {
     compile "de.hdodenhof:circleimageview:${CIRCLE_IMAGE_VIEW}"
     compile "com.lqr.imagepicker:library:${IMAGE_PICKER_VERSION}"
     compile "com.nostra13.universalimageloader:universal-image-loader:${IMAGE_LOADER_VERSION}"
+    compile "com.jonathanfinerty.once:once:${ONE_VERSION}"
+    compile "me.drakeet.library:crashwoodpecker:${CRASH_WOODPECKER}"
     compile "com.bm.photoview:library:${PHOTO_VIEW_VERSION}"
     compile "com.google.zxing:core:${GOOGLE_ZXING_CORE_VERSION}"
     compile "cn.bingoogolapple:bga-qrcodecore:${QRCODE_CORE_VERSION}@aar"

@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -38,6 +42,8 @@ public class AddTaskToListFragment extends BaseFragment implements AddTaskToList
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_add_task_to_list, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         tilTask = (TextInputLayout) root.findViewById(R.id.til_add_task_to_list_task);
         tietTask = (TextInputEditText) root.findViewById(R.id.tiet_add_task_to_list_task);
         tvListTitle = (TextView) root.findViewById(R.id.tv_add_task_to_list_title);
@@ -48,7 +54,26 @@ public class AddTaskToListFragment extends BaseFragment implements AddTaskToList
                 mPresenter.selectTaskList();
             }
         });
+
+        setHasOptionsMenu(true);
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(com.tender.tools.R.menu.hj_tools_menu_confirm, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (android.R.id.home == itemId) {
+            mActivity.finish();
+        } else if (com.tender.tools.R.id.menu_confirm == itemId) {
+            addTaskList();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -92,11 +117,6 @@ public class AddTaskToListFragment extends BaseFragment implements AddTaskToList
         mPresenter = presenter;
     }
 
-    @Override
-    protected void onBackPressed() {
-
-    }
-
     public void addTaskList() {
         String taskTitle = tietTask.getText().toString();
         mPresenter.addTaskList(taskTitle);
@@ -136,5 +156,22 @@ public class AddTaskToListFragment extends BaseFragment implements AddTaskToList
     @Override
     public void finishActivity() {
         mActivity.finish();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("添加任务列表");
+        }
     }
 }

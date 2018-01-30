@@ -18,13 +18,6 @@ public class ChangeSignatureActivity extends BaseActivity {
     protected void initLayout() {
         setContentView(R.layout.hj_activity_model);
     }
-
-    @Override
-    protected void initToolbar() {
-        updateTitle("更改个性签名");
-        showRightBtn(true);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +28,6 @@ public class ChangeSignatureActivity extends BaseActivity {
             new ChangeSignaturePresenter(Injection.provideRepository(), contentFragment, Injection.provideSchedule());
             ActivityUtils.showFragment(getSupportFragmentManager(), contentFragment, R.id.hj_contentFrame, null);
         }
-        clickRightBtn(contentFragment.clickBtnSaveSignature());
     }
 
 }

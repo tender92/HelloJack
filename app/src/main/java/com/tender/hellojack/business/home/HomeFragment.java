@@ -2,12 +2,15 @@ package com.tender.hellojack.business.home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -16,11 +19,14 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.hellojack.business.home.once.OnceActivity;
 import com.tender.hellojack.manager.MyApplication;
 import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.lbs.baidu.BDLocationImpl;
 import com.tender.lbs.baidu.HJLocationListener;
+import com.tender.tools.views.dialog.SelectDateDialog;
+import com.tender.tools.views.dialog.WheelDialogCallBack;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -41,7 +47,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     private HomeContract.Presenter mPresenter;
 
-    private Button btnMyInfo;
+    private Button btnOnce;
     private Button btnShare;
     private TextView tvLocationInfo;
 
@@ -53,15 +59,18 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_home, container, false);
-        btnMyInfo = (Button) root.findViewById(R.id.btn_home_my_info);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
+        btnOnce = (Button) root.findViewById(R.id.btn_home_once);
         btnShare = (Button) root.findViewById(R.id.btn_home_share);
         tvLocationInfo = (TextView) root.findViewById(R.id.tv_home_location);
 
-        RxView.clicks(btnMyInfo).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
+        RxView.clicks(btnOnce).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
                 .subscribe(new Action1<Void>() {
                     @Override
                     public void call(Void aVoid) {
-
+                        Intent intent = new Intent(mActivity, OnceActivity.class);
+                        startActivity(intent);
                     }
                 });
         RxView.clicks(btnShare).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
@@ -78,11 +87,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     @Override
@@ -236,6 +240,37 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     }
                 });
         mShareAction.open();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            ImageView ivRight = (ImageView) mToolbar.findViewById(R.id.iv_actionbar_right);
+            ivRight.setVisibility(View.VISIBLE);
+            ivRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new SelectDateDialog(mActivity, "", new WheelDialogCallBack() {
+                        @Override
+                        public void onCallback(Context context, String selectString) {
+                            DialogUtil.showHint(mActivity, selectString);
+                        }
+                    }).show();
+                }
+            });
+
+            mTitle.setText("首页");
+        }
     }
 
     private class CustomShareListener implements UMShareListener {

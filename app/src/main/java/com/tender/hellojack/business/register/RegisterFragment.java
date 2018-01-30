@@ -3,6 +3,7 @@ package com.tender.hellojack.business.register;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jakewharton.rxbinding.view.RxView;
 import com.tender.hellojack.R;
@@ -45,6 +47,8 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_register, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         cetUserAccount = (ClearEditText) root.findViewById(R.id.cet_register_user_account);
         cetUserName = (ClearEditText) root.findViewById(R.id.cet_register_user_name);
         cetUserPwd = (ClearEditText) root.findViewById(R.id.cet_register_user_pwd);
@@ -102,11 +106,6 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
     }
 
     @Override
-    protected void onBackPressed() {
-
-    }
-
-    @Override
     public void showOrHidePwd() {
         if (pwdFirstShow) {
             pwdFirstShow = false;
@@ -145,5 +144,22 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.V
         intent.putExtra(IntentConst.IRParam.REGISTER_PWD, pwd);
         startActivity(intent);
         mActivity.finish();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            mTitle.setText("注册账号");
+        }
     }
 }

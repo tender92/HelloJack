@@ -34,11 +34,6 @@ public class StartActivity extends CheckPermissionsActivity implements CheckPerm
     }
 
     @Override
-    protected void initToolbar() {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

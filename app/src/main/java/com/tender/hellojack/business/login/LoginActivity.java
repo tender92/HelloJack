@@ -30,16 +30,10 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         vFillUp = findViewById(R.id.hj_view_fill_up);
         vFillUp.setVisibility(View.GONE);
-        hideToolbar();
 
         contentFragment = (LoginFragment) getSupportFragmentManager().findFragmentById(R.id.hj_contentFrame);
         if (contentFragment == null) {

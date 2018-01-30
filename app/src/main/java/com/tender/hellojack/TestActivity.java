@@ -17,11 +17,6 @@ public class TestActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-//        updateTitle("JPush消息通知");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView tv = new TextView(this);

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
+    <Button
+        android:id="@+id/btn_once_session_init"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="应用程序进程初始化 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_app_install"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="应用程序安装 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_app_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="应用程序更新 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_execute_one_per_minus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一分钟内直执行一次 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_execute_one_per_seconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="一秒钟内值执行一次 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_execute_one_per_three_times"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="三次点击才执行一次 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_once_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="重置所有 模拟"
+        android:textSize="@dimen/hj_tools_text_size_40px"
+        android:textColor="@color/hj_tools_white"
+        android:background="@color/hj_tools_toolbar_bg"
+        android:layout_marginTop="10dp"
+        android:gravity="center"/>
+</LinearLayout>

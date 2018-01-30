@@ -3,12 +3,15 @@ package com.tender.hellojack.business.myinfo.changesignature;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tender.hellojack.R;
@@ -46,6 +49,8 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_change_signature, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         etSignature = (EditText) root.findViewById(R.id.et_change_signature);
         tvCount = (TextView) root.findViewById(R.id.tv_change_signature_Count);
         return root;
@@ -71,11 +76,6 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
     @Override
     public void setPresenter(ChangeSignatureContract.Presenter presenter) {
         mPresenter = presenter;
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     private void initListener() {
@@ -107,27 +107,6 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
         });
     }
 
-    public Runnable clickBtnSaveSignature() {
-        return new Runnable() {
-            @Override
-            public void run() {
-                String signature = etSignature.getText().toString();
-                if (StringUtil.hasValue(signature.trim())) {
-                    mPresenter.updateUserSignature(account, signature);
-                    showToast("保存成功");
-                    mActivity.finish();
-                } else {
-                    showMaterialDialog("提示", "没有输入个性签名，请重新填写", "确定", "", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            hideMaterialDialog();
-                        }
-                    }, null);
-                }
-            }
-        };
-    }
-
     @Override
     public void showMineSignature(String signature) {
         etSignature.setText(signature);
@@ -135,6 +114,44 @@ public class ChangeSignatureFragment extends BaseFragment implements ChangeSigna
         if (StringUtil.hasValue(signature)) {
             etSignature.setSelection(signature.length());
             tvCount.setText(String.valueOf(20 - signature.length()));
+        }
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setTitle("");
+            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+            mActivity.setSupportActionBar(mToolbar);
+            mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.onBackPressed();
+                }
+            });
+
+            Button btnRight = (Button) mToolbar.findViewById(R.id.btn_actionbar_right);
+            btnRight.setVisibility(View.VISIBLE);
+            btnRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String signature = etSignature.getText().toString();
+                    if (StringUtil.hasValue(signature.trim())) {
+                        mPresenter.updateUserSignature(account, signature);
+                        showToast("保存成功");
+                        mActivity.finish();
+                    } else {
+                        showMaterialDialog("提示", "没有输入个性签名，请重新填写", "确定", "", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                hideMaterialDialog();
+                            }
+                        }, null);
+                    }
+                }
+            });
+
+            mTitle.setText("更改个性签名");
         }
     }
 }

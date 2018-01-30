@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.StrictMode;
 
 import com.lqr.emoji.LQRUIKit;
 import com.lqr.imagepicker.ImagePicker;
@@ -34,6 +35,9 @@ import java.util.Set;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import jonathanfinerty.once.Once;
+import me.drakeet.library.CrashWoodpecker;
+import me.drakeet.library.PatchMode;
 
 /**
  * Created by boyu on 2017/10/19.
@@ -57,6 +61,31 @@ public class MyApplication extends NimApplication {
             return;
         }
         LeakCanary.install(this);
+
+        //严苛模式（https://www.jianshu.com/p/113b9c54b5d1）
+        if (BuildConfig.DEBUG) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectAll()
+                    .penaltyLog()
+//                    .penaltyDeath()
+                    .build());
+
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectAll()
+                    .penaltyLog()
+//                    .penaltyDeath()
+                    .build());
+        }
+
+        //异常信息捕获（https://github.com/drakeet/CrashWoodpecker）
+        CrashWoodpecker.instance()
+                .withKeys("widget", "com.tender")
+                .setPatchMode(PatchMode.SHOW_LOG_PAGE)
+                .setPatchDialogUrlToOpen("https://drakeet.me")
+                .setPassToOriginalDefaultHandler(true)
+                .flyTo(this);
+
+        Once.initialise(getApplicationContext());
 
         moduleManager = new ModuleManager(this);
         moduleManager.onInit();

@@ -4,8 +4,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -41,6 +46,8 @@ public class ListDetailFragment extends BaseFragment implements ListDetailContra
 
     private LQRAdapterForRecyclerView mAdapter;
 
+    private EditActionViewHolder editViewHolder;
+
     private long listId;
 
     @Override
@@ -50,8 +57,46 @@ public class ListDetailFragment extends BaseFragment implements ListDetailContra
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(com.tender.tools.R.menu.hj_tools_menu_edit_title_and_delete, menu);
+
+        MenuItem editItem = menu.findItem(com.tender.tools.R.id.menu_edit);
+        final View actionView = editItem.getActionView();
+        editViewHolder = new EditActionViewHolder(actionView, editItem);
+        MenuItemCompat.setOnActionExpandListener(editItem, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                editViewHolder.showCurrentTitle(getListTitle());
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                setListTitle(editViewHolder.getCurrentText());
+                mTitle.setText(editViewHolder.getCurrentText());
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+        } else if (itemId == com.tender.tools.R.id.menu_delete) {
+            deleteList();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_list_detail, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         rvDoneTasks = (LQRRecyclerView) root.findViewById(R.id.rv_list_detail_done_list);
 
         tvHeader = new TextView(mActivity);
@@ -73,6 +118,7 @@ public class ListDetailFragment extends BaseFragment implements ListDetailContra
                 dialog.show(getChildFragmentManager(), "AddTaskListDialog");
             }
         });
+        setHasOptionsMenu(true);
         return root;
     }
 
@@ -127,11 +173,6 @@ public class ListDetailFragment extends BaseFragment implements ListDetailContra
         mPresenter = presenter;
     }
 
-    @Override
-    protected void onBackPressed() {
-
-    }
-
     public String getListTitle() {
         return mPresenter.getListTitle(listId);
     }
@@ -161,5 +202,25 @@ public class ListDetailFragment extends BaseFragment implements ListDetailContra
     @Override
     public void notifyDataChanged() {
         mAdapter.notifyDataSetChangedWrapper();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mActivity.getIntent() != null) {
+            String title = mActivity.getIntent().getStringExtra(IntentConst.IRParam.List_ITEM_TITLE);
+            if (mToolbar != null) {
+                mToolbar.setTitle("");
+                mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+                mActivity.setSupportActionBar(mToolbar);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mActivity.onBackPressed();
+                    }
+                });
+
+                mTitle.setText(title);
+            }
+        }
     }
 }

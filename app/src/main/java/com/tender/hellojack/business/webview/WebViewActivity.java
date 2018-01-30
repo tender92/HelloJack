@@ -22,19 +22,6 @@ public class WebViewActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        String title = getIntent().getStringExtra(IntentConst.IRParam.WEB_VIEW_TITLE);
-        updateTitle(title);
-        mToolbar.setNavigationIcon(R.mipmap.hj_tools_webview_delete);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
-    @Override
     public void onBackPressed() {
         contentFragment.onBackPressed();
     }

@@ -11,6 +11,7 @@ public class IntentConst {
         public static final int SDK_PERMISSION_REQUEST = 0x0002;
         public static final int MY_INFO_CITY_PICKER = 0x0003;
         public static final int SCAN_IMAGE_PICKER = 0x0004;
+        public static final int MY_INFO_CHANGE_NAME = 0x0005;
     }
 
     public static class IRParam {

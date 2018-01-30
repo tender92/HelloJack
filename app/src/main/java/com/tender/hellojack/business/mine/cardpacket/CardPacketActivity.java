@@ -20,11 +20,6 @@ public class CardPacketActivity extends BaseActivity {
     }
 
     @Override
-    protected void initToolbar() {
-        updateTitle("卡包");
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

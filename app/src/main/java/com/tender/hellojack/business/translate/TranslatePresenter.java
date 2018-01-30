@@ -1,4 +1,4 @@
-package com.tender.hellojack.business.guide;
+package com.tender.hellojack.business.translate;
 
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
@@ -8,17 +8,17 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by boyu
  */
-public class GuidePresenter implements GuideContract.Presenter {
+public class TranslatePresenter implements TranslateContract.Presenter {
 
     private final ResourceRepository mRepository;
-    private final GuideContract.View mView;
+    private final TranslateContract.View mView;
     private final BaseSchedule mSchedule;
 
     private CompositeSubscription mSubscription;
 
     private boolean hasInit = false;
 
-    public GuidePresenter(ResourceRepository mRepository, GuideContract.View mView, BaseSchedule mSchedule) {
+    public TranslatePresenter(ResourceRepository mRepository, TranslateContract.View mView, BaseSchedule mSchedule) {
         this.mRepository = mRepository;
         this.mView = mView;
         this.mSchedule = mSchedule;

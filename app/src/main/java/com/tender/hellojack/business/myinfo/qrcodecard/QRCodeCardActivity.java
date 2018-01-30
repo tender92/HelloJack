@@ -31,9 +31,4 @@ public class QRCodeCardActivity extends BaseActivity {
     protected void initLayout() {
         setContentView(R.layout.hj_activity_model);
     }
-
-    @Override
-    protected void initToolbar() {
-        updateTitle("二维码名片");
-    }
 }

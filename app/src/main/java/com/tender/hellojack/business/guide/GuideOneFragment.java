@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import android.widget.ImageView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 
-public class GuideOneFragment extends BaseFragment implements GuideActivity.PlayAnimation {
+public class GuideOneFragment extends Fragment implements GuideActivity.PlayAnimation {
 
     private static final long ANIMATOR_DURATION = 5400L;
 
@@ -117,7 +118,7 @@ public class GuideOneFragment extends BaseFragment implements GuideActivity.Play
         });
         vaBigText.setDuration(ANIMATOR_DURATION / 2);
 
-        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(mActivity, R.animator.hj_animator_guide_alpha);
+        asBackground = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.hj_animator_guide_alpha);
         asBackground.setTarget(flBackground);
 
         raPhone = new RotateAnimation(0f, 10f,
@@ -126,10 +127,5 @@ public class GuideOneFragment extends BaseFragment implements GuideActivity.Play
         raPhone.setDuration(ANIMATOR_DURATION / 2 / 6);
         raPhone.setRepeatMode(RotateAnimation.REVERSE);
         raPhone.setRepeatCount(5);
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 }

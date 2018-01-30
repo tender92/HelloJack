@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/hj_layout_custom_actionbar"/>
+
     <com.tender.tools.views.ProgressWebView
         android:id="@+id/pwv_web_view"
         android:layout_width="match_parent"

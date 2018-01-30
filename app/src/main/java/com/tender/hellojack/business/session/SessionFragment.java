@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -119,6 +120,8 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_session, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         etInputContent = (EditText) root.findViewById(R.id.et_session_input_content);
         btnAudio = (Button) root.findViewById(R.id.btn_session_audio);
         btnSend = (Button) root.findViewById(R.id.btn_session_send);
@@ -257,11 +260,6 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
     @Override
     public void setPresenter(SessionContract.Presenter presenter) {
         mPresenter = presenter;
-    }
-
-    @Override
-    protected void onBackPressed() {
-
     }
 
     @Override
@@ -586,4 +584,36 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
         return false;
     }
     //消息刷新列表控件 代理 结束
+
+    @Override
+    protected void initToolbar() {
+        Intent intent = mActivity.getIntent();
+        if (intent != null) {
+            String title = intent.getStringExtra(IntentConst.IRParam.MY_FRIENDS_DISPLAY_NAME);
+            if (mToolbar != null) {
+                mToolbar.setTitle("");
+                mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+                mActivity.setSupportActionBar(mToolbar);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mActivity.onBackPressed();
+                    }
+                });
+
+                ImageView ivRight = (ImageView) mToolbar.findViewById(R.id.iv_actionbar_right);
+                ivRight.setVisibility(View.VISIBLE);
+                ivRight.setImageResource(R.mipmap.hj_session_user);
+                ivRight.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mActivity.finish();
+                    }
+                });
+
+                TextView tvTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
+                tvTitle.setText(title);
+            }
+        }
+    }
 }

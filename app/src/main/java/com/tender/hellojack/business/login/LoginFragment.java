@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -79,6 +80,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.hj_fragment_login, container, false);
+        mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
+        mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         rvRegion = (RelativeLayout) root.findViewById(R.id.rv_login_select_region);
         cetAccount = (ClearEditText) root.findViewById(R.id.cet_login_account);
         cetUserPwd = (ClearEditText) root.findViewById(R.id.cet_login_user_pwd);
@@ -157,11 +160,6 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     }
 
     @Override
-    protected void onBackPressed() {
-
-    }
-
-    @Override
     public void showRegionDialog() {
         if (regionDialog == null) {
             regionDialog = new SelectRegionDialog(mActivity, mWheelSelectIndexRegion, true, regionData,
@@ -207,5 +205,12 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     public void goToHome() {
         startActivity(new Intent(mActivity, HomeActivity.class));
         mActivity.finish();
+    }
+
+    @Override
+    protected void initToolbar() {
+        if (mToolbar != null) {
+            mToolbar.setVisibility(View.GONE);
+        }
     }
 }
