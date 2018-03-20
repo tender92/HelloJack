@@ -1,8 +1,8 @@
 package com.tender.hellojack.data.local;
 
-import com.tender.hellojack.model.Contact;
-import com.tender.hellojack.model.Friend;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Contact;
+import com.tender.hellojack.model.contact.Friend;
+import com.tender.hellojack.model.contact.UserInfo;
 
 import java.util.Date;
 

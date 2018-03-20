@@ -6,6 +6,7 @@
     android:layout_height="192dp"
     android:background="@drawable/hj_shape_toolbar_bg"
     android:padding="16dp"
+    android:fitsSystemWindows="true"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView

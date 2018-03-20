@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hj_translate_way">
+        <item>百度</item>
+        <item>有道</item>
+        <item>金山</item>
+        <item>谷歌</item>
+    </string-array>
+</resources>

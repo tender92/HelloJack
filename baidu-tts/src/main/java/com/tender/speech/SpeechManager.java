@@ -3,7 +3,7 @@ package com.tender.speech;
 import android.content.Context;
 import android.content.res.AssetManager;
 
-import com.tender.tools.utils.FileUtil;
+import com.tender.tools.utils.file.FileUtil;
 
 import java.io.File;
 

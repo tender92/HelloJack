@@ -2,9 +2,7 @@ package com.tender.hellojack.business.mine.myfriends;
 
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
-import com.tender.hellojack.model.Contact;
-import com.tender.hellojack.model.Friend;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Contact;
 
 import java.util.List;
 

@@ -33,6 +33,26 @@ android {
             abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86','x86_64'
             // 还可以添加 'mips', 'mips64'
         }
+
+        //common value
+        buildConfigField "String", "RESULT_JSON", '"json"'
+        buildConfigField "String", "LANGUAGE_AUTO", '"auto"'
+        buildConfigField "Boolean", "IS_DEBUG", 'true'
+
+        //baidu config
+        buildConfigField "String", "BAIDU_SCREAT_KEY", '"t5uUt5GJjqMBzWd7Ouea"'
+        buildConfigField "String", "BAIDU_APP_ID", '"20180131000120005"'
+
+        //google config
+        buildConfigField "String", "GOOGLE_LANGUAGE_ENGLISH", '"en"'
+        buildConfigField "String", "GOOGLE_LANGUAGE_CHINEASE", '"zh-CN"'
+
+        //金山词霸 config
+        buildConfigField "String", "ICIBA_KEY", '"F72287181FFDCFC5C764B1C58B13E5FD"'
+
+        //有道翻译 config
+        buildConfigField "String", "YOUDAO_APPKEY", '"05ff7c4755d1633a"'
+        buildConfigField "String", "YOUDAO_SECKEY", '"vrc5nl3c3uF12XsyjuUUPmHSOVvzUfoE"'
     }
     sourceSets {
         main {

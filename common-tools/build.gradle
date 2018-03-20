@@ -61,4 +61,12 @@ dependencies {
     compile "com.blankj:utilcode:${UTIL_CODE_VERSION}"
     compile "com.kyleduo.switchbutton:library:${SWITCH_BUTTON_VERSION}"
     testCompile 'junit:junit:4.12'
+    compile "com.squareup.retrofit2:retrofit:${RETROFIT2_VERSION}"
+    compile "com.squareup.retrofit2:converter-gson:${RETROFIT2_VERSION}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${RETROFIT2_VERSION}"
+    compile "com.facebook.stetho:stetho:${FACEBOOK_STETHO_VERSION}"
+    compile "com.facebook.stetho:stetho-okhttp3:${FACEBOOK_STETHO_VERSION}"
+    compile "net.grandcentrix.tray:tray:${TRAY_PREFERENCE_VESION}"
+    compile "com.readystatesoftware.sqliteasset:sqliteassethelper:${SQLITE_ASSERT_HELPER_VERSION}"
+    compile "com.ddz.materialdesign:FloatingActionButton:${FLOATING_ACTION_BUTTON_VERSION}"
 }

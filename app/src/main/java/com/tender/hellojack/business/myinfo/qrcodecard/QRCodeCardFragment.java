@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.IntentConst;
 import com.tender.tools.utils.ui.DisplayUtil;

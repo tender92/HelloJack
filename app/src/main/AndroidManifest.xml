@@ -200,10 +200,9 @@
         <activity android:name=".business.tasks.addtasktolist.AddTaskToListActivity" />
         <activity android:name=".business.tasks.taskdetail.TaskDetailActivity" />
         <activity android:name=".business.guide.GuideActivity" />
-        <activity android:name=".business.guide.guideone.GuideOneActivity" />
         <activity android:name=".business.home.once.OnceActivity" />
-        <activity android:name=".business.translate.TranslateActivity" />
         <activity android:name=".business.showimage.ShowImageActivity" />
+        <activity android:name=".business.home.meterial.CoordinatorLayoutActivity" />
     </application>
 
 </manifest>

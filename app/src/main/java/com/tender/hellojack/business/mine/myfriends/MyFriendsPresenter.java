@@ -3,12 +3,11 @@ package com.tender.hellojack.business.mine.myfriends;
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.hellojack.data.local.UserRepository;
-import com.tender.hellojack.model.Contact;
-import com.tender.hellojack.model.Friend;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Contact;
+import com.tender.hellojack.model.contact.Friend;
+import com.tender.hellojack.model.contact.UserInfo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import io.realm.RealmChangeListener;

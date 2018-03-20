@@ -2,6 +2,7 @@ package com.tender.tools.utils.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -28,15 +29,15 @@ public class KeyBoardUtils {
 
     /**
      * 关闭软键盘
-     *
-     * @param mEditText 输入框
-     * @param mContext  上下文
+     * @param view
      */
-    public static void closeKeyboard(EditText mEditText, Context mContext) {
-        InputMethodManager imm = (InputMethodManager) mContext
-                .getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        imm.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);
+    public static void closeSoftKeyboard(View view){
+        InputMethodManager inputMethodManager = (InputMethodManager) view.getContext().getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        //如果软键盘已经开启
+        if(inputMethodManager.isActive()){
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 
     /**

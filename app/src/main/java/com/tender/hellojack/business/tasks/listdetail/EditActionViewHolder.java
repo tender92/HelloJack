@@ -66,7 +66,7 @@ public class EditActionViewHolder {
     }
 
     public String getCurrentText() {
-        KeyBoardUtils.closeKeyboard(etTitle, itemView.getContext());
+        KeyBoardUtils.closeSoftKeyboard(etTitle);
         return etTitle.getText().toString().trim();
     }
 }

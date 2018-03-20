@@ -1,7 +1,5 @@
 package com.tender.hellojack.data;
 
-import com.tender.hellojack.model.UserInfo;
-
 import rx.Observable;
 
 /**

@@ -3,7 +3,7 @@ package com.tender.hellojack.business.myinfo.changename;
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.hellojack.data.local.UserRepository;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 
 import io.realm.RealmChangeListener;
 import io.realm.RealmModel;

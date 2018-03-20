@@ -3,8 +3,8 @@ package com.tender.hellojack.business.session;
 import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
-import com.tender.hellojack.model.Message;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Message;
+import com.tender.hellojack.model.contact.UserInfo;
 
 import java.util.List;
 

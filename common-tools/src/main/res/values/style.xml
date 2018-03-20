@@ -92,4 +92,9 @@
         <item name="android:textColor">@color/hj_tools_gray1</item>
         <item name="android:textSize">10sp</item>
     </style>
+
+    <style name="hj_tools_fab_style">
+        <item name="android:background">@color/hj_tools_gray13</item>
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
 </resources>

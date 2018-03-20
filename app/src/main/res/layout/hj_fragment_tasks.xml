@@ -20,16 +20,40 @@
 
         </com.lqr.recyclerview.LQRRecyclerView>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_tasks_add"
-            app:backgroundTint="@color/hj_tools_red0"
-            app:elevation="3dp"
-            app:pressedTranslationZ="6dp"
+        <com.ddz.floatingactionbutton.FloatingActionMenu
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/hj_tools_add_black"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"/>
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            app:fab_addButtonColorNormal="@color/hj_tools_toolbar_bg"
+            app:fab_addButtonColorPressed="@color/hj_tools_green1"
+            app:fab_addButtonPlusIconColor="@color/hj_tools_red0"
+            app:fab_addButtonSize="mini"
+            app:fab_labelStyle="@style/hj_tools_fab_style">
+
+            <com.ddz.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_tasks_add_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@mipmap/hj_setting_chat"
+                app:fab_size="mini"
+                app:fab_title="顶部" />
+
+            <com.ddz.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@mipmap/hj_setting_chat"
+                app:fab_size="normal"
+                app:fab_title="中间" />
+
+            <com.ddz.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_icon="@mipmap/hj_setting_chat"
+                app:fab_size="normal"
+                app:fab_title="底部" />
+
+        </com.ddz.floatingactionbutton.FloatingActionMenu>
     </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>

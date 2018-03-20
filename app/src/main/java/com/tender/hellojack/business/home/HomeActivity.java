@@ -8,13 +8,19 @@ import android.support.v4.view.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.litesuits.orm.LiteOrm;
+import com.tender.hellojack.BuildConfig;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseActivity;
 import com.tender.hellojack.business.mine.MineFragment;
 import com.tender.hellojack.business.mine.MinePresenter;
 import com.tender.hellojack.business.translate.TranslateFragment;
 import com.tender.hellojack.business.translate.TranslatePresenter;
+import com.tender.hellojack.business.translate.service.ApiBaiDu;
+import com.tender.hellojack.business.translate.service.TranslateApiProvider;
+import com.tender.hellojack.business.translate.service.WrapApiService;
 import com.tender.hellojack.manager.MyApplication;
+import com.tender.hellojack.model.translate.ETranslateFrom;
 import com.tender.hellojack.utils.Injection;
 import com.tender.tools.utils.ui.DialogUtil;
 
@@ -22,6 +28,10 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.HttpUrl;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by boyu on 2017/12/7.
@@ -86,7 +96,8 @@ public class HomeActivity extends BaseActivity {
         mFragmentList.add(mHomeFragment);
 
         mTranslate = new TranslateFragment();
-        new TranslatePresenter(Injection.provideRepository(), mTranslate, Injection.provideSchedule());
+        new TranslatePresenter(Injection.provideLiteOrm(), mTranslate, Injection.provideSchedule(),
+                Injection.provideWrapApiService());
         mFragmentList.add(mTranslate);
 
         mMineFragment = new MineFragment();

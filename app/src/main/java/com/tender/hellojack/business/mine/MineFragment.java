@@ -25,7 +25,7 @@ import com.tender.hellojack.business.tasks.TasksActivity;
 import com.tender.hellojack.business.webview.WebViewActivity;
 import com.tender.hellojack.data.local.UserRepository;
 import com.tender.hellojack.manager.threadpool.ThreadPoolFactory;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.AppConst;
@@ -239,7 +239,7 @@ public class MineFragment extends BaseFragment implements MineContract.View {
     protected void initToolbar() {
         if (mToolbar != null) {
             mToolbar.setTitle("");
-            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+//            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
             mActivity.setSupportActionBar(mToolbar);
             mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override

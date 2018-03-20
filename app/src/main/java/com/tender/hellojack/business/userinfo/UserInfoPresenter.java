@@ -1,18 +1,12 @@
 package com.tender.hellojack.business.userinfo;
 
-import android.content.Intent;
-
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.hellojack.data.local.UserRepository;
-import com.tender.hellojack.model.UserInfo;
-import com.tender.tools.IntentConst;
+import com.tender.hellojack.model.contact.UserInfo;
 
 import io.realm.RealmChangeListener;
 import io.realm.RealmModel;
-import rx.Observable;
-import rx.Subscriber;
-import rx.functions.Func1;
 import rx.subscriptions.CompositeSubscription;
 
 /**

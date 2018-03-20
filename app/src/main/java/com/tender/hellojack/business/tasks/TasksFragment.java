@@ -36,7 +36,7 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
     private TasksContract.Presenter mPresenter;
 
     private LQRRecyclerView rvTasks;
-    private FloatingActionButton fabAdd;
+    private com.ddz.floatingactionbutton.FloatingActionButton fabAddList;
     private TextView tvHeader;
     private LinearLayout llFooter;
 
@@ -54,9 +54,9 @@ public class TasksFragment extends BaseFragment implements TasksContract.View {
         mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
         mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         rvTasks = (LQRRecyclerView) root.findViewById(R.id.cv_tasks_list);
-        fabAdd = (FloatingActionButton) root.findViewById(R.id.fab_tasks_add);
+        fabAddList = (com.ddz.floatingactionbutton.FloatingActionButton) root.findViewById(R.id.fab_tasks_add_list);
 
-        RxView.clicks(fabAdd).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
+        RxView.clicks(fabAddList).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui()).subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {
                 startActivity(new Intent(mActivity, AddTaskToListActivity.class));

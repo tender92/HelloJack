@@ -19,7 +19,7 @@ import com.lqr.recyclerview.LQRRecyclerView;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.userinfo.UserInfoActivity;
-import com.tender.hellojack.model.Contact;
+import com.tender.hellojack.model.contact.Contact;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.tools.IntentConst;

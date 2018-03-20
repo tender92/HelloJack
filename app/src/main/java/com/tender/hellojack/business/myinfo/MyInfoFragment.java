@@ -24,7 +24,7 @@ import com.tender.hellojack.business.myinfo.changename.ChangeNameActivity;
 import com.tender.hellojack.business.myinfo.changesignature.ChangeSignatureActivity;
 import com.tender.hellojack.business.myinfo.qrcodecard.QRCodeCardActivity;
 import com.tender.hellojack.business.showimage.ShowImageActivity;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 import com.tender.tools.utils.ui.DialogUtil;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;

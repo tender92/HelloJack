@@ -2,7 +2,7 @@ package com.tender.hellojack.business.myinfo.qrcodecard;
 
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 
 /**
  * Created by boyu on 2017/12/8.

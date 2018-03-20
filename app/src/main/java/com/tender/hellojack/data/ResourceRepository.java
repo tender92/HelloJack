@@ -2,7 +2,6 @@ package com.tender.hellojack.data;
 
 import com.tender.hellojack.data.local.LocalResource;
 import com.tender.hellojack.data.remote.RemoteResource;
-import com.tender.hellojack.model.UserInfo;
 
 import rx.Observable;
 

@@ -19,6 +19,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.hellojack.business.home.meterial.CoordinatorLayoutActivity;
 import com.tender.hellojack.business.home.once.OnceActivity;
 import com.tender.hellojack.manager.MyApplication;
 import com.tender.tools.utils.ui.DialogUtil;
@@ -47,7 +48,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     private HomeContract.Presenter mPresenter;
 
-    private Button btnOnce;
+    private Button btnOnce, btnMaterial;
     private Button btnShare;
     private TextView tvLocationInfo;
 
@@ -62,6 +63,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         mToolbar = (Toolbar) root.findViewById(R.id.hj_toolbar);
         mTitle = (TextView) mToolbar.findViewById(R.id.tv_toolbar_title);
         btnOnce = (Button) root.findViewById(R.id.btn_home_once);
+        btnMaterial = (Button) root.findViewById(R.id.btn_home_design);
         btnShare = (Button) root.findViewById(R.id.btn_home_share);
         tvLocationInfo = (TextView) root.findViewById(R.id.tv_home_location);
 
@@ -70,6 +72,14 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     @Override
                     public void call(Void aVoid) {
                         Intent intent = new Intent(mActivity, OnceActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        RxView.clicks(btnMaterial).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
+                .subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        Intent intent = new Intent(mActivity, CoordinatorLayoutActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -246,7 +256,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     protected void initToolbar() {
         if (mToolbar != null) {
             mToolbar.setTitle("");
-            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
+//            mToolbar.setNavigationIcon(R.mipmap.hj_toolbar_back);
             mActivity.setSupportActionBar(mToolbar);
             mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override

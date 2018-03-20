@@ -1,9 +1,6 @@
 package com.tender.hellojack.data.local;
 
 import com.tender.hellojack.data.IResource;
-import com.tender.hellojack.model.UserInfo;
-import com.tender.hellojack.model.enums.GenderEnum;
-import com.tender.tools.manager.PrefManager;
 
 import rx.Observable;
 

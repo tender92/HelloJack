@@ -35,8 +35,8 @@ import com.tender.hellojack.base.BaseFragment;
 import com.tender.hellojack.business.session.function.Func2Fragment;
 import com.tender.hellojack.business.session.function.Func1Fragment;
 import com.tender.hellojack.business.session.function.FuncPagerAdapter;
-import com.tender.hellojack.model.Message;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Message;
+import com.tender.hellojack.model.contact.UserInfo;
 import com.tender.hellojack.utils.ScheduleProvider;
 import com.tender.instant.message.sticker.StickerAttachment;
 import com.tender.tools.IntentConst;
@@ -449,7 +449,7 @@ public class SessionFragment extends BaseFragment implements SessionContract.Vie
      */
     private void closeKeyBoardAndLoseFocus() {
         etInputContent.clearFocus();
-        KeyBoardUtils.closeKeyboard(etInputContent, mActivity);
+        KeyBoardUtils.closeSoftKeyboard(etInputContent);
         flBottom.setVisibility(View.GONE);
     }
 

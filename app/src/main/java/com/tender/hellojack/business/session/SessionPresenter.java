@@ -4,13 +4,11 @@ import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.tender.hellojack.base.BaseSchedule;
 import com.tender.hellojack.data.ResourceRepository;
 import com.tender.hellojack.data.local.UserRepository;
-import com.tender.hellojack.model.Message;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.Message;
+import com.tender.hellojack.model.contact.UserInfo;
 import com.tender.hellojack.model.enums.MsgDirectionEnum;
 import com.tender.hellojack.model.enums.MsgTypeEnum;
-import com.tender.tools.manager.PrefManager;
 import com.tender.tools.utils.TimeUtils;
-import com.tender.tools.utils.string.StringUtil;
 import com.tender.tools.utils.string.UUIDGenerator;
 
 import java.util.ArrayList;

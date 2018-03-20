@@ -1,10 +1,7 @@
 package com.tender.hellojack.manager;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.os.StrictMode;
 
 import com.lqr.emoji.LQRUIKit;
@@ -16,8 +13,6 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.squareup.leakcanary.LeakCanary;
 import com.tender.hellojack.BuildConfig;
-import com.tender.hellojack.data.local.UserRepository;
-import com.tender.hellojack.model.UserInfo;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.baidu.BDLocationImpl;

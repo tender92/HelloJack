@@ -1,10 +1,8 @@
 package com.tender.hellojack.business.userinfo;
 
-import android.content.Intent;
-
 import com.tender.hellojack.base.IPresenter;
 import com.tender.hellojack.base.IView;
-import com.tender.hellojack.model.UserInfo;
+import com.tender.hellojack.model.contact.UserInfo;
 
 /**
  * Created by boyu
