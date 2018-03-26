@@ -18,6 +18,10 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    /* 解决Dagger2跟ButterKnife的冲突 */
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
     defaultConfig {
         minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK_VERSION
@@ -129,6 +133,10 @@ dependencies {
     compile "com.jakewharton:butterknife:${BUTTER_KNIFE_VERSION}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${BUTTER_KNIFE_VERSION}"
     compile "pub.devrel:easypermissions:${QRCODE_SCAN_VERSION}"
+
+    compile "com.google.dagger:dagger:${DAGGER2_VERSION}"
+    provided "com.google.dagger:dagger-compiler:${DAGGER2_VERSION}"
+    compile "org.glassfish:javax.annotation:${JAVAX_ANNOTATION_VERSION}"
 
     debugCompile "com.squareup.leakcanary:leakcanary-android:${LEAKCANARY_ANDROID_VERSION}"
     releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${LEAKCANARY_ANDROID_VERSION}"

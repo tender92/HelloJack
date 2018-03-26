@@ -203,6 +203,10 @@
         <activity android:name=".business.home.once.OnceActivity" />
         <activity android:name=".business.showimage.ShowImageActivity" />
         <activity android:name=".business.home.meterial.CoordinatorLayoutActivity" />
+        <activity android:name=".business.dagger2.activity.DFirstActivity"/>
+        <activity android:name=".business.dagger2.activity.DSecondActivity"/>
+        <activity android:name=".business.dagger2.activity.DThirdActivity"/>
+        <activity android:name=".business.dagger2.activity.DFourthActivity"/>
     </application>
 
 </manifest>

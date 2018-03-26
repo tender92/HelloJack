@@ -19,6 +19,7 @@ import com.jakewharton.rxbinding.view.RxView;
 import com.orhanobut.logger.Logger;
 import com.tender.hellojack.R;
 import com.tender.hellojack.base.BaseFragment;
+import com.tender.hellojack.business.dagger2.activity.DFirstActivity;
 import com.tender.hellojack.business.home.meterial.CoordinatorLayoutActivity;
 import com.tender.hellojack.business.home.once.OnceActivity;
 import com.tender.hellojack.manager.MyApplication;
@@ -49,7 +50,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     private HomeContract.Presenter mPresenter;
 
     private Button btnOnce, btnMaterial;
-    private Button btnShare;
+    private Button btnShare, btnDagger2;
     private TextView tvLocationInfo;
 
     private UMShareListener mShareListener;
@@ -65,6 +66,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         btnOnce = (Button) root.findViewById(R.id.btn_home_once);
         btnMaterial = (Button) root.findViewById(R.id.btn_home_design);
         btnShare = (Button) root.findViewById(R.id.btn_home_share);
+        btnDagger2 = (Button) root.findViewById(R.id.btn_home_dagger2);
         tvLocationInfo = (TextView) root.findViewById(R.id.tv_home_location);
 
         RxView.clicks(btnOnce).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
@@ -88,6 +90,13 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                     @Override
                     public void call(Void aVoid) {
                         showShareDialog();
+                    }
+                });
+        RxView.clicks(btnDagger2).throttleFirst(1, TimeUnit.SECONDS).observeOn(ScheduleProvider.getInstance().ui())
+                .subscribe(new Action1<Void>() {
+                    @Override
+                    public void call(Void aVoid) {
+                        startActivity(new Intent(mActivity, DFirstActivity.class));
                     }
                 });
         return root;

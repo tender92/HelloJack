@@ -12,6 +12,10 @@ ext {
     RXLIFESYCLE_VERSION = '1.0'
     // RxBinding
     RXBINDING_VERSION = '1.0.0'
+    //dagger2
+    DAGGER2_VERSION = '2.6'
+    //dagger2 picasso
+    JAVAX_ANNOTATION_VERSION = '10.0-b28'
     //控件注解
     BUTTER_KNIFE_VERSION = '8.6.0'
     //完全仿微信的图片选择

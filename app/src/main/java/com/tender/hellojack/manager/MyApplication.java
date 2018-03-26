@@ -13,6 +13,9 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.squareup.leakcanary.LeakCanary;
 import com.tender.hellojack.BuildConfig;
+import com.tender.hellojack.business.dagger2.component.BaseComponent;
+import com.tender.hellojack.business.dagger2.component.DaggerBaseComponent;
+import com.tender.hellojack.business.dagger2.module.BaseModule;
 import com.tender.hellojack.utils.imageloder.ImageLoaderUtil;
 import com.tender.hellojack.utils.imageloder.UILImageLoader;
 import com.tender.lbs.baidu.BDLocationImpl;
@@ -43,12 +46,16 @@ public class MyApplication extends NimApplication {
     private IManager[] managers;
     private static Set<Activity> activities = new HashSet<>();
     private ModuleManager moduleManager;
+    private BaseComponent baseComponent;
 
     public BDLocationImpl locationService;
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //初始化Component
+        baseComponent = DaggerBaseComponent.builder().baseModule(new BaseModule()).build();
 
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
@@ -209,6 +216,10 @@ public class MyApplication extends NimApplication {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(status);
         }
+    }
+
+    public BaseComponent getBaseComponent() {
+        return baseComponent;
     }
 
 }
