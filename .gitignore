@@ -3,5 +3,10 @@
 /local.properties
 /.idea
 /build
+/gradle.properties
+/gradlew.bat
+/gradlew
+/gradle
 /captures
 .externalNativeBuild
+*.DS_Store
