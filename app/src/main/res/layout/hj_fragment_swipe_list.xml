@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/hj_tools_gray14"
+    android:orientation="vertical">
+
+    <include layout="@layout/hj_layout_custom_actionbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.tender.tools.views.swipelistview.SwipeListView
+                android:id="@+id/slv_swipe_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hj_tools_swipeActionLeft="reveal"
+                app:hj_tools_swipeActionRight="reveal"
+                app:hj_tools_swipeAnimationTime="0"
+                app:hj_tools_swipeFrontView="@+id/ll_swipe_list_front"
+                app:hj_tools_swipeBackView="@+id/rl_swipe_list_back"
+                app:hj_tools_swipeCloseAllItemsWhenMoveList="true"
+                app:hj_tools_swipeMode ="both"
+                app:hj_tools_swipeOffsetLeft="0dp"
+                app:hj_tools_swipeOffsetRight="0dp"
+                app:hj_tools_swipeOpenOnLongPress="false">
+
+            </com.tender.tools.views.swipelistview.SwipeListView>
+
+            <ImageView
+                android:clickable="true"
+                android:id="@+id/iv_swipe_list_to_top"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/hj_tools_return_top"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/rl_swipe_list_guide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:background="@color/hj_tools_black2"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/hj_tools_black3"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="左划进行操作"
+                android:layout_marginTop="100dp"
+                android:textColor="@color/hj_tools_white"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_swipe_list_gesture"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="68dp"
+                android:src="@mipmap/hj_tools_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

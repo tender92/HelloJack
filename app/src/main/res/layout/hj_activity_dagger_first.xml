@@ -5,8 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <Button
         android:id="@+id/btn_first_second"
+        android:textColor="@color/hj_tools_white"
+        android:background="@drawable/hj_shape_toolbar_bg"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
@@ -15,6 +20,9 @@
 
     <Button
         android:id="@+id/btn_first_third"
+        android:textColor="@color/hj_tools_white"
+        android:background="@drawable/hj_shape_toolbar_bg"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
@@ -23,6 +31,9 @@
 
     <Button
         android:id="@+id/btn_first_fourth"
+        android:textColor="@color/hj_tools_white"
+        android:background="@drawable/hj_shape_toolbar_bg"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"

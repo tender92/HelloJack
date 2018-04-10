@@ -4,6 +4,6 @@
 	android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/hj_custom_actionbar"/>
+    <include layout="@layout/hj_layout_custom_actionbar"/>
 
 </LinearLayout>

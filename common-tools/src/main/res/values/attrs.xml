@@ -6,4 +6,32 @@
         <attr name="hj_tools_vspace" format="dimension"/>
         <attr name="hj_tools_color" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="hj_tools_SwipeListView">
+        <attr name="hj_tools_swipeOpenOnLongPress" format="boolean" />
+        <attr name="hj_tools_swipeAnimationTime" format="integer" />
+        <attr name="hj_tools_swipeOffsetLeft" format="dimension" />
+        <attr name="hj_tools_swipeOffsetRight" format="dimension" />
+        <attr name="hj_tools_swipeCloseAllItemsWhenMoveList" format="boolean" />
+        <attr name="hj_tools_swipeFrontView" format="reference" />
+        <attr name="hj_tools_swipeBackView" format="reference" />
+        <attr name="hj_tools_swipeMode" format="enum">
+            <enum name="none" value="0" />
+            <enum name="both" value="1" />
+            <enum name="right" value="2" />
+            <enum name="left" value="3" />
+        </attr>
+        <attr name="hj_tools_swipeActionLeft" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="hj_tools_swipeActionRight" format="enum">
+            <enum name="reveal" value="0" />
+            <enum name="dismiss" value="1" />
+            <enum name="choice" value="2" />
+        </attr>
+        <attr name="hj_tools_swipeDrawableChecked" format="reference" />
+        <attr name="hj_tools_swipeDrawableUnchecked" format="reference" />
+    </declare-styleable>
 </resources>

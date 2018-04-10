@@ -22,16 +22,25 @@
     <color name="hj_tools_gray11">#fafafa</color>
     <color name="hj_tools_gray12">#5c5c5c</color>
     <color name="hj_tools_gray13">#33ffffff</color>
+    <color name="hj_tools_gray14">#F1F4F8</color>
+    <color name="hj_tools_gray15">#4D5865</color>
+    <color name="hj_tools_gray16">#8E9598</color>
+    <color name="hj_tools_gray17">#D4D9E5</color>
 
     <color name="hj_tools_black0">#000000</color>
     <color name="hj_tools_black1">#99000000</color>
+    <color name="hj_tools_black2">#668E9598</color>
+    <color name="hj_tools_black3">#66000000</color>
 
     <color name="hj_tools_yellow0">#FFC51B</color>
     <color name="hj_tools_yellow1">#E5A134</color>
 
     <color name="hj_tools_red0">#ff0000</color>
+    <color name="hj_tools_red1">#FF6161</color>
 
     <color name="hj_tools_blue0">#576B95</color>
+    <color name="hj_tools_blue1">#007FFF</color>
+    <color name="hj_tools_blue2">#2ECEEE</color>
 
     <!-- BottomNavigationBar -->
     <color name="hj_tools_home_bar_inactive">#4D5864</color>

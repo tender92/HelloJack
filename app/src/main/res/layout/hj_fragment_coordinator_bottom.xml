@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="66dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:gravity="center"
+        android:text="BottomSheet one"
+        android:background="@android:color/holo_green_dark" />
+    <TextView
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="BottomSheet two"
+        android:layout_height="66dp" />
+    <TextView
+        android:id="@+id/tv_bottom_sheet_three"
+        android:background="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="TabLayout Demo"
+        android:layout_height="66dp" />
+    <TextView
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="BottomSheet four"
+        android:layout_height="66dp" />
+    <TextView
+        android:id="@+id/tv_bottom_sheet_five"
+        android:background="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="SwipeListView Demo"
+        android:layout_height="66dp" />
+    <TextView
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:text="BottomSheet seven"
+        android:layout_height="66dp" />
+</LinearLayout>

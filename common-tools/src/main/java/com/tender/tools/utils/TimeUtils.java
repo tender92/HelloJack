@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 /**
@@ -594,5 +595,18 @@ public class TimeUtils {
         return ZODIAC[day >= ZODIAC_FLAGS[month - 1]
                 ? month - 1
                 : (month + 10) % 12];
+    }
+
+    public static String getCurrentDate(String format) {
+        String curDateTime = null;
+        try {
+            SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(format);
+            Calendar c = new GregorianCalendar();
+            curDateTime = mSimpleDateFormat.format(c.getTime());
+        } catch (Exception e) {
+            TenderLog.e(e.getMessage());
+        }
+
+        return curDateTime;
     }
 }

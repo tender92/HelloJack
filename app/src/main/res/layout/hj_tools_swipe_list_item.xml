@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:tag="back"
+        android:id="@+id/rl_swipe_list_back"
+        android:layout_width="match_parent"
+        android:layout_height="59dp">
+
+        <LinearLayout
+            android:id="@+id/ll_swipe_list_back"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="160dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_toLeftOf="@+id/tv_swipe_list_one"
+                android:id="@+id/tv_swipe_list_two"
+                android:gravity="center"
+                android:background="@color/hj_tools_blue2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="撤销交易"
+                android:textSize="13sp"
+                android:textColor="@color/hj_tools_white"/>
+            <TextView
+                android:id="@+id/tv_swipe_list_one"
+                android:gravity="center"
+                android:background="@color/hj_tools_blue1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="补发签购单"
+                android:textSize="13sp"
+                android:textColor="@color/hj_tools_white"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:clickable="true"
+        android:tag="front"
+        android:id="@+id/ll_swipe_list_front"
+        android:orientation="vertical"
+        android:background="@color/hj_tools_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_swipe_list_trans"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="58dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.26"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_trans_list_item_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/hj_tools_gray15"
+                    android:textSize="14sp"
+                    android:text="交易卡号："/>
+
+                <TextView
+                    android:id="@+id/tv_swipe_list_item_card_no"
+                    android:layout_toRightOf="@+id/tv_trans_list_item_prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/hj_tools_gray15"
+                    android:textSize="14sp"
+                    android:text="620078 ****** 7867"/>
+
+                <TextView
+                    android:id="@+id/tv_swipe_list_item_money"
+                    android:text="26.00"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/hj_tools_gray15"
+                    android:textSize="14sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.12"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_swipe_list_item_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@color/hj_tools_gray16"
+                    android:textSize="12sp"
+                    android:text="2017-10-17 16:45:26"/>
+
+                <TextView
+                    android:id="@+id/tv_swipe_list_item_status"
+                    android:text="成功"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/hj_tools_gray16"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.26"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hj_tools_gray17"/>
+    </LinearLayout>
+</FrameLayout>
+
