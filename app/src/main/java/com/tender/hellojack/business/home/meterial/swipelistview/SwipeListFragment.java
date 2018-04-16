@@ -182,6 +182,7 @@ public class SwipeListFragment extends BaseFragment implements SwipeListContract
 
             @Override
             public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                mSwipeListView.onScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
                 int lastPageCount = firstVisibleItem + visibleItemCount;
                 int defineLength = PrefManager.getScreenHeight() / DisplayUtil.dip2px(mActivity, 59);
                 if (lastPageCount <= defineLength + 3) {
