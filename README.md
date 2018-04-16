@@ -1,5 +1,8 @@
-#HelloTender
-<center>这个app是我从接触Android到现今所学知识的汇总</center>
+<h1 align="center">
+  <center><font size="6">HelloTender是我从接触Android到现今所学知识的汇总</font></center>
+	<br/>
+</h1>
+<center></center>
 ### 整体架构
 - 基础框架：MVP + RxJava框架。MVP框架使UI逻辑和业务逻辑分离，并且提取接口至Contract层，使代码清晰明了。
 - 业务框架：部分模块发开发（未完全解耦），包括业务模块、基础公共模块、百度语音模块、百度定位模块、极光推送模块、路由模块、友盟分享和统计模块。
