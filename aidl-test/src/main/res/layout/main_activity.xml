@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_main_get_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get user from service"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_main_get_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="get userName from service"/>
+
+
+</LinearLayout>

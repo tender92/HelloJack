@@ -165,6 +165,13 @@
         <!-- Jpush end -->
 
         <service android:name=".service.SpeechService" />
+        <service android:name=".service.AIDLService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.tender.hellojack.aidl"/>
+            </intent-filter>
+        </service>
 
         <activity
             android:name=".business.start.StartActivity"
