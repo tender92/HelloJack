@@ -2,6 +2,8 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/20.
+ * 归并排序
+ * 依次二分，直到最小层级数组可以有序合并，两个连续数组合并的时候引入一个缓存数组辅助排序，直到所有数组合并。
  */
 
 public class MergeSort {

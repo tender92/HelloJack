@@ -2,6 +2,8 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/23.
+ * 希尔排序
+ * 三层循环：最外层层数，内部二层循环控制逐次递减的间隔数比大小交换
  */
 
 public class HeerSort {

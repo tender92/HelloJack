@@ -2,6 +2,8 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/23.
+ * 冒泡排序
+ * 二层循环，外部循环控制次数，内部循环每次找到最小值往前排
  */
 
 public class BubbleSort {

@@ -2,6 +2,10 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/23.
+ * 堆排序
+ * 堆的数组结构是从第 1 层到第 n 层逐次排列
+ * 构建大根堆：从第 n 层往上到根节点寻找最大值放入根节点
+ * 交换根节点和数组最后一个数据，未排序子序列从新构建大根堆，直至所有数据都是有序的。
  */
 
 public class HeapSort {

@@ -2,6 +2,8 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/23.
+ * 插入排序
+ * 二层循环：外层循环控制层数，内部循环控制向前面数组有序插入一个数据
  */
 
 public class InsertSort {

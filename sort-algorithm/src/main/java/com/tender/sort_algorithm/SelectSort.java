@@ -2,6 +2,8 @@ package com.tender.sort_algorithm;
 
 /**
  * Created by boyu on 2018/4/23.
+ * 选择排序
+ * 二层循环：外层循环控制层数，内层循环依次找到最小值放到未排序子序列首部。
  */
 
 public class SelectSort {
@@ -10,7 +12,7 @@ public class SelectSort {
         int temp;
         for (int i = 0; i < array.length; i ++) {
             min = array[i];
-            for (int j = i; j < array.length; j ++) {
+            for (int j = i + 1; j < array.length; j ++) {
                 if (array[j] < min) {
                     System.out.print("交换数据array[" + i + "]=" + array[i] + " 和 array[" + j + "]=" + array[j] + "\n");
                     min = array[j];
