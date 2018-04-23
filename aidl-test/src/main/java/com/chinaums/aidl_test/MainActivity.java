@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.tender.aidl_test.R;
 import com.tender.hellojack.IMyAidlInterface;
 
 import java.util.List;
