@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tender.aidl_test">
     <application android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name="com.tender.server.MainActivity">
+        <activity android:name="com.tender.server.AIDLTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

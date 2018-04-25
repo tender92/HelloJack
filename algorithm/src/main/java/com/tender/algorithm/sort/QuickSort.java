@@ -1,4 +1,6 @@
-package com.tender.sort_algorithm;
+package com.tender.algorithm.sort;
+
+import com.tender.algorithm.tools.ArrayUtil;
 
 /**
  * Created by boyu on 2018/4/19.
@@ -31,7 +33,7 @@ public class QuickSort {
                     array[i] = array[j];
                     array[j] = t;
                 }
-                RandomUtil.printArray(array);
+                ArrayUtil.printArray(array);
             }
             System.out.print("基数要进行交换了：i = " + left + ";j = " + j + "\n");
             //将基准数归位
@@ -44,9 +46,9 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] array = new int[10];
-        array = RandomUtil.randomArray(array.length);
+        array = ArrayUtil.randomArray(array.length);
         quickSort(array, 0, array.length - 1);
         System.out.print("排序后结果数组：");
-        RandomUtil.printArray(array);
+        ArrayUtil.printArray(array);
     }
 }

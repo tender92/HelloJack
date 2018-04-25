@@ -1,4 +1,6 @@
-package com.tender.sort_algorithm;
+package com.tender.algorithm.sort;
+
+import com.tender.algorithm.tools.ArrayUtil;
 
 /**
  * Created by boyu on 2018/4/23.
@@ -17,7 +19,7 @@ public class HeerSort {
                         temp = array[j];
                         array[j] = array[j + d];
                         array[j + d] = temp;
-                        RandomUtil.printArray(array);
+                        ArrayUtil.printArray(array);
                     }
                 }
             }
@@ -29,9 +31,9 @@ public class HeerSort {
     }
 
     public static void main(String[] args) {
-        int[] array = RandomUtil.randomArray(10);
+        int[] array = ArrayUtil.randomArray(10);
         heerSort(array);
         System.out.print("排序后结果数组：");
-        RandomUtil.printArray(array);
+        ArrayUtil.printArray(array);
     }
 }

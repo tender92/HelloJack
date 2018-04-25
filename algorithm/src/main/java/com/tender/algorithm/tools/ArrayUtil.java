@@ -1,10 +1,10 @@
-package com.tender.sort_algorithm;
+package com.tender.algorithm.tools;
 
 /**
  * Created by boyu on 2018/4/19.
  */
 
-public class RandomUtil {
+public class ArrayUtil {
     public static int random100() {
         return (int)(Math.random() * 100 + 1);
     }

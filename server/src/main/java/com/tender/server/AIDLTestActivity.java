@@ -1,4 +1,4 @@
-package com.chinaums.aidl_test;
+package com.tender.server;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -23,19 +23,19 @@ import java.util.List;
  * Created by boyu on 2018/4/19.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class AIDLTestActivity extends AppCompatActivity {
 
     private IMyAidlInterface iMyAidlInterface;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.activity_aidl_test);
         findViewById(R.id.tv_main_get_user_name).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    Toast.makeText(MainActivity.this, iMyAidlInterface.getUserName(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AIDLTestActivity.this, iMyAidlInterface.getUserName(), Toast.LENGTH_SHORT).show();
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Toast.makeText(MainActivity.this, iMyAidlInterface.getUser().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AIDLTestActivity.this, iMyAidlInterface.getUser().toString(), Toast.LENGTH_SHORT).show();
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

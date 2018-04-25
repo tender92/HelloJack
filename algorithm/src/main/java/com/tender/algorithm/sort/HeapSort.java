@@ -1,4 +1,6 @@
-package com.tender.sort_algorithm;
+package com.tender.algorithm.sort;
+
+import com.tender.algorithm.tools.ArrayUtil;
 
 /**
  * Created by boyu on 2018/4/23.
@@ -30,7 +32,7 @@ public class HeapSort {
             i = j;
         }
         array[i] = temp;//最大值和根节点交换
-        RandomUtil.printArray(array);
+        ArrayUtil.printArray(array);
     }
 
     public static void heapSort(int[] array) {
@@ -48,9 +50,9 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        int[] array = RandomUtil.randomArray(10);
+        int[] array = ArrayUtil.randomArray(10);
         heapSort(array);
         System.out.print("排序后结果数组：");
-        RandomUtil.printArray(array);
+        ArrayUtil.printArray(array);
     }
 }
