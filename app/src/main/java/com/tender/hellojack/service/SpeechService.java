@@ -51,7 +51,7 @@ public class SpeechService extends Service {
         String words = intent.getStringExtra("words");
         speechManager.speak(words);
 
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
     }
 
     /**
